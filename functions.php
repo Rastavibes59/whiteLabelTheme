@@ -16,12 +16,6 @@ add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
 function header_metadata() {
 
-    // Post object if needed
-    // global $post;
-
-    // Page conditional if needed
-    // if( is_page() ){}
-
   ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">

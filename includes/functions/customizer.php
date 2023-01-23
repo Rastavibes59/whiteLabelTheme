@@ -94,7 +94,7 @@ class whiteLabel_Customize {
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_secondary_color', //Set a unique ID for the control
          array(
-            'label'      => __( 'Couleur principale', 'whiteLabel' ), //Admin-visible name of the control
+            'label'      => __( 'Couleur Secondaire', 'whiteLabel' ), //Admin-visible name of the control
             'settings'   => 'secondary_color', //Which setting to load and manipulate (serialized is okay)
             'priority'   => 10, //Determines the order this control appears in for the specified section
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
@@ -105,7 +105,7 @@ class whiteLabel_Customize {
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_tertiary_color', //Set a unique ID for the control
          array(
-            'label'      => __( 'Couleur principale', 'whiteLabel' ), //Admin-visible name of the control
+            'label'      => __( 'Troisième Couleur', 'whiteLabel' ), //Admin-visible name of the control
             'settings'   => 'tertiary_color', //Which setting to load and manipulate (serialized is okay)
             'priority'   => 10, //Determines the order this control appears in for the specified section
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
@@ -116,7 +116,7 @@ class whiteLabel_Customize {
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_fourth_color', //Set a unique ID for the control
          array(
-            'label'      => __( 'Couleur principale', 'whiteLabel' ), //Admin-visible name of the control
+            'label'      => __( 'Quatrième Couleur', 'whiteLabel' ), //Admin-visible name of the control
             'settings'   => 'fourth_color', //Which setting to load and manipulate (serialized is okay)
             'priority'   => 10, //Determines the order this control appears in for the specified section
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
@@ -127,7 +127,7 @@ class whiteLabel_Customize {
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_fifth_color', //Set a unique ID for the control
          array(
-            'label'      => __( 'Couleur principale', 'whiteLabel' ), //Admin-visible name of the control
+            'label'      => __( 'Cinquième Couleur', 'whiteLabel' ), //Admin-visible name of the control
             'settings'   => 'fifth_color', //Which setting to load and manipulate (serialized is okay)
             'priority'   => 10, //Determines the order this control appears in for the specified section
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
@@ -138,7 +138,7 @@ class whiteLabel_Customize {
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_text_color', //Set a unique ID for the control
          array(
-            'label'      => __( 'Couleur principale', 'whiteLabel' ), //Admin-visible name of the control
+            'label'      => __( 'Couleur du texte', 'whiteLabel' ), //Admin-visible name of the control
             'settings'   => 'text_color', //Which setting to load and manipulate (serialized is okay)
             'priority'   => 10, //Determines the order this control appears in for the specified section
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
@@ -146,10 +146,12 @@ class whiteLabel_Customize {
       ) );
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'secondary_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'tertiary_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
    }
 
    /**

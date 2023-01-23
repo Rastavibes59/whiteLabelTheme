@@ -20,13 +20,27 @@ class whiteLabel_Customize {
     */
    public static function register ( $wp_customize ) {
       //1. Define a new section (if desired) to the Theme Customizer
-      $wp_customize->add_section( 'whiteLabel_options', 
+      $wp_customize->add_panel( 'fonts_panel',
          array(
-            'title'       => __( 'whiteLabel Options', 'whiteLabel' ), //Visible title of section
-            'priority'    => 35, //Determines what order this appears in
-            'capability'  => 'edit_theme_options', //Capability needed to tweak
-            'description' => __('Allows you to customize some example settings for whiteLabel.', 'whiteLabel'), //Descriptive tooltip
-         ) 
+            'title'           => __( 'Typographie' ),
+            'description'     => esc_html__( 'Modifier la taille des différents blocs de texte' ), // Include html tags such as 
+            'priority'        => 160, // Not typically needed. Default is 160
+            'capability'      => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+            'theme_supports'  => '', // Rarely needed
+            'active_callback' => '', // Rarely needed
+         )
+      );
+
+      //2. Register new Sections
+
+      $wp_customize->add_section( 'font_size_section',
+         array(
+            'title'        => __( 'Taille des caractères' ),
+            'panel'        => 'fonts_panel',
+            'description'  => esc_html__( 'Modifier la taille des différents blocs de texte' ),
+            'priority'     => 160, // Not typically needed. Default is 160
+            'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+         )
       );
       
       //2. Register new settings to the WP database...
@@ -77,7 +91,55 @@ class whiteLabel_Customize {
             'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
          ) 
-      );                  
+      );   
+
+      $wp_customize->add_setting( 'h1_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '82', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         ) 
+      );   
+      $wp_customize->add_setting( 'h2_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '60', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         ) 
+      );   
+      $wp_customize->add_setting( 'h3_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '18', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         ) 
+      );   
+      $wp_customize->add_setting( 'text_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '14', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         ) 
+      );   
+      $wp_customize->add_setting( 'btn_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '14', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         ) 
+      );   
+      
+      
       //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
       $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
          $wp_customize, //Pass the $wp_customize object (required)
@@ -144,6 +206,96 @@ class whiteLabel_Customize {
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
          ) 
       ) );
+      $wp_customize->add_control( 'h1_size',
+         array(
+            'label' => __( 'Taille des Titre 1' ),
+            'description' => esc_html__( 'Taille des gros titres du site (dans le jumbotron)' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
+      $wp_customize->add_control( 'h2_size',
+         array(
+            'label' => __( 'Taille des Titre 2' ),
+            'description' => esc_html__( 'Taille des titres de section' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
+      $wp_customize->add_control( 'h3_size',
+         array(
+            'label' => __( 'Taille des Titre 3' ),
+            'description' => esc_html__( 'Taille des sous-titres du sit' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
+      $wp_customize->add_control( 'h4_size',
+         array(
+            'label' => __( 'Taille des Titre 4' ),
+            'description' => esc_html__( 'Taille des petits titres du site' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
+      $wp_customize->add_control( 'text_size',
+         array(
+            'label' => __( 'Taille des textes' ),
+            'description' => esc_html__( 'Taille des textes du site' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
+      $wp_customize->add_control( 'btn_size',
+         array(
+            'label' => __( 'Taille des textes des boutons' ),
+            'description' => esc_html__( 'Taille des textes des boutons du site' ),
+            'section' => 'font_size_section',
+            'priority' => 10, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __( 'Ex : 82px' ),
+            ),
+         )
+      );
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
       $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
@@ -152,6 +304,7 @@ class whiteLabel_Customize {
       $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage';
    }
 
    /**
@@ -173,6 +326,25 @@ class whiteLabel_Customize {
             --color-fourth: <?php echo get_theme_mod('fourth_color', '#000000'); ?>;
             --color-fifth: <?php echo get_theme_mod('fifth_color', '#000000'); ?>;
             --color-text: <?php echo get_theme_mod('text_color', '#000000'); ?>;
+         }
+
+         h1 {
+            font-size: <?php echo get_theme_mod('h1_size', '82')/10; ?>rem;
+         }
+         h2 {
+            font-size: <?php echo get_theme_mod('h2_size', '82')/10; ?>rem;
+         }
+         h3 {
+            font-size: <?php echo get_theme_mod('h3_size', '82')/10; ?>rem;
+         }
+         h4 {
+            font-size: <?php echo get_theme_mod('h4_size', '82')/10; ?>rem;
+         }
+         body, .btn {
+            font-size: <?php echo get_theme_mod('text_size', '82')/10; ?>rem;
+         }
+         .btn {
+            font-size: <?php echo get_theme_mod('btn_size', '82')/10; ?>rem;
          }
       </style> 
       <!--/Customizer CSS-->

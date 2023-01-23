@@ -37,8 +37,35 @@
 			$("html").get(0).style.setProperty("--color-text", newval);
 		} );
 	} );
-	
-
-	
+	wp.customize( 'h1_size', function( value ) {
+		value.bind( function( newval ) {
+			$("h1").css("font-size", newval/10 + "rem");
+		} );
+	} );
+	wp.customize( 'h2_size', function( value ) {
+		value.bind( function( newval ) {
+			$("h2").css("font-size", newval/10 + "rem");
+		} );
+	} );
+	wp.customize( 'h3_size', function( value ) {
+		value.bind( function( newval ) {
+			$("h3").css("font-size", newval/10 + "rem");
+		} );
+	} );
+	wp.customize( 'h4_size', function( value ) {
+		value.bind( function( newval ) {
+			$("h4").css("font-size", newval/10 + "rem");
+		} );
+	} );
+	wp.customize( 'text_size', function( value ) {
+		value.bind( function( newval ) {
+			$("body").css("font-size", newval/10 + "rem");
+		} );
+	} );
+	wp.customize( 'btn_size', function( value ) {
+		value.bind( function( newval ) {
+			$(".btn").css("font-size", newval/10 + "rem");
+		} );
+	} );
 
 } )( jQuery );

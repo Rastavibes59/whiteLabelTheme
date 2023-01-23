@@ -44,6 +44,9 @@ class whiteLabel_Customize {
       );
       
       //2. Register new settings to the WP database...
+
+      /* THEME COLORS */
+
       $wp_customize->add_setting( 'primary_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
             'default'    => '#000000', //Default setting/value to save
@@ -93,6 +96,8 @@ class whiteLabel_Customize {
          ) 
       );   
 
+      /* FONT SIZES */
+
       $wp_customize->add_setting( 'h1_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
             'default'            => '82', //Default setting/value to save
@@ -141,6 +146,9 @@ class whiteLabel_Customize {
       
       
       //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      
+      /* THEME COLORS */
+      
       $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
          $wp_customize, //Pass the $wp_customize object (required)
          'whiteLabel_primary_color', //Set a unique ID for the control
@@ -206,6 +214,9 @@ class whiteLabel_Customize {
             'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
          ) 
       ) );
+
+      /* FONT SIZES */
+
       $wp_customize->add_control( 'h1_size',
          array(
             'label' => __( 'Taille des Titre 1' ),
@@ -298,13 +309,13 @@ class whiteLabel_Customize {
       );
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
+      /* $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'secondary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'tertiary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage'; */
    }
 
    /**

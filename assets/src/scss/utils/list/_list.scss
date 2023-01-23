@@ -1,0 +1,10 @@
+p + ul {
+  list-style: disc inside;
+  margin-top: 10px;
+  width: 100%;
+
+  li ul {
+    list-style: disc inside;
+    padding-left: 30px;
+  }
+}

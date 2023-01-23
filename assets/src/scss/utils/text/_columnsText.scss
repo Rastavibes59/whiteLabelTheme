@@ -1,0 +1,11 @@
+@for $i from 1 through 5 {
+    .columnsText-#{$i} {
+        column-count: $i;
+        column-gap: 50px;
+        display: block;
+        
+        @media screen and (max-width: map-get($grid-breakpoints-custom, lg)) {
+            column-count: 1;
+        }
+    }
+  }

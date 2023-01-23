@@ -1,0 +1,20 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 8rem;
+    right: 8rem;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-primary);
+    opacity: 0;
+    @extend %animateAll;
+    @extend %box-shadow;
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 100;
+
+    &.scrolled {
+        opacity: 0.9;
+        pointer-events: all;
+    }
+}

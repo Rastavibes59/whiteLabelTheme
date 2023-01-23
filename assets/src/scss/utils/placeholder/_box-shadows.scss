@@ -1,0 +1,32 @@
+%box-shadow {
+  -webkit-box-shadow: 0 0 20px 0 rgba(52, 39, 56, 0.3);
+  box-shadow: 0 0 20px 0 rgba(52, 39, 56, 0.3);
+}
+
+%box-shadow-small {
+  -webkit-box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+%box-shadow-big {
+  -webkit-box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+
+%text-shadow {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadowed {
+  @extend %box-shadow;
+
+  &-small {
+    @extend %box-shadow-small;
+  }
+}
+
+.text-shadowed {
+  @extend %text-shadow;
+}

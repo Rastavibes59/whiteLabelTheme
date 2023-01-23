@@ -1,0 +1,19 @@
+
+/*
+DISPLAY
+hidden-(lg/md/sm/xs/all) = display:none
+
+ */
+
+ $breakpoints : $grid-breakpoints-custom;
+
+
+ @each $breakpoint-name, $breakpoint-value in $breakpoints {
+  @include screen($breakpoint-name) {
+    .hidden-#{$breakpoint-name} {
+      display: none !important;
+    }
+  }
+}
+
+

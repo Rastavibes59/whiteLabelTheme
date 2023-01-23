@@ -1,0 +1,25 @@
+@import '../variables';
+/*
+FONT-SIZE
+  tiny        : 1rem,
+  formInfos   : 1.3rem,
+  regular     : 2rem,
+  h3          : 2.2rem,
+  big         : 2.5rem,
+  contacts    : 3.5rem,
+  sup         : 4.3rem,
+  h2          : 5.5rem,
+  h1          : 8.7rem
+ */
+
+.size {
+  @each $name, $size in $font-sizes {
+    &-#{$name} {
+      font-size: $size;
+
+      @include screen(md) {
+        font-size: $size * 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.acf-flexible-content {
+    .ui-sortable {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0 auto;
+        flex: 1 0 auto;
+    }
+
+    .layout {
+        width: 100%;
+        min-width: 25%;
+        margin: 0 !important;
+
+        &[data-layout="ligne"] {
+            .acf-flexible-content {
+                .ui-sortable {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin: 0 auto;
+                    flex: 1 0 auto;
+                }
+            }
+        }
+
+        &[data-layout="colonne"] {
+            .acf-flexible-content {
+                .ui-sortable {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin: 0 auto;
+                    flex: 1 0 auto;
+                }
+            }
+        }
+    }
+}

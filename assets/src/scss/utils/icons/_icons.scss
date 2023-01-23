@@ -1,0 +1,31 @@
+@import '../variables';
+
+.icon {
+    display: block;
+    position: relative;
+
+    &.small {
+        width: 22px;
+        min-height: 22px;
+    }
+    &.medium {
+        width: 30px;
+        min-height: 30px;
+    }
+    &.big {
+        width: 50px;
+        min-height: 50px;
+    }
+    &.huge {
+        width: 70px;
+        min-height: 70px;
+    }
+
+    &.white {
+        filter: invert(1)
+    }
+
+    &.primary {
+        filter: invert(24%) sepia(8%) saturate(7421%) hue-rotate(121deg) brightness(96%) contrast(90%)
+    }
+}

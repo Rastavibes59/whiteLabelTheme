@@ -1,0 +1,70 @@
+
+@import '../mixins/mediaqueries';
+@import '../variables';
+
+.container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 1170px;
+  margin: 0 auto;
+
+  @include screen(lg) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @include screen(xl) {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1170px;
+
+  }
+  @include screen(xxl) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  & > *:not(.btn) {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.mainContainer {
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+header, footer {
+  flex: 0 1 auto;
+}
+
+.content {
+  position: relative;
+  flex: 1 0 auto;
+  @extend %animateAll
+}
+
+section {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &.fullSize {
+    height: 100vh;
+  }
+  &.halfSize {
+    min-height: 600px;
+  }
+  &.small {
+    min-height: 450px;
+  }
+}

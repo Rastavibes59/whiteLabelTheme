@@ -1,0 +1,80 @@
+$justifyOptions: (center, flex-start, flex-end, space-around, space-between, space-evenly);
+$alignOptions: (center, flex-start, flex-end, stretch);
+$directionOptions: (column, column-reverse, row, row-reverse);
+
+$breakpoints : $grid-breakpoints-custom;
+@if $use-bootstrap {
+  $breakpoints : $grid-breakpoints;
+}
+
+
+%FlexLayout {
+    display: flex;
+
+    @each $directionOption in $directionOptions {
+        &.#{$directionOption} {
+          flex-direction: $directionOption;
+        }
+    }
+
+    @each $justifyOption in $justifyOptions {
+      &.justify-#{$justifyOption} {
+        justify-content: $justifyOption;
+      }
+    }
+  @each $alignOption in $alignOptions {
+    &.align-#{$alignOption} {
+      align-items: $alignOption;
+    }
+    &.align-self-#{$alignOption} {
+      align-self: $alignOption;
+    }
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include screen($breakpoint-name) {
+
+      @each $directionOption in $directionOptions {
+        .#{$breakpoint-name}-#{$directionOption} {
+          flex-direction: $directionOption !important;
+        }
+    }
+
+      @each $justifyOption in $justifyOptions {
+        &.#{$breakpoint-name}-justify-#{$justifyOption} {
+          justify-content: $justifyOption !important;
+        }
+      }
+      @each $alignOption in $alignOptions {
+        &.#{$breakpoint-name}-align-#{$alignOption} {
+          align-items: $alignOption !important;
+        }
+        .#{$breakpoint-name}-align-self-#{$alignOption} {
+          align-self: $alignOption !important;
+        }
+      }
+
+    }
+  }
+
+
+}
+
+
+@for $i from 0 through 12 {
+  .order-#{$i} {
+    order: $i;
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include screen($breakpoint-name) {
+      .#{$breakpoint-name}-order-#{$i} {
+        order: $i !important;
+      }
+    }
+  }
+}
+
+.flex {
+    @extend %FlexLayout;
+}

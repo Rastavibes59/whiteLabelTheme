@@ -1,0 +1,16 @@
+/*
+
+FONT-WEIGHT
+weight-(light/regular/medium/black)
+
+ */
+
+.fw {
+  @each $weight, $value in $font-weights {
+    &-#{$weight} {
+        font-weight: $value !important; 
+    }
+  }
+}
+
+

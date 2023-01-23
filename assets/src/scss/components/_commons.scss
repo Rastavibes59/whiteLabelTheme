@@ -1,0 +1,19 @@
+iframe {
+    position: relative;
+    width: 100%;
+}
+
+.circle {
+    display: flex;
+    flex: 1 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    @include screen(md) {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+

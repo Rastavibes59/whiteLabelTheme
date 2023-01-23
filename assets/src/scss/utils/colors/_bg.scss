@@ -1,0 +1,112 @@
+@import '../variables';
+
+@each $name, $hex in $colors {
+    .bg-#{$name} {
+        background-color: var(--color-#{$name}); 
+    }
+
+    .bg-#{$name}-transparent {
+        background-color: var(--color-#{$name})30; 
+    }
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.bg-multiply {
+    background-blend-mode: multiply;
+
+    & > * {
+        background-blend-mode: initial ;
+    }
+  }
+
+  .bg-overlay {
+    background-blend-mode: overlay;
+
+    & > * {
+        background-blend-mode: initial ;
+    }
+  }
+
+  .bg-lighten {
+    background-blend-mode: lighten;
+
+    & > * {
+        background-blend-mode: initial ;
+    }
+  }
+
+section {
+
+    @each $name, $hex in $colors {
+        &.bg-#{$name} {
+            background-color: var(--color-#{$name}); 
+
+            &:not(.bg-transparent) {
+                background-color: var(--color-#{$name}); 
+                z-index: random(10);
+            }
+
+            & + .bg-#{$name}::before {
+                display: none;
+            }
+        }
+    }
+    
+    &.bg-white {
+        background-color: white;
+
+        
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 50px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            top: -50px;
+            left: 0;
+        }
+
+        & + .bg-white::before {
+            display: none;
+        }
+    }
+
+    &.bg-picture {
+
+        &:before {
+            content: '';
+            background-image: none;
+            background-color: rgba(255,255,255,0.5);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &.bg-tertiary {
+        color: var(--color-primary);
+    }
+}
+
+
+
+
+
+  @for $i from 0 through 10 {
+    .opacity-#{$i}0 {
+        opacity: calc($i/10) ;
+    }
+  }
+
+  

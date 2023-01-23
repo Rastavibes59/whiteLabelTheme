@@ -1,0 +1,77 @@
+%btn {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    white-space: nowrap;
+    border: 0;
+    font-weight: map-get($font-weights,  700);
+    color: white;
+    font-size: map-get($font-sizes, regular);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    @each $name, $hex in $colors {
+        &.#{$name} {
+            background-color: var(--color-#{$name}) !important; 
+
+            &:hover {
+                background-color: #{var(--color-#{$name})}60;
+            }
+
+            &.revert {
+                background-color: white !important;
+                border-color: var(--color-#{$name}) !important;
+                color: var(--color-#{$name}) !important;
+                border: 2px solid !important;
+    
+                &:hover {
+                    background-color: #{var(--color-#{$name})}50 !important;
+                    border-bottom-width: 4px !important;            
+                }
+            }
+        }
+    }
+
+    &.left {
+        align-self: flex-start;
+    }
+
+    &.center {
+        align-self: center;
+    }
+
+    &.right {
+        align-self: flex-end;
+    }
+
+    &.fullWidth {
+        width: 100% !important;
+    }
+
+
+
+    &.big {
+        padding: 2rem 5.4rem;
+        font-size: map-get($font-sizes, h3);
+
+        @include screen(md) {
+            padding: 2rem 3rem;
+        }
+    }
+
+    &.small {
+        flex: 0 1 auto
+    }
+}
+
+.btn {
+    @extend %btn;
+}
+

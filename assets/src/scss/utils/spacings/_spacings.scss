@@ -1,0 +1,50 @@
+@import '../variables';
+@import '../mixins/mediaqueries';
+
+/* author : Eomerx 
+original link: https://gist.github.com/Eomerx/d69ccaf5fec88040b431
+*/
+
+
+$breakpoints : $grid-breakpoints-custom;
+// main function definition
+@mixin make-space($values, $prefixes, $breakpoints) {
+
+  @each $attr-short, $attr-long in $prefixes {
+
+    $halfRem : 5;
+
+    @for $i from 0 through 20 {
+      .#{$attr-short}-#{$i}#{'0'} {
+        #{$attr-long}: #{$i}#{'rem'} !important;
+      }
+    }
+
+    @while $halfRem <= 45 {
+      .#{$attr-short}-#{$halfRem} {
+        #{$attr-long}: #{calc($halfRem / 10)}#{'rem'} !important;
+      }
+
+      $halfRem : $halfRem + 10;
+    }
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @include screen($breakpoint-name) {
+      @each $attr-short, $attr-long in $prefixes {
+        @for $i from 0 through 20 {
+          .#{$breakpoint-name}-#{$attr-short}-#{$i}#{'0'} {
+            #{$attr-long}: #{$i}#{'rem'} !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include make-space($space-values, $space-prefixes, $breakpoints);
+
+
+
+

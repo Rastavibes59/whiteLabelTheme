@@ -1,0 +1,15 @@
+img {
+
+    &.rounded {
+        border-radius: 50%;
+    }
+
+    &.cover {
+        object-fit: cover !important;
+    }
+
+    &.contain {
+        object-fit: contain !important;
+    }
+
+}

@@ -1,0 +1,64 @@
+@import '../variables';
+
+/*
+
+Source : https://www.toptal.com/css/sass-mixins-keep-your-stylesheets-dry
+
+With these defined, the mixins can be used as follows:
+
+.foo {
+  @include screen(sm) {
+    width: 20%;
+  }
+  @include screen(md) {
+    width: 40%;
+  }
+  @include screen(lg) {
+    width: 60%;
+  }
+  @include screen(xl) {
+    width: 80%;
+  }
+  @include screen(custom, max, 400) {
+    width: 100%;
+  }
+}
+
+*/
+
+$breakpoint-sm: map-get($grid-breakpoints-custom, sm);
+$breakpoint-md: map-get($grid-breakpoints-custom, md);
+$breakpoint-lg: map-get($grid-breakpoints-custom, lg);
+$breakpoint-xl: map-get($grid-breakpoints-custom, xl);
+
+
+
+
+
+@mixin screen($size, $type: max, $pixels: $breakpoint-sm) {
+
+  @if $size == 'sm' {
+    @media screen and (max-width: $breakpoint-sm) {
+        @content;
+    }
+  }
+  @else if $size == 'md' {
+    @media screen and (max-width: $breakpoint-md) {
+        @content;
+    }
+  }
+  @else if $size == 'lg' {
+    @media screen and (max-width: $breakpoint-lg) {
+        @content;
+    }
+  }
+  @else if $size == 'xl' {
+    @media screen and (max-width: $breakpoint-xl) {
+        @content;
+    }
+  }  
+
+  @else {
+    @content;
+  }
+}

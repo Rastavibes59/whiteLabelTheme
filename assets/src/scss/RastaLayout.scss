@@ -1,0 +1,101 @@
+/* WEBFONT */
+
+/* FUNCTIONS */
+
+@import 'utils/variables';
+@import 'utils/reset.scss';
+@import 'utils/fonts/localfonts'; 
+@import 'utils/spacings/spacings';
+@import 'utils/buttons/buttons';
+@import 'utils/mixins/mediaqueries';
+@import 'utils/containers/containers';
+@import 'utils/placeholder/animate';
+@import 'utils/placeholder/box-shadows';
+@import 'utils/placeholder/gridLayout';
+@import 'utils/placeholder/flexLayout';
+@import 'utils/loaders/loaders';
+@import 'utils/colors/bg';
+@import 'utils/media/images';
+@import 'utils/text/textalign';
+@import 'utils/text/textcolor';
+@import 'utils/text/textdecoration';
+@import 'utils/text/textlineheight';
+@import 'utils/text/textsize';
+@import 'utils/text/texttransform';
+@import 'utils/text/textweight';
+@import 'utils/text/columnsText';
+@import 'utils/transitions/transitions'; 
+//@import 'utils/icons/icons'; 
+@import 'utils/icons/svgSprites'; 
+@import 'utils/select/select'; 
+@import 'utils/list/list'; 
+@import 'utils/headings/headings'; 
+@import 'utils/sliders/slick'; 
+@import 'utils/display/display'; 
+@import 'utils/TOC/toc'; 
+@import 'utils/positions-display/width'; 
+@import 'utils/tabs/tabs'; 
+
+
+/* BASE SETTINGS */
+:root {
+    font-family: var(--font-text);
+    box-sizing: border-box !important;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: map-get($font-sizes, regular);
+    line-height: 1.2;
+    font-weight: map-get($font-weights,  400);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  html, body {
+    font-family: var(--font-text);
+    overflow-x: hidden;
+    color: var(--color-text);
+    scroll-snap-type: y proximity;
+  }
+  
+  a {
+    color: unset;
+    text-decoration: underline;
+    font-weight: $regular
+  }
+  a:hover, a:focus, a:active {
+    text-decoration: underline;
+  }
+
+  p, ul, i, quote {
+    margin-bottom: 0.8rem;
+    font-weight: map-get($font-weights,  400);
+  }
+
+  p {
+    line-height: 1.5;
+
+    @include screen(lg) {
+      text-align: center !important;
+    }
+  }
+
+  small {
+    font-size: map-get($font-sizes, tiny);
+    font-weight: map-get($font-weights,  400);
+  }
+
+  sup {
+    font-size: map-get($font-sizes, tiny);
+    vertical-align:super;
+  }
+
+  .hidden {
+    display: none !important;
+  }

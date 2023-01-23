@@ -1,0 +1,27 @@
+/*
+
+TEXT-ALIGN
+text-center = text-align:center
+text-justify = text-align:justify
+text-left = text-align:left
+text-right = text-align:right
+
+
+ */
+.text {
+  &-center {
+    text-align: center !important;
+  }
+
+  &-justify {
+    text-align: justify !important;
+  }
+
+  &-left {
+    text-align: left !important;
+  }
+
+  &-right {
+    text-align: right !important;
+  }
+}

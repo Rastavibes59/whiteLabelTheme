@@ -1,0 +1,128 @@
+
+
+// change to false if its not imported into bootstrap
+$use-bootstrap: false;
+
+/* SPACING */
+
+// margin and padding values array
+$space-values : (
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100,
+  150,
+  180,
+  200,
+) !default;
+
+// margin and padding shorthands
+$space-prefixes : (
+  p  : padding,
+  pt : padding-top,
+  pr : padding-right,
+  pb : padding-bottom,
+  pl : padding-left,
+  m  : margin,
+  mt : margin-top,
+  mr : margin-right,
+  mb : margin-bottom,
+  ml : margin-left,
+) !default;
+
+/* MEDIA QUERIES */
+
+// change these values if its not imported into bootstrap
+$grid-breakpoints-custom: (
+  // Extra large screen / wide desktop 1536px
+  xxl: 96rem,
+  // Extra large screen / wide desktop 1280px
+  xl: 80rem,    
+  // Large screen / desktop 1024px
+  lg: 64rem,  
+  // Medium screen / tablet 768px
+  md: 48rem,  
+  // Small screen / phone 640px
+  sm: 40rem,  
+) !default;
+
+/* FONTS */
+
+//  FONT SIZES
+
+$font-sizes: (
+  tiny        : 1rem,
+  formInfos   : 1.2rem,
+  regular     : 1.4rem,
+  h3          : 1.8rem,
+  big         : 2rem,
+  contacts    : 2.5rem,
+  sup         : 4.3rem,
+  h2          : 6rem,
+  h1          : 8.2rem,
+);
+
+
+// FONT STYLE
+
+$font-weights: (
+  100 : 100, //thin
+  200 : 200, //extraLight
+  300 : 300, //light
+  400 : 400, //regular
+  600 : 600, //semiBold
+  700 : 700, //bold
+  800 : 800, //extraBold
+  900 : 900, //black
+);
+
+$thin: 100;
+$extraLight: 200;
+$light: 300;
+$regular: 400;
+$semiBold: 600;
+$bold: 700;
+$extraBold: 800;
+$blackW: 900;
+
+// COLOR VARIABLES
+$colors: (
+  primary:    var(--color-primary),
+  secondary:  var(--color-secondary),
+  tertiary:   var(--color-tertiary),
+  fourth:     var(--color-fourth),
+  fifth:      var(--color-fifth),
+  text:       var(--color-text),
+);
+
+/* TIMINGS (MS)*/
+
+
+$delay-values : (
+  100ms,
+  200ms,
+  300ms,
+  400ms,
+  500ms,
+  600ms,
+  700ms,
+  800ms,
+  900ms,
+  1000ms,
+  1500ms,
+  2000ms,
+  2500ms,
+  3000ms,
+);

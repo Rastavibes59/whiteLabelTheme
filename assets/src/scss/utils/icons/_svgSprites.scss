@@ -1,0 +1,28 @@
+.icon { 
+
+    &.small {
+        width: 2rem; 
+        height: 2rem;    
+    }
+    &.medium {
+        width: 4rem; 
+        height: 4rem;    
+    }
+    &.big {
+        width: 8rem; 
+        height: 8rem;    
+    }
+
+    &.fill {
+        @each $name, $hex in $colors {
+            &-#{$name} {
+                fill: var(--color-#{$name});
+            }
+        }
+    
+        &-white {
+            fill: white
+        }
+    }
+}
+

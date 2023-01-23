@@ -1,0 +1,159 @@
+%columnLayout {
+  @for $i from 1 through 12 {
+    &.cols-#{$i} {
+        grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .colspan-#{$i} {
+      grid-column-end: span $i;
+    }
+  }
+
+  &.cols-2-1 {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  &.cols-1-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+%rowLayout {
+  display: grid;
+
+  @for $i from 1 through 12 {
+    &.rows-#{$i} {
+        grid-template-rows: repeat(#{$i}, 1fr);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .rowspan-#{$i} {
+      grid-row-end: span $i;
+    }
+  }
+}
+
+
+@for $i from 0 through 70 {
+  .gap-#{$i} {
+      gap: $i*1px ;
+  }
+}
+
+.revert {
+  direction: rtl;
+
+  & > * {
+    direction: ltr;
+  }
+}
+
+
+
+
+/* STANDARD CLASSES */
+
+.grid {
+  display: grid;
+  
+    @extend %columnLayout; 
+
+    @extend %rowLayout;
+
+    img {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    &.auto-rows {
+      grid-auto-rows: minmax(min-content, max-content);
+    }
+}
+
+
+
+
+@import '../variables';
+
+/* author : Eomerx 
+original link: https://gist.github.com/Eomerx/d69ccaf5fec88040b431
+*/
+
+
+$breakpoints : $grid-breakpoints-custom;
+@if $use-bootstrap {
+  $breakpoints : $grid-breakpoints;
+}
+
+
+
+
+// main function definition
+@mixin make-grid($breakpoints) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    // if xs value = 0, set it global without media queries
+    @if($breakpoint-value == 0px) {
+      @for $i from 1 through 12 {
+        .#{$breakpoint-name}-cols-#{$i} {
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
+      }
+    
+      @for $i from 1 through 12 {
+        .#{$breakpoint-name}-colspan-#{$i} {
+          grid-column-end: span $i;
+        }
+      }
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rows-#{$i} {
+              grid-template-rows: repeat(#{$i}, 1fr);
+          }
+        }
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rowspan-#{$i} {
+            grid-row-end: span $i;
+          }
+        }      
+    }
+    // breakpoint values that not equal to 0
+    @else {
+      @media screen and (max-width: $breakpoint-value) {
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-cols-#{$i} {
+              grid-template-columns: repeat(#{$i}, 1fr) !important;
+          }
+        }
+      
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-colspan-#{$i} {
+            grid-column-end: span $i !important;
+          }
+        }
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rows-#{$i} {
+              grid-template-rows: repeat(#{$i}, 1fr) !important;
+          }
+        }
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rowspan-#{$i} {
+            grid-row-end: span $i !important;
+          }
+        }        
+      }
+    }
+  }
+}
+
+@include make-grid($breakpoints);
+
+
+
+

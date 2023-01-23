@@ -1,0 +1,75 @@
+@import '../variables';
+
+.animate {
+    &.fast {
+        @extend %animateAllFast;
+    }
+    &.normal {
+        @extend %animateAll;
+    }
+    &.slow {
+        @extend %animateAllSlow;
+    }
+}
+
+.slide {
+    &-up {
+        transform: translate3d(0,50px,0) !important;
+
+        &.visible {
+            transform: translate3d(0,0,0) !important;   
+        }
+    }
+    &-down {
+        transform: translate3d(0,-50px,0) !important;
+
+        &.visible {
+            transform: translate3d(0,0,0) !important;   
+        }
+    }
+    &-left {
+        transform: translate3d(50px,0,0) !important;
+
+        &.visible {
+            transform: translate3d(0,0,0) !important;   
+        }
+    }
+    &-right {
+        transform: translate3d(-50px,0,0) !important;
+
+        &.visible {
+            transform: translate3d(0,0,0) !important;   
+        }
+    }
+}
+
+.fade {
+    &-in {
+        opacity: 0;
+        visibility: hidden;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &-out {
+        opacity: 1;
+        visibility: visible;
+
+        &.visible {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+
+@each $delay in $delay-values {
+    .delay-#{$delay} {
+        transition-delay: $delay !important; 
+    }
+}
+
+

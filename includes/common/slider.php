@@ -14,96 +14,55 @@ $args = wp_parse_args(
 
 $post_objects = $args['arbitrary_data']['slider'];
 
-if( $post_objects ) :
+if ($post_objects) :
 
 
 ?>
 
 
+    <div class="sliderContainer">
+        <ul class="slider ">
+            <?php
+            foreach ($post_objects as $post) :
 
-<ul class="slider ">
-    <?php
-    foreach($post_objects as $post) :
+                setup_postdata($post);
 
-    setup_postdata( $post ); 
-    
-?>
-    <li class="sliderItem flex column justify-center align-center">
+            ?>
+                <li class="sliderItem flex column justify-center align-center">
 
-    <?php
-    // Récupération de l'ID de l'image
-    $image_id = $post['ID'];
+                    <?php
+                    // Récupération de l'ID de l'image
+                    $image_id = $post['ID'];
 
-    // Génération des paramètres pour wp_get_attachment_image_srcset()
-    $srcset_desktop = wp_get_attachment_image_srcset( $image_id, 'large' );
-    $srcset_mobile = wp_get_attachment_image_srcset( $image_id, 'medium' );
+                    // Génération des paramètres pour wp_get_attachment_image_srcset()
+                    $srcset_desktop = wp_get_attachment_image_srcset($image_id, 'large');
+                    $srcset_mobile = wp_get_attachment_image_srcset($image_id, 'medium');
 
-    // Génération des paramètres pour wp_calculate_image_sizes()
+                    // Génération des paramètres pour wp_calculate_image_sizes()
 
-    $sizes = '(min-width: 1024px) 80vw, (min-width: 600px) 100vw';
+                    $sizes = '(min-width: 1024px) 80vw, (min-width: 600px) 100vw';
 
-    ?>
+                    ?>
 
-        <img srcset="<?php echo esc_attr( $srcset_desktop.' '.$srcset_mobile); ?>"
-            sizes="<?php echo esc_attr( $sizes ); ?>"
-            src="<?php echo esc_url($post['sizes']['medium']); ?>"
-            alt="<?php echo esc_html($post['title']); ?>" 
-            title="<?php echo esc_html($post['title']); ?>" 
-            class="<?php echo esc_html($args['class']); ?>"
-            width="500px"
-            height="400px"
-            loading="lazy">
+                    <img srcset="<?php echo esc_attr($srcset_desktop . ' ' . $srcset_mobile); ?>" sizes="<?php echo esc_attr($sizes); ?>" src="<?php echo esc_url($post['sizes']['medium']); ?>" alt="<?php echo esc_html($post['title']); ?>" title="<?php echo esc_html($post['title']); ?>" class="<?php echo esc_html($args['class']); ?>" width="500px" height="400px" loading="lazy">
 
 
-    </li>
-    <?php endforeach;
-        wp_reset_postdata()
-    ?>
-</ul>
+                </li>
+            <?php endforeach;
+            wp_reset_postdata()
+            ?>
+        </ul>
 
-<div class="sliderNav flex row justify-space-between align-center">
-    <a href="javascript:void(0)" class="sliderPrev flex column justify-center align-center bg-secondary">
-        <img src="<?php echo get_template_directory_uri()?>/assets/public/images/svg/scrollTop.svg' " alt="Retour en haut de la page" width="20" height="20" class="p-5">
-    </a>
-    <a href="javascript:void(0)" class="sliderNext flex column justify-center align-center bg-secondary">
-        <img src="<?php echo get_template_directory_uri()?>/assets/public/images/svg/scrollTop.svg' " alt="Retour en haut de la page" width="20" height="20" class="p-5">
-    </a>
-</div>
+        <div class="sliderNav flex row justify-space-between align-center">
+            <a href="javascript:void(0)" class="sliderPrev flex column justify-center align-center bg-secondary">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/public/images/svg/scrollTop.svg' " alt="Retour en haut de la page" width="20" height="20" class="p-5">
+            </a>
+            <a href="javascript:void(0)" class="sliderNext flex column justify-center align-center bg-secondary">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/public/images/svg/scrollTop.svg' " alt="Retour en haut de la page" width="20" height="20" class="p-5">
+            </a>
+        </div>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $('.slider').slick({
-            infinite: true,
-            slide: '.sliderItem',
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            speed: 500,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            pauseOnHover: true,
-            pauseOnFocus: true,
-            centerMode: false,
-            arrows: true,
-            prevArrow: $('.sliderPrev'),
-            nextArrow: $('.sliderNext'),
-            dots: false,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: true,
-                    }
-                }
-
-            ]
-        });
-
-    })
-</script>
-<?php 
+    </div>
+<?php
 
 endif; ?>

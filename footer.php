@@ -76,7 +76,7 @@
            </div>
        </div>
 
-       <div class="scrollToTop flex column justify-center align-center"><img src="<?php echo get_template_directory_uri() ?>/assets/public/images/svg/scrollTop.svg' " alt="Retour en haut de la page" width="30" height="30"></div>
+       <div class="scrollToTop flex column justify-center align-center"><img src="<?php echo get_template_directory_uri() ?>/assets/public/images/svg/scrollTop.svg" alt="Retour en haut de la page" width="30" height="30"></div>
 
        <?php wp_footer(); ?>
 

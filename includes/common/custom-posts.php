@@ -12,36 +12,32 @@ $args = wp_parse_args(
     )
 ); 
 
-$countItems = 0;
-$custom_posts = $args['arbitrary_data']['custom-posts']; 
-$totalItems = $countItems = count($custom_posts);
-?>
+$countArtists = 0;
+$custom_posts = $args['arbitrary_data']['custom-posts']; ?>
 
-<div class="grid md-cols-1 cols-3 gap-15 archive artistes animate">
+<div class="container grid md-cols-1 cols-4 gap-15 archive artistes pt-60 animate">
 
 <?php
 
     foreach ($custom_posts as $post) {
         $post_id = $post->ID;
+        
+        if($countArtists < 8) {
                         
             get_template_part(
-                'includes/common/sejour',
+                'includes/common/archive',
                 'item',
                 array(
-                    'class'             => 'animate fade-in slide-left slow delay-' . $countItems . '00ms',
+                    'class'             => 'animate fade-in slide-left slow delay-' . $countArtists . '00ms',
                     'arbitrary_data'    => array(
                         'title'         => get_the_title(),
-                        'thumbnail'     => get_the_post_thumbnail_url(get_the_ID(), 'custom-post'),
-                        'type'          => get_the_category(),
-                        'start'         => get_field('event_start'),
-                        'end'           => get_field('event_stop'),
-                        'prerequisite'  => get_field('prerequis'),
-                        'desc'          => get_field('description'),
+                        'thumbnail'     => get_the_post_thumbnail_url( $post_id, 'thumbnail'),
                         'link'          => get_permalink(),
                     ),
                 )
             );
-            $countItems++;
+            $countArtists++;
+        }
     };
     wp_reset_query();
 

@@ -1,83 +1,48 @@
 <!DOCTYPE html>
 
-<html lang="<?php get_language_attributes(); ?>">
+<html>
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <?php  wp_head(); ?>
+
     </head>
 
-    <body <?php body_class(); ?> <?php if(get_field('fixed_background', 'option')) : ?> style="background-image: url(<?php the_field('fixed_background', 'option'); ?>)" <?php endif; ?> >
+    <body <?php if ( !is_front_page() ) { body_class( 'noJumbo' ); } else { body_class(); } ?>>
         <div class="mainContainer">
-        <header class="header transparent" >
-            <?php if ( has_nav_menu( 'top-menu-2' ) ) : ?>
-                <div class="container flex row align-center justify-center logoCenter">
-
-                    <nav class="collapsed nav-1">
-                        <?php wp_nav_menu(
-
-                            array(
-                                'theme_location' => 'top-menu',
-                                'menu_class' => 'mainNav'
-                            )
-                        ); ?>
-                    </nav>
-
+        <?php if(!is_page(1317)) : ?>
+            <header class="header">
+                <div class="container flex row align-center justify-space-between">
                     <?php if ( function_exists( 'the_custom_logo' ) ) {
                         the_custom_logo();
                     };?>
-                    <nav class="collapsed nav-2">
+                    <nav class="collapsed">
+                            <?php wp_nav_menu(
 
-                        <?php wp_nav_menu(
-
-                            array(
-                                'theme_location' => 'top-menu-2',
-                                'menu_class' => 'mainNav'
-                            )
-                        ); ?>
-                    </nav>
-                    
-                    <nav class="collapsed mobileNav">
-                        <?php wp_nav_menu(
-
-                            array(
-                                'theme_location' => 'mobile-menu',
-                                'menu_class' => 'mobileNav-menu'
-                            )
-                        ); ?>
+                                array(
+                                    'theme_location' => 'top-menu',
+                                    'menu_class' => 'mainNav'
+                                )
+                            ); ?>
                     </nav>
                 </div>
+            </header>
+        <?php endif; ?>
+        <?php
+            $args = array(
+                'post_type' => 'reseau',
+                //'orderby' => get_post_meta($post->ID, 'date', true),
+                'order' => 'ASC',
+                'posts_per_page'    => -1,
+                );
+            $query = new WP_Query( $args );   
 
-            <?php else : ?>
-                <div class="container flex row align-center justify-flex-start logoLeft">
-
-                    <?php if ( function_exists( 'the_custom_logo' ) ) {
-                        the_custom_logo();
-                    };?>
-                    <nav class="collapsed nav-1">
-                        <?php wp_nav_menu(
-
-                            array(
-                                'theme_location' => 'top-menu',
-                                'menu_class' => 'mainNav'
-                            )
-                        ); ?>
-                    </nav>
-                </div>
-            <?php endif; ?>
-            <?php if ( has_nav_menu( 'custom-posts-menu' ) ) : ?>
-            <nav class="collapsed nav-3 p-30">
-                <?php wp_nav_menu(
-
-                    array(
-                        'theme_location' => 'custom-posts-menu',
-                        'menu_class' => 'custom-posts-button'
-                    )
-                ); ?>
-            </nav>
-            <?php endif; ?>
-        </header>
+            if($query->have_posts() ) : ?>
+            <ul class="social flex column justify-flex-start align-center">
+                        
+               <?php while($query->have_posts() ) : $query->the_post();?>
+                <li class="mb-5"><a href="<?php the_field('link') ?>"><img src="<?php echo get_template_directory_uri() . '/assets/public/images/svg/RS/icon-' . get_field('reseau') .'.svg'; ?>" width="30" height="30" alt="" loading="lazy"></a></li>
+                <?php endwhile; ?>
+            <?php endif; wp_reset_query()?>
+        </ul>
         <div class="content">
-
-
-        

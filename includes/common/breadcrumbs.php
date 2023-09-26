@@ -7,21 +7,18 @@ $args = wp_parse_args(
     array(
         'class'          => '',
         'arbitrary_data' => array(
-            'isJumbo'          => false,
+            'isJumbo'          => true,
         ),
     )
 );
-
-$args['arbitrary_data']['isJumbo'] == true ? $padding='pt-30' : $padding='pt-100'
-
 ?>
 
 
 
-<section class="breadcrumbs <?php echo $padding ?> pb-00 bg-transparent">
+<section class="breadcrumbs pt-15 pb-15 bg-white">
     <?php
-        if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<div class="container">','</div>' );
-        }
+    if (function_exists('yoast_breadcrumb')) {
+        yoast_breadcrumb('<div class="container">', '</div>');
+    }
     ?>
 </section>

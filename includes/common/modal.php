@@ -9,7 +9,7 @@ $args = wp_parse_args(
         'class'          => 'splashScreen',
         'arbitrary_data' => array(
             'header' => '<h3 class="text-center size-h2">Lorem Ipsum</h3>',
-            'body' => '<img src="https://placekitten.com/500/800" width="500" height="800" loading="lazy">',
+            'body' => '<img src="https://placekitten.com/500/800" width="500" height="800">',
             'footer' => '<h3 class="text-center size-h2">Doloris sic amet</h3>',
         ),
     )

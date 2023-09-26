@@ -17,4 +17,10 @@
         opacity: 0.9;
         pointer-events: all;
     }
+
+    @include screen(md) {
+        bottom: 5rem;
+        right: 5rem;
+    
+    }
 }

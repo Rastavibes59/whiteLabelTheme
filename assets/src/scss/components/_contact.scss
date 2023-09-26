@@ -1,22 +1,25 @@
+/*! purgecss start ignore */
+
 .contact {
-    &Form {
-        a {
-            flex: 0 1 auto;
-            position: relative;
-            width: auto;
+  &Form {
+    a {
+      flex: 0 1 auto;
+      position: relative;
+      width: auto;
             
-            img {
-                width: 30px;
-                height: 30px;
-            }
-        }
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
     
         
-        .wpcf7 {
-            background-color: var(--color-primary);
-            color: var(--color-text);
-            border-radius: 8px;
-        }
-    
+    .wpcf7 {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      border-radius: 8px;
     }
+    
+  }
 }
+/*! purgecss end ignore */

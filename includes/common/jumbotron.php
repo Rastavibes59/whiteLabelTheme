@@ -15,7 +15,7 @@ $args = wp_parse_args(
 );
 ?>
 
-<section id="parallax_jumbo" class="jumbotron <?php echo esc_html($args['class']); ?> <?php echo esc_html($args['arbitrary_data']['size']); ?> pt-70" data-parallax="scroll" data-image-src="<?php echo esc_html($args['arbitrary_data']['picture']); ?>">
+<section class="jumbotron pt-100 md-pt-50 <?php echo esc_html($args['class']); ?> <?php echo esc_html($args['arbitrary_data']['size']); ?>" style="background-image:url(<?php echo esc_html($args['arbitrary_data']['picture']); ?>)">
     <div class="container flex column justify-center align-center">
         <h1 class="text-center"><?php echo $args['arbitrary_data']['title']; ?></h1>
     </div>

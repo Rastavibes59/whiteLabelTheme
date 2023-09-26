@@ -70,7 +70,7 @@ function createFakeSelect (trueSelect) {
 
         if(selectedOption.data('icon') != undefined) {
 
-            fakeSelectDom += '<img class="fakeSelect-icon" src=" '+ selectedOption.data('icon') +' " title="' + selectedOption.html() + '" loading="lazy">' + selectedOption.html() + '</span>'
+            fakeSelectDom += '<img class="fakeSelect-icon" src=" '+ selectedOption.data('icon') +' " title="' + selectedOption.html() + '">' + selectedOption.html() + '</span>'
             + '<ul class="fakeSelect-options">';
         } else {
             fakeSelectDom += selectedOption.html() + '</span>'

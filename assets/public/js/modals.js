@@ -4,9 +4,8 @@ function fillModal(clickTarget) {
     }
 }
 
-
-function openModal(modalID) {
-    $(modalID).addClass('opened');
+function openModal(modal) {
+    modal.addClass('opened');
     $('.mainContainer').addClass('blured')
 }
 

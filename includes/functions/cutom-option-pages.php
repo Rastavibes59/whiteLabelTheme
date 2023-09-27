@@ -92,7 +92,6 @@ function my_field_text_font()
     </select>
 <?php
 }
-
 function get_my_available_fonts()
 {
     $fonts = array(
@@ -100,6 +99,16 @@ function get_my_available_fonts()
             'name' => 'Open Sans',
             'import' => '@import url(https://fonts.googleapis.com/css?family=Open+Sanswght@300;400;600;700;800;900&display=swap);',
             'css' => "'Open Sans', sans-serif;"
+        ),
+        'rubik' => array(
+            'name' => 'Rubik',
+            'import' => '@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700;800;900&display=swap);',
+            'css' => "Rubik, sans-serif;"
+        ),
+        'roboto' => array(
+            'name' => 'Roboto',
+            'import' => '@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap);',
+            'css' => "Roboto, sans-serif;"
         ),
         'lato' => array(
             'name' => 'Lato',

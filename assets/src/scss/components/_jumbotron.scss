@@ -34,7 +34,7 @@
 
 		iframe {
 			position: absolute !important;
-			top: -10vw !important;
+			//top: -10vw !important;
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -75,10 +75,10 @@
 			font-size: 3rem;
 
 			@include screen(lg) {
-				font-size: map-get($font-sizes, contacts);
+				font-size: var(--h3-size);
 			}
 			@include screen(md) {
-				font-size: map-get($font-sizes, big);
+				font-size: var(--h4-size);
 			}
 		}
 

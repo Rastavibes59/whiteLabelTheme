@@ -9,7 +9,7 @@ $args = wp_parse_args(
         'arbitrary_data'    => array(
             'title'         => 'default title',
             'picture'       => 'https://placekitten.com/700/800',
-            /* 'rounded'       => 'rounded', */
+            'rounded'       => false,
         ),
     )
 );
@@ -24,7 +24,7 @@ $args = wp_parse_args(
             33vw"
      src="<?php echo esc_html($args['arbitrary_data']['picture']['url']); ?>" alt="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
      title="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
-     class="rounded light"
+     class="<?php $args['arbitrary_data']['rounded'] ? 'rounded' : '' ?> light"
      width="500px"
      height="400px"
      loading="lazy">

@@ -67,7 +67,7 @@ $label = $field['choices'][$value];
     $countArtists = 0;
     ?>
 
-    <div class="container grid md-cols-1 cols-4 gap-15 archive artistes">
+    <div class="container grid md-cols-1 cols-4 gap-15 archive programmation">
 
         <h2 class="text-center colspan-4 md-colspan-1 mb-30">ILS SONT AUSSI PROGRAMMÉS :</h2>
 
@@ -78,7 +78,7 @@ $label = $field['choices'][$value];
 
                     get_template_part(
                         'includes/common/archive',
-                        'item',
+                        'programmation',
                         array(
                             'class'             => 'animate fade-in slide-left slow delay-' . $index . '00ms',
                             'arbitrary_data'    => array(

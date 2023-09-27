@@ -48,7 +48,7 @@
   }
 
   body {
-    font-size: map-get($font-sizes, regular);
+    font-size: var(--text-size);
     line-height: 1.2;
     font-weight: map-get($font-weights,  400);
     background-position: center bottom;

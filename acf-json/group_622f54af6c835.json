@@ -34,6 +34,16 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "archive-programmation.php"
+            },
+            {
+                "param": "page_type",
+                "operator": "!=",
+                "value": "front_page"
             }
         ]
     ],
@@ -46,5 +56,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674496330
+    "modified": 1695741535
 }

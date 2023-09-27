@@ -166,7 +166,11 @@ require_once(get_template_directory() . '/includes/functions/shortcodes.php');
 
 /* CUSTOM OTPIONS */
 
-//require_once(get_template_directory() . '/includes/functions/cutom-option-pages.php');
+require_once(get_template_directory() . '/includes/functions/cutom-option-pages.php');
+
+/* MENU ATTRIBUTES */
+
+require_once(get_template_directory() . '/includes/functions/menu-attributes.php');
 
 /* WP REMOVE ASSETS */
 

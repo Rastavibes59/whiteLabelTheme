@@ -71,7 +71,7 @@ endif; ?>
                 $index = $query->current_post;
                 get_template_part(
                     'includes/common/archive',
-                    'tickets',
+                    'billetterie',
                     array(
                         'class'             => 'animate fade-in slide-left slow delay-' . $index . '00ms',
                         'arbitrary_data'    => array(

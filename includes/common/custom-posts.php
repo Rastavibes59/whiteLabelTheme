@@ -8,36 +8,42 @@ $args = wp_parse_args(
         'class'          => '',
         'arbitrary_data' => array(
             'custom-posts' => '',
+            'post_type' => 'programmation',
         ),
     )
 ); 
 
-$countArtists = 0;
-$custom_posts = $args['arbitrary_data']['custom-posts']; ?>
+$counter = 0;
+$custom_posts = $args['arbitrary_data']['custom-posts'];
+$post_type = $custom_posts[0]->post_type;
+?>
 
-<div class="container grid md-cols-1 cols-4 gap-15 archive artistes pt-60 animate">
+
+<div class="grid md-cols-1 cols-4 gap-15 archive <?php echo $post_type ?> pt-60 animate w-100">
 
 <?php
 
     foreach ($custom_posts as $post) {
         $post_id = $post->ID;
+        $post_type = $post->post_type;
+
+
         
-        if($countArtists < 8) {
-                        
             get_template_part(
                 'includes/common/archive',
-                'item',
+                $post_type,
                 array(
-                    'class'             => 'animate fade-in slide-left slow delay-' . $countArtists . '00ms',
+                    'class'             => 'animate fade-in slide-left slow delay-' . $counter . '00ms',
                     'arbitrary_data'    => array(
                         'title'         => get_the_title(),
                         'thumbnail'     => get_the_post_thumbnail_url( $post_id, 'thumbnail'),
                         'link'          => get_permalink(),
+                        'desc'          => get_field('desc'),
+                        'price'         => get_field('price'),
                     ),
                 )
             );
-            $countArtists++;
-        }
+            $counter++;
     };
     wp_reset_query();
 

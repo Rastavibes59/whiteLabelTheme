@@ -74,6 +74,16 @@ $font-sizes: (
   h1          : 8.2rem,
 );
 
+$font-sizes-var: (
+  h1          : var(--h1-size),
+  h2          : var(--h2-size),
+  h3          : var(--h3-size),
+  h4          : var(--h4-size),
+  text        : var(--text-size),
+  btn         : var(--btn-size),
+  nav         : var(--nav-size),
+);
+
 
 // FONT STYLE
 

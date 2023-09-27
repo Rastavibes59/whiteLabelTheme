@@ -7,21 +7,8 @@
 
         <?php  if(get_field('type') == 'video') :
                     get_template_part(
-                        'includes/home/section',
-                        'video',
-                        array(
-                            'id'                => 'parallax_jumbo',
-                            'class'             => 'jumbotron pt-100 md-pt-50 home flex column justify-center align-center',
-                            'arbitrary_data'    => array(
-                                'background'    => get_field('bg'),
-                                'text'          => get_field('text'),
-                            ),
-                        )
-                    );
-                elseif (get_field('type') == 'parallax') :
-                    get_template_part(
-                        'includes/home/section',
-                        'parallax',
+                        'includes/common/jumbotron',
+                        '',
                         array(
                             'id'                => 'parallax_jumbo',
                             'class'             => 'jumbotron pt-100 md-pt-50 home flex column justify-center align-center',
@@ -32,86 +19,24 @@
                                 'logo'          => get_field('logo'),
                             ),
                         )
-                    );        
-                endif;
+                    );
+            endif;
         ?>
 
-        <!-- SECTION CUSTOM POSTS -->
+        <!-- SECTION BUILDER -->
 
-        <section class="bg-white pb-60 ">
-
-            <?php
-                $args = array(
-                    'post_type'         => 'programmation',
-                    'meta_key'          => 'date',
-                    'orderby'			=> 'meta_value',
-                    'order'             => 'ASC',
-                    'posts_per_page'    => -1,
-                    );
-                $query = new WP_Query( $args ); 
-                
-                $numCols = $query -> post_count;
-                $countArtists = 0;
-
-            ?>
-
-            <div class="container grid md-cols-1 cols-4 gap-15 archive artistes pt-60 animate">
-
-            <h2 class="text-center colspan-4 md-colspan-1">Samedi 9 & Dimanche 10 septembre</h2>
-            <h3 class="text-center colspan-4 md-colspan-1 mb-30">2 jours | 24 artistes | 14h - 00h</h3>
-                
-            <?php if($query->have_posts() ) : while($query->have_posts() ) : $query->the_post();
-
-                    if(get_field('headliner') == true && $countArtists < 8) {
-                        
-                        get_template_part(
-                            'includes/common/archive',
-                            'item',
-                            array(
-                                'class'             => 'animate fade-in slide-left slow delay-' . $countArtists . '00ms',
-                                'arbitrary_data'    => array(
-                                    'title'         => get_the_title(),
-                                    'thumbnail'     => get_the_post_thumbnail_url( $query->ID, 'thumbnail'),
-                                    'link'          => get_permalink(),
-                                ),
-                            )
-                        );
-                        $countArtists++;
-                    }
-
-
-                
-            endwhile; endif; 
-            wp_reset_query();
-            ?>
-                <div class="container grid cols-2 md-cols-1 w100-p gap-30 colspan-4 md-colspan-1 mt-50">
-
-                    <?php               
-                    if (have_rows('boutons')) : 
-                        while (have_rows('boutons')) : 
-                            the_row(); ?>
-
-                        <a href="<?php echo get_sub_field('link') ?>" class="btn fifth big fullWidth "><?php echo get_sub_field('text') ?></a>
-
-                    <?php endwhile;
-                    endif; ?>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION NEW BUILDER -->
-
-                <?php if (have_rows('sections')) : 
+        <?php if (have_rows('sections')) : 
             $sections_number = 0;
             while (have_rows('sections')) : the_row();
                 $sections_number++;
             endwhile;
         endif;
+
         
         if (have_rows('sections')) : 
             $section_number = 0;
+            $old_section = '';
+
             while (have_rows('sections')) : the_row(); 
             
                 $content_width = get_sub_field('content_width');
@@ -120,36 +45,35 @@
 
                 if ($background_type == 'color') :
                     $couleur_de_fond = get_sub_field('couleur_de_fond');
+                    $actual_section = get_sub_field('couleur_de_fond');
                 elseif ($background_type == 'picture') :
                     $background_image = get_sub_field('background_image');
+                    $actual_section = get_sub_field('background_image');
                 endif;
 
-                $title = get_sub_field('title');
+                $title = get_sub_field('title'); ?>
         
-                if ($content_width == 'fluid') : ?>
+                    <section class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
+                        <h2 class="container text-center"><?php echo $title ?></h2>
 
-                    <section class="grid md-cols-1 cols-12 gap-30 <?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> pt-100 pb-100" <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
+                        <?php 
+                        if (have_rows('ligne')) :
+                            while (have_rows('ligne')) : the_row(); ?>
 
-                <?php elseif ($content_width == 'center') : ?>
-
-                    <section class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> pt-80 pb-80 md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
-
-                        <div class="container grid md-cols-1 cols-12 gap-30">
-                <?php endif; 
-                    
-                            if (have_rows('colonnes')) : 
-                                $columns_number = 0;
-                                while (have_rows('colonnes')) : the_row();
-                                    $columns_number++;
-                                endwhile;
-                            endif;
+                            <div class="<?php if ($content_width == 'center') : ?>container <?php endif; ?>grid md-cols-1 cols-12 gap-30 mt-30">
                 
-                            if (have_rows('colonnes')) : ?>
+                                <?php 
+                                if (have_rows('colonnes')) : 
+                                    $columns_number = 0;
+                                    while (have_rows('colonnes')) : the_row();
+                                        $columns_number++;
+                                    endwhile;
+                                endif;
+                    
+                                if (have_rows('colonnes')) : ?>
 
-                                <h2 class="text-center colspan-12 md-colspan-1"><?php echo $title ?></h2>
 
-                                <?php while (have_rows('colonnes')) : the_row();
-
+                                    <?php while (have_rows('colonnes')) : the_row();
                                         if( get_row_layout() == 'colonne' ): 
 
                                             if($columns_number == 1) :
@@ -157,62 +81,68 @@
                                             elseif($columns_number == 2) :
                                                 $column_size = get_sub_field('column_size')[0];
                                             elseif($columns_number == 3) :
-                                                $column_size = '4';
+                                                $column_size = get_sub_field('column_size')[0];
+                                            elseif($columns_number == 4) :
+                                                $column_size = '3';
                                             endif;
                                         endif;
+                                    ?>
 
-                                ?>
 
+                                    <div class="flex column justify-flex-start align-center gap-20 colspan-<?php echo $column_size; ?> md-colspan-1">
 
-                                <div class="flex column justify-flex-start align-center gap-20 colspan-<?php echo $column_size; ?> md-colspan-1">
+                                        <?php if (have_rows('content')) : $countItems = 0;
+                                            while (have_rows('content')) : the_row();
+                                                    $sliderpictures = array();
+                                                    
+                                                    if (have_rows('slider')) :                                                 
 
-                                    <?php if (have_rows('content')) : $countItems = 0;
-                                        while (have_rows('content')) : the_row();
-                                                $sliderpictures = array();
-                                                
-                                                if (have_rows('slider')) :                                                 
+                                                        while (have_rows('slider')) : the_row();
 
-                                                    while (have_rows('slider')) : the_row();
+                                                        $sliderpictures[] = get_sub_field('slider_picture');
 
-                                                    $sliderpictures[] = get_sub_field('slider_picture');
+                                                        endwhile;
+                                                    endif;
 
-                                                    endwhile;
-                                                endif;
+                                                get_template_part(
+                                                    'includes/common/' . get_row_layout(),
+                                                    '',
+                                                    array(
+                                                        'class' => 'animate fade-in slide-up slow delay-' . $countItems . '00ms',
+                                                        'arbitrary_data' => array(
+                                                            'text' => get_sub_field('text'),
+                                                            'columnsNumber' => get_sub_field('textColumns_number'),
+                                                            'picture' => get_sub_field('picture'),
+                                                            'rounded' => get_sub_field('rounded'),
+                                                            'video' => get_sub_field('video_link'),
+                                                            'slider' => $sliderpictures,
+                                                            'button' => get_sub_field('button'),
+                                                            'shortcode' => get_sub_field('shortcode'),
+                                                            'custom-posts' => get_sub_field('custom_posts'),
+                                                            'blog-posts' => get_sub_field('blog_posts'),
+                                                            'html' => get_sub_field('html'),
+                                                            'faq' => get_sub_field('faq'),
+                                                        ),
+                                                    )
+                                                );
+                                                $countItems++;
 
-                                            get_template_part(
-                                                'includes/common/' . get_row_layout(),
-                                                '',
-                                                array(
-                                                    'class' => 'animate fade-in slide-up slow delay-' . $countItems . '00ms',
-                                                    'arbitrary_data' => array(
-                                                        'text' => get_sub_field('text'),
-                                                        'columnsNumber' => get_sub_field('textColumns_number'),
-                                                        'picture' => get_sub_field('picture'),
-                                                        'video' => get_sub_field('video_link'),
-                                                        'slider' => $sliderpictures,
-                                                        'button' => get_sub_field('button'),
-                                                        'shortcode' => get_sub_field('shortcode'),
-                                                        'custom-posts' => get_sub_field('custom_posts'),
-                                                        'html' => get_sub_field('html'),
-                                                        'faq' => get_sub_field('faq'),
-                                                    ),
-                                                )
-                                            );
-                                            $countItems++;
+                                            endwhile; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php endwhile;
+                                endif; ?>
 
-                                        endwhile; ?>
-                                    <?php endif; ?>
-                                </div>
-                                <?php endwhile;
-                            endif; ?>
+                            </div>
 
-                        <?php if ($content_width == 'center') : ?>
-
-                        </div>
-                        <?php endif; ?>
+                            <?php 
+                            endwhile;
+                        endif;
+                        ?>
                     </section>
 
             <?php
+            $old_section = $actual_section;
             endwhile; 
         endif; ?>
 

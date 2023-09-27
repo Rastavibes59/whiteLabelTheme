@@ -1,36 +1,48 @@
 h1 {
     font-family: var(--font-title);
-    font-size: map-get($font-sizes, h1);
+    font-size: var(--h1-size);
     line-height: 0.9;
     letter-spacing: 0.1rem;
     font-weight: map-get($font-weights,  900);
     color: var(--color-primary);
     
     @include screen(md) {
-        font-size: map-get($font-sizes, h1) * 0.7;
+        font-size: calc(var(--h1-size) * 0.7);
     }
 }
 
 h2 {
     font-family: var(--font-title);
-    font-size: map-get($font-sizes, h2);
+    font-size: var(--h2-size);
     font-weight: map-get($font-weights,  900);
     line-height: 1;
 
     @include screen(md) {
-        font-size: map-get($font-sizes, h2) * 0.62;
+        font-size: calc(var(--h2-size) * 0.62);
         text-align: center !important;
     }
 }
 
 h3 {
     font-family: var(--font-title);
-    font-size: map-get($font-sizes, h3);
+    font-size: var(--h3-size);
     font-weight: map-get($font-weights,  700);
     line-height: 1.2;
 
     @include screen(md) {
-        font-size: map-get($font-sizes, h3) * 1.2;
+        font-size: calc(var(--h3-size) * 1.2);
+        text-align: center !important;
+    }
+}
+
+h4 {
+    font-family: var(--font-title);
+    font-size: var(--h4-size);
+    font-weight: map-get($font-weights,  700);
+    line-height: 1.2;
+
+    @include screen(md) {
+        font-size: calc(var(--h4-size) * 1.2);
         text-align: center !important;
     }
 }

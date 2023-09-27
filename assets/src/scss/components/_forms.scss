@@ -10,7 +10,7 @@ form {
 
 label {
   font-weight: $extraBold;
-  font-size: map-get($font-sizes, regular);
+  font-size: var(--text-size);
 
   .wpcf7-list-item-label {
     font-size: map-get($font-sizes, tiny);
@@ -136,7 +136,7 @@ input[aria-invalid=false], select[aria-invalid=false] {
       display: block;
       position: absolute;
       right: 10px;
-      font-size: map-get($font-sizes, regular);
+      font-size: var(--text-size);
       color: green;
       top: 50%;
       transform: translateY(-50%);
@@ -162,7 +162,7 @@ input[aria-invalid=true], select[aria-invalid=true] {
       display: block;
       position: absolute;
       right: 10px;
-      font-size: map-get($font-sizes, regular);
+      font-size: var(--text-size);
       color: red;
       top: 50%;
       transform: translateY(-50%);

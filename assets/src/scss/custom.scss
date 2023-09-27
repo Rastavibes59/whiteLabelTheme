@@ -10,9 +10,22 @@
 @import 'components/footer';
 @import 'components/archives';
 @import 'components/blog';
-@import 'components/mentionlegales';
-@import 'components/faq';
-@import 'components/scrollToTop';
-@import 'components/modals';
+@import 'components/mentionlegales'; 
+@import 'components/programmation'; 
+@import 'components/faq'; 
+@import 'components/socials'; 
+@import 'components/scrollToTop'; 
 
 /* OTHER */
+ 
+.separator {
+    border-top: 4px solid var(--color-fifth);
+}
+
+.leaflet-container {
+    z-index: 0 !important;
+}
+
+#countdown-js {
+    height: 80px;
+}

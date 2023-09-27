@@ -40,31 +40,55 @@
 	wp.customize( 'h1_size', function( value ) {
 		value.bind( function( newval ) {
 			$("h1").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--h1-size", newval/10 + "rem");
 		} );
 	} );
 	wp.customize( 'h2_size', function( value ) {
 		value.bind( function( newval ) {
 			$("h2").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--h2-size", newval/10 + "rem");
+
 		} );
 	} );
 	wp.customize( 'h3_size', function( value ) {
 		value.bind( function( newval ) {
 			$("h3").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--h3-size", newval/10 + "rem");
+
 		} );
 	} );
 	wp.customize( 'h4_size', function( value ) {
 		value.bind( function( newval ) {
 			$("h4").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--h4-size", newval/10 + "rem");
+
 		} );
 	} );
 	wp.customize( 'text_size', function( value ) {
 		value.bind( function( newval ) {
 			$("body").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--text-size", newval/10 + "rem");
+
 		} );
 	} );
 	wp.customize( 'btn_size', function( value ) {
 		value.bind( function( newval ) {
-			$(".btn").css("font-size", newval/10 + "rem");
+			$(".btn:not(.big)").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--btn-size", newval/10 + "rem");
+
+		} );
+	} );
+	wp.customize( 'big_btn_size', function( value ) {
+		value.bind( function( newval ) {
+			$(".btn.big").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--btn-size", newval/10 + "rem");
+
+		} );
+	} );
+	wp.customize( 'menu_size', function( value ) {
+		value.bind( function( newval ) {
+			$(".header nav .menu-navigation-haute-container .mainNav > .menu-item > a").css("font-size", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--nav-size", newval/10 + "rem");
 		} );
 	} );
 

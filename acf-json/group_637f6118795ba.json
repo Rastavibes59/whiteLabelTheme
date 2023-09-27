@@ -100,13 +100,11 @@
                                 "primary": "Couleur principale",
                                 "secondary": "Couleur secondaire",
                                 "tertiary": "Couleur tertiaire",
-                                "fourth": "Quatrième couleur",
-                                "fifth": "Cinquième couleur",
                                 "white": "Blanc",
                                 "transparent": "Transparent"
                             },
                             "default_value": false,
-                            "return_format": "value",
+                            "return_format": "",
                             "multiple": 0,
                             "allow_null": 0,
                             "ui": 0,
@@ -582,9 +580,14 @@
                                                                                     "choices": {
                                                                                         "primary": "Couleur principale",
                                                                                         "secondary": "Couleur secondaire",
-                                                                                        "tertiary": "Couleur Tertiaire",
+                                                                                        "tertiary": "Troisième couleur",
                                                                                         "fourth": "Quatrième couleur",
                                                                                         "fifth": "Cinquième couleur",
+                                                                                        "primary-reverse": "Transparent - Couleur principale",
+                                                                                        "secondary-reverse": "Transparent - Couleur secondaire",
+                                                                                        "tertiary-reverse": "Transparent - Couleur Tertiaire",
+                                                                                        "fourth-reverse": "Transparent - Quatrième couleur",
+                                                                                        "fifth-reverse": "Transparent - Cinquième couleur",
                                                                                         "black": "Noir",
                                                                                         "white": "Blanc",
                                                                                         "black-reverse": "Transparent - Noir",
@@ -643,6 +646,31 @@
                                                                                         "right": "A droite"
                                                                                     },
                                                                                     "default_value": "",
+                                                                                    "return_format": "value",
+                                                                                    "allow_null": 0,
+                                                                                    "other_choice": 0,
+                                                                                    "layout": "vertical",
+                                                                                    "save_other_choice": 0
+                                                                                },
+                                                                                {
+                                                                                    "key": "field_63e35f4b56c0f",
+                                                                                    "label": "Nouvel Onglet",
+                                                                                    "name": "new_tab",
+                                                                                    "aria-label": "",
+                                                                                    "type": "radio",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "choices": {
+                                                                                        "_blank": "Nouvel Onglet",
+                                                                                        "_self": "Même onglet"
+                                                                                    },
+                                                                                    "default_value": "_self : Même onglet",
                                                                                     "return_format": "value",
                                                                                     "allow_null": 0,
                                                                                     "other_choice": 0,
@@ -736,42 +764,10 @@
                                                                                 "id": ""
                                                                             },
                                                                             "post_type": [
-                                                                                "sejour",
-                                                                                "location",
-                                                                                "formation"
-                                                                            ],
-                                                                            "taxonomy": "",
-                                                                            "return_format": "object",
-                                                                            "multiple": 1,
-                                                                            "allow_null": 0,
-                                                                            "ui": 1
-                                                                        }
-                                                                    ],
-                                                                    "min": "",
-                                                                    "max": ""
-                                                                },
-                                                                "layout_63bd965d00bad": {
-                                                                    "key": "layout_63bd965d00bad",
-                                                                    "name": "blog-posts",
-                                                                    "label": "Articles de blog",
-                                                                    "display": "block",
-                                                                    "sub_fields": [
-                                                                        {
-                                                                            "key": "field_63bd965d00bae",
-                                                                            "label": "Articles",
-                                                                            "name": "blog_posts",
-                                                                            "aria-label": "",
-                                                                            "type": "post_object",
-                                                                            "instructions": "",
-                                                                            "required": 1,
-                                                                            "conditional_logic": 0,
-                                                                            "wrapper": {
-                                                                                "width": "",
-                                                                                "class": "",
-                                                                                "id": ""
-                                                                            },
-                                                                            "post_type": [
-                                                                                "post"
+                                                                                "programmation",
+                                                                                "billetterie",
+                                                                                "recrutement",
+                                                                                "partenaires"
                                                                             ],
                                                                             "taxonomy": "",
                                                                             "return_format": "object",
@@ -857,81 +853,6 @@
                                                                     ],
                                                                     "min": "",
                                                                     "max": ""
-                                                                },
-                                                                "layout_63c1368ce3d19": {
-                                                                    "key": "layout_63c1368ce3d19",
-                                                                    "name": "tab_nav",
-                                                                    "label": "Navigation par onglets",
-                                                                    "display": "block",
-                                                                    "sub_fields": [
-                                                                        {
-                                                                            "key": "field_63c136c3e3d1b",
-                                                                            "label": "Onglets",
-                                                                            "name": "tabs",
-                                                                            "aria-label": "",
-                                                                            "type": "repeater",
-                                                                            "instructions": "",
-                                                                            "required": 0,
-                                                                            "conditional_logic": 0,
-                                                                            "wrapper": {
-                                                                                "width": "",
-                                                                                "class": "",
-                                                                                "id": ""
-                                                                            },
-                                                                            "layout": "table",
-                                                                            "min": 0,
-                                                                            "max": 0,
-                                                                            "collapsed": "field_63c1399ee3d1c",
-                                                                            "button_label": "Ajouter un onglet",
-                                                                            "rows_per_page": 20,
-                                                                            "sub_fields": [
-                                                                                {
-                                                                                    "key": "field_63c1399ee3d1c",
-                                                                                    "label": "Nom de l'onglet",
-                                                                                    "name": "tab_title",
-                                                                                    "aria-label": "",
-                                                                                    "type": "text",
-                                                                                    "instructions": "",
-                                                                                    "required": 0,
-                                                                                    "conditional_logic": 0,
-                                                                                    "wrapper": {
-                                                                                        "width": "",
-                                                                                        "class": "",
-                                                                                        "id": ""
-                                                                                    },
-                                                                                    "default_value": "",
-                                                                                    "maxlength": "",
-                                                                                    "placeholder": "",
-                                                                                    "prepend": "",
-                                                                                    "append": "",
-                                                                                    "parent_repeater": "field_63c136c3e3d1b"
-                                                                                },
-                                                                                {
-                                                                                    "key": "field_63c139ace3d1d",
-                                                                                    "label": "Texte de l'onglet",
-                                                                                    "name": "tab_content",
-                                                                                    "aria-label": "",
-                                                                                    "type": "wysiwyg",
-                                                                                    "instructions": "",
-                                                                                    "required": 0,
-                                                                                    "conditional_logic": 0,
-                                                                                    "wrapper": {
-                                                                                        "width": "",
-                                                                                        "class": "",
-                                                                                        "id": ""
-                                                                                    },
-                                                                                    "default_value": "",
-                                                                                    "tabs": "all",
-                                                                                    "toolbar": "full",
-                                                                                    "media_upload": 1,
-                                                                                    "delay": 0,
-                                                                                    "parent_repeater": "field_63c136c3e3d1b"
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ],
-                                                                    "min": "",
-                                                                    "max": ""
                                                                 }
                                                             },
                                                             "min": "",
@@ -945,7 +866,7 @@
                                             },
                                             "min": 1,
                                             "max": 4,
-                                            "button_label": "Ajouter une colonne"
+                                            "button_label": "Ajouter un élément"
                                         }
                                     ],
                                     "min": "",
@@ -954,7 +875,7 @@
                             },
                             "min": "",
                             "max": "",
-                            "button_label": "Ajouter une ligne"
+                            "button_label": "Ajouter un élément"
                         }
                     ],
                     "min": "1",
@@ -991,5 +912,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674496309
+    "modified": 1695739661
 }

@@ -51,7 +51,7 @@
             </form>
 
         </div>
-        <ul class="container grid md-cols-1 cols-4 gap-15 archive artistes animate">
+        <ul class="container grid md-cols-1 cols-4 gap-15 archive programmation animate">
 
         <?php elseif (get_archive_post_type() == "billetterie") : ?>
             <ul class="container grid md-cols-1 cols-4 gap-15 archive  animate">
@@ -65,7 +65,7 @@
                     if (get_archive_post_type() == "programmation") {
                         get_template_part(
                             'includes/common/archive',
-                            'item',
+                            'programmation',
                             array(
                                 'class'             => 'animate fade-in slide-left slow delay-' . $index . '00ms',
                                 'arbitrary_data'    => array(
@@ -78,7 +78,7 @@
                     } elseif (get_archive_post_type() == "billetterie") {
                         get_template_part(
                             'includes/common/archive',
-                            'tickets',
+                            'billetterie',
                             array(
                                 'class'             => 'animate fade-in slide-left slow delay-' . $index . '00ms',
                                 'arbitrary_data'    => array(

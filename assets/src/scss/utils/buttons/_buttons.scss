@@ -9,7 +9,7 @@
     border: 0;
     font-weight: map-get($font-weights,  700);
     color: white;
-    font-size: map-get($font-sizes, regular);
+    font-size: var(--btn-size);
     text-transform: uppercase;
     text-decoration: none;
 
@@ -59,7 +59,7 @@
 
     &.big {
         padding: 2rem 5.4rem;
-        font-size: map-get($font-sizes, h3);
+        font-size: var(--big-btn-size);
 
         @include screen(md) {
             padding: 2rem 3rem;

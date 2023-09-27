@@ -1,6 +1,6 @@
 <?php
 
-/* CUSTOM POST TYPE : ARTISTES */
+/* CUSTOM POST TYPE : programmation */
 
 function programmation_post_type() {
     $args = array(

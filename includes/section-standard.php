@@ -6,23 +6,31 @@
 
         <!-- SECTION JUMBOTRON -->
 
-        <?php if (get_field('background_image')) :
+        
 
-            $isJumbo = true;
-
-            get_template_part(
+        <?php get_template_part(
                 'includes/common/jumbotron',
                 '',
                 array(
-                    'class'             => '',
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
                     'arbitrary_data'    => array(
+                        'background'    => get_field('bg'),
+                        'depth'         => get_field('depth'),
+                        'text'          => get_field('text'),
+                        'logo'          => get_field('logo'),
                         'size'          => 'standard',
                         'picture'       => get_field('background_image'),
                         'title'         => get_the_title(),
+                        'video'         => get_field('video'),
+                        'mobile_placeholder' => get_field('image_mobile'),
+                        'mask_color'    => get_field('mask_color'),
+
                     ),
                 )
             );
-        endif; ?>
+        ?>
+
 
 
 
@@ -52,13 +60,7 @@
 
         <!-- SECTION BUILDER -->
 
-        <?php if (have_rows('sections')) : 
-            $sections_number = 0;
-            while (have_rows('sections')) : the_row();
-                $sections_number++;
-            endwhile;
-        endif;
-
+        <?php
         
         if (have_rows('sections')) : 
             $section_number = 0;
@@ -68,7 +70,6 @@
             
                 $content_width = get_sub_field('content_width');
                 $background_type = get_sub_field('background_type');
-                $section_number++;
 
                 if ($background_type == 'color') :
                     $couleur_de_fond = get_sub_field('couleur_de_fond');
@@ -80,7 +81,7 @@
 
                 $title = get_sub_field('title'); ?>
         
-                    <section id="section-<?php echo $index ?>" class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
+                    <section id="section-<?php echo $section_number ?>" class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
                         <h2 class="container text-center"><?php echo $title ?></h2>
 
                         <?php 
@@ -169,9 +170,11 @@
                     </section>
 
             <?php
+                            $section_number++;
+
             $old_section = $actual_section;
             endwhile; 
-        endif; 
+        endif;
         wp_reset_query();
 
         ?>

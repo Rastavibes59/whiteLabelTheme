@@ -5,33 +5,31 @@
 
         
 
-        <?php  if(get_field('type') == 'video') :
-                    get_template_part(
-                        'includes/common/jumbotron',
-                        '',
-                        array(
-                            'id'                => 'parallax_jumbo',
-                            'class'             => 'jumbotron pt-100 md-pt-50 home flex column justify-center align-center',
-                            'arbitrary_data'    => array(
-                                'background'    => get_field('bg'),
-                                'depth'         => get_field('depth'),
-                                'text'          => get_field('text'),
-                                'logo'          => get_field('logo'),
-                            ),
-                        )
-                    );
-            endif;
+        <?php get_template_part(
+                'includes/common/jumbotron',
+                '',
+                array(
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
+                    'arbitrary_data'    => array(
+                        'background'    => get_field('bg'),
+                        'depth'         => get_field('depth'),
+                        'text'          => get_field('text'),
+                        'logo'          => get_field('logo'),
+                        'size'          => 'standard',
+                        'picture'       => get_field('background_image'),
+                        'title'         => get_the_title(),
+                        'video'         => get_field('video'),
+                        'mobile_placeholder' => get_field('image_mobile'),
+                        'mask_color'    => get_field('mask_color'),
+                    ),
+                )
+            );
         ?>
 
         <!-- SECTION BUILDER -->
 
-        <?php if (have_rows('sections')) : 
-            $sections_number = 0;
-            while (have_rows('sections')) : the_row();
-                $sections_number++;
-            endwhile;
-        endif;
-
+        <?php
         
         if (have_rows('sections')) : 
             $section_number = 0;

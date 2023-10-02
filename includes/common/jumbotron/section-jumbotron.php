@@ -10,6 +10,7 @@ $args = wp_parse_args(
             'size' => 'standard',
             'picture' => 'https://placekitten.com/1920/450',
             'title' => 'LOREM IPSUM',
+            'mobile_placeholder' => get_template_directory_uri() . '/assets/public/images/background.webp',
         ),
     )
 );
@@ -20,6 +21,7 @@ $args = wp_parse_args(
         <h1 class="text-center"><?php echo $args['arbitrary_data']['title']; ?></h1>
     </div>
 </section>
+
 
 
 

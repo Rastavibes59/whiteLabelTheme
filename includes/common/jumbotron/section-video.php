@@ -6,15 +6,16 @@ $args = wp_parse_args(
     $args,
     array(
         'id'                => 'parallax_jumbo',
-        'class'             => 'jumbotron pt-100 md-pt-50 home flex column justify-center align-center',
+        'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
         'arbitrary_data'    => array(
             'background'    => get_template_directory_uri() . '/assets/public/images/background.webp',
             'text'          => '<p>HELLO WORLD !</p>',
+            'mobile_placeholder'          => get_template_directory_uri() . '/assets/public/images/background.webp',
         ),
     )
 );
 ?>
-<section class="jumbotron video pt-100 md-pt-0 home flex column justify-center align-center" style="background-image:url(<?php echo get_template_directory_uri() . '/assets/public/images/svg/parallax/bg.svg' ?>)">
+<section class="jumbotron video pt-100 md-pt-0 home flex column justify-center align-center">
     <iframe
         frameborder="0"
         height="100%"

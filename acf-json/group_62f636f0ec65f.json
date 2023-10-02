@@ -1,6 +1,6 @@
 {
     "key": "group_62f636f0ec65f",
-    "title": "Home Jumbotron",
+    "title": "En-tête",
     "fields": [
         {
             "key": "field_6344092e4fde4",
@@ -18,13 +18,14 @@
             },
             "choices": {
                 "parallax": "Parallax",
-                "video": "Vidéo"
+                "video": "Vidéo",
+                "picture": "Image fixe"
             },
+            "default_value": "",
+            "return_format": "value",
             "allow_null": 1,
             "other_choice": 0,
-            "default_value": "",
             "layout": "horizontal",
-            "return_format": "value",
             "save_other_choice": 0
         },
         {
@@ -42,6 +43,13 @@
                         "operator": "==",
                         "value": "parallax"
                     }
+                ],
+                [
+                    {
+                        "field": "field_6344092e4fde4",
+                        "operator": "==",
+                        "value": "picture"
+                    }
                 ]
             ],
             "wrapper": {
@@ -50,7 +58,6 @@
                 "id": ""
             },
             "return_format": "url",
-            "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -58,7 +65,8 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_62f63967d4183",
@@ -172,10 +180,10 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_63ad93ad84480",
@@ -185,15 +193,7 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6344092e4fde4",
-                        "operator": "==",
-                        "value": "video"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -209,6 +209,52 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_651ac327ec5a1",
+            "label": "Ajouter un masque opaque devant l'image ?",
+            "name": "mask",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_651ac359ec5a2",
+            "label": "Couleur du masque",
+            "name": "mask_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_651ac327ec5a1",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#00000018",
+            "enable_opacity": 1,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -216,17 +262,19 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            },
+                "value": "page"
+            }
+        ],
+        [
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
+                "value": "post"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -234,5 +282,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695741523
+    "modified": 1696253251
 }

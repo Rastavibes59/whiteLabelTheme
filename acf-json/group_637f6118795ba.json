@@ -133,8 +133,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "library": "",
+                            "return_format": "array",
+                            "library": "all",
                             "min_width": "",
                             "min_height": "",
                             "min_size": "",
@@ -866,7 +866,7 @@
                                             },
                                             "min": 1,
                                             "max": 4,
-                                            "button_label": "Ajouter un élément"
+                                            "button_label": "Ajouter une colonne"
                                         }
                                     ],
                                     "min": "",
@@ -875,7 +875,7 @@
                             },
                             "min": "",
                             "max": "",
-                            "button_label": "Ajouter un élément"
+                            "button_label": "Ajouter une ligne"
                         }
                     ],
                     "min": "1",
@@ -884,7 +884,7 @@
             },
             "min": 1,
             "max": "",
-            "button_label": "Ajouter un élément"
+            "button_label": "Ajouter une section"
         }
     ],
     "location": [
@@ -912,5 +912,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695739661
+    "modified": 1696509482
 }

@@ -58,7 +58,7 @@ body.admin-bar {
 
 	.custom-logo-link {
 		position: relative;
-		flex: 1 0 auto;
+		flex: 0 1 auto;
 		img,
 		svg {
 			flex: 0 1 auto;
@@ -142,8 +142,8 @@ body.admin-bar {
 						}
 
 						&:after {
-							content: attr(data-title);
-							content: attr(data-title) / "";
+							content: attr(title);
+							content: attr(title) / "";
 							text-align: center;
 							height: 0;
 							visibility: hidden;
@@ -207,6 +207,7 @@ body.admin-bar {
 						&:not(.iconLinks-item) {
 							color: var(--color-primary);
 
+
 							& > ul.sub-menu {
 								display: flex;
 							}
@@ -219,7 +220,6 @@ body.admin-bar {
 					&.current-menu-parent {
 						&:not(.iconLinks-item) {
 							& > a {
-								color: white !important;
 								font-weight: $bold !important;
 							}
 
@@ -281,7 +281,7 @@ body.admin-bar {
 
 					img,
 					svg {
-						height: unset;
+						height: 60px;
 						max-height: 60px;
 						width: auto;
 						margin: 0;
@@ -313,7 +313,7 @@ body.admin-bar {
 		.custom-logo-link {
 			align-self: flex-start;
 			position: relative;
-			flex: 1 0 auto;
+			flex: 0 1 auto;
 
 			img {
 				flex: 0 1 auto;

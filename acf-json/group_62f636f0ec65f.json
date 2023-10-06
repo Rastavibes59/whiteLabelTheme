@@ -18,8 +18,10 @@
             },
             "choices": {
                 "parallax": "Parallax",
-                "video": "Vidéo",
-                "picture": "Image fixe"
+                "video": "Vidéo Hébergée",
+                "youtube": "Vidéo Youtube",
+                "picture": "Image fixe",
+                "none": "aucune en-tête"
             },
             "default_value": "",
             "return_format": "value",
@@ -158,6 +160,34 @@
             "delay": 0
         },
         {
+            "key": "field_65200b2ecec7c",
+            "label": "Vidéo hébergée",
+            "name": "hosted_video",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6344092e4fde4",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".avi, .mp4, .gif"
+        },
+        {
             "key": "field_634409924fde5",
             "label": "ID Vidéo Youtube",
             "name": "bg",
@@ -170,7 +200,7 @@
                     {
                         "field": "field_6344092e4fde4",
                         "operator": "==",
-                        "value": "video"
+                        "value": "youtube"
                     }
                 ]
             ],
@@ -282,5 +312,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696253251
+    "modified": 1696599444
 }

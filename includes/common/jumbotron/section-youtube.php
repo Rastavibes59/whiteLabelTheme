@@ -16,21 +16,14 @@ $args = wp_parse_args(
 );
 ?>
 <section class="<?php echo $args['class'] ?>">
-    <video id="background-video" autoplay loop muted poster="">
-    <source src="<?php echo $args['arbitrary_data']['background'] ?>" type="video/mp4">
-    </video>
+    <iframe
+        frameborder="0"
+        height="100%"
+        width="100%"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        src="https://www.youtube.com/embed/<?php echo $args['arbitrary_data']['background'] ?>?controls=0&loop=1&playlist=<?php echo $args['arbitrary_data']['background'] ?>&showinfo=0&rel=0&autoplay=1&mute=1"
+    >
+    </iframe>
 </section>
-
-<script>
-$(document).ready(function(){
-  var screenWidth = $(window).width();
-  // if window width is smaller than 800 remove the autoplay attribute
-  // from the video
-  if (screenWidth < 800){
-        $('video').removeAttr('autoplay');
-  } else {
-    $('video').attr('autoplay');
-  }
-});
-</script>
 

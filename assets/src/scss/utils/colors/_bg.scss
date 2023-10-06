@@ -99,6 +99,25 @@ section {
     }
 }
 
+.wave {
+    position: relative;
+
+    &::after {
+        background-image: url("../images/svg/vague_blanche.svg");
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100vw;
+        height: 6rem;
+        background-size: 110vw;
+        background-repeat: no-repeat;
+        bottom: calc(100% - 1px);
+        left: 0;
+        background-position: center bottom;
+    }    
+}
+
+
 
 
 

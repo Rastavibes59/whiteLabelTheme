@@ -6,7 +6,7 @@ $args = wp_parse_args(
     $args,
     array(
         'id'                => 'parallax_jumbo',
-        'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
+        'class'             => 'jumbotron home wave pt-100 md-pt-50 flex column justify-center align-center',
         'arbitrary_data'    => array(
             'background'    => get_template_directory_uri() . '/assets/public/images/background.webp',
             'depth'         => 0.2,
@@ -17,7 +17,7 @@ $args = wp_parse_args(
     )
 );
 ?>
-<section id="<?php echo $args['id']; ?>" class="home <?php echo $args['class']; ?>" style="background-image:url(<?php echo $args['arbitrary_data']['background']; ?>)">
+<section id="<?php echo $args['id']; ?>" class="<?php echo $args['class']; ?>" style="background-image:url(<?php echo $args['arbitrary_data']['background']; ?>)">
     <div class="container grid cols-2 md-cols-1" data-depth="<?php echo $args['arbitrary_data']['depth']; ?>">
         <?php if(isset($args['arbitrary_data']['logo'])) : ?>
             <img src="<?php echo $args['arbitrary_data']['logo']; ?>" alt="Festival Jardin Électronique" width="500" height="500">

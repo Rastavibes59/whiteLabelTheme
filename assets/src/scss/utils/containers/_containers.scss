@@ -67,4 +67,8 @@ section {
   &.small {
     min-height: 450px;
   }
+
+  &.noJumbo {
+    padding-top: 100px;
+  }
 }

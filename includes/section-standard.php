@@ -1,6 +1,8 @@
 <?php if (have_posts()) : while (have_posts()) : the_post();
 
         $nav = get_field('navigation');
+        $field_type= get_field('type');
+
 ?>
 
 
@@ -36,7 +38,7 @@
 
         <?php $navItems = array(); ?>
 
-        <!-- SECTION NEW BUILDER -->
+        <!-- SECTION NAV -->
         <?php if (have_rows('sections')) : 
             while (have_rows('sections')) : the_row();
 
@@ -49,7 +51,7 @@
 
 
         <?php if ($nav == true) : ?>
-            <ul class="anchorNav flex justify-center align-center pt-30 pb-30 bg-white mb-50 gap-30">
+            <ul class="anchorNav wave flex justify-center align-center pt-30 pb-30 bg-white mb-50 gap-30">
 
                 <?php foreach ($navItems as $navItem) : ?>
                     <li><a href="#section-<?php echo $navItem[0]; ?>" class="btn secondary"><?php echo $navItem[1] ?></a></li>
@@ -79,9 +81,12 @@
                     $actual_section = get_sub_field('background_image');
                 endif;
 
-                $title = get_sub_field('title'); ?>
+                $title = get_sub_field('title'); 
+                $field_type = get_field('type');
+   
+                ?>
         
-                    <section id="section-<?php echo $section_number ?>" class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
+                    <section id="section-<?php echo $section_number ?>" class="<?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> bg-<?php echo $background_type; ?> <?php if($field_type == 'none' || !$field_type && $section_number == 0) : ?>pt-130 pb-70 <?php elseif ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> md-pt-30 md-pb-30 " <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
                         <h2 class="container text-center"><?php echo $title ?></h2>
 
                         <?php 

@@ -7,7 +7,7 @@
         $args,
         array(
             'id'                => 'parallax_jumbo',
-            'class'             => 'jumbotron pt-100 md-pt-50 home flex column justify-center align-center',
+            'class'             => 'jumbotron wave pt-100 md-pt-50 home flex column justify-center align-center',
             'arbitrary_data'    => array(
                 'background'    => get_template_directory_uri() . '/assets/public/images/background.webp',
                 'depth'         => 0.2,
@@ -22,16 +22,16 @@
             ),
         )
     );
-    
 
+    $field_type= get_field('type');
 
-    if(get_field('type') == 'video') :
+    if($field_type == 'youtube') :
         get_template_part(
             'includes/common/jumbotron/section',
-            'video',
+            'youtube',
             array(
                 'id'                => 'parallax_jumbo',
-                'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
+                'class'             => 'jumbotron video wave pt-100 md-pt-0 home flex column justify-center align-center',
                 'arbitrary_data'    => array(
                     'background'    => get_field('bg'),
                     'text'          => get_field('text'),
@@ -41,39 +41,55 @@
                 ),
             )
         );
-    elseif (get_field('type') == 'parallax') :
-        get_template_part(
-            'includes/common/jumbotron/section',
-            'parallax',
-            array(
-                'id'                => 'parallax_jumbo',
-                'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
-                'arbitrary_data'    => array(
-                    'background'    => get_field('bg'),
-                    'depth'         => get_field('depth'),
-                    'text'          => get_field('text'),
-                    'logo'          => get_field('logo'),
-                    'mobile_placeholder' => get_field('image_mobile'),
-                    'mask_color'    => get_field('mask_color'),
-                ),
-            )
-        );      
-    else :
-        get_template_part(
-            'includes/common/jumbotron/section',
-            'jumbotron',
-            array(
-                'id'                => 'parallax_jumbo',
-                'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
-                'arbitrary_data'    => array(
-                    'size'          => 'standard',
-                    'picture'       => get_field('background_image'),
-                    'title'         => get_the_title(),
-                    'mobile_placeholder' => get_field('image_mobile'),
-                    'mask_color'    => get_field('mask_color'),
+        elseif($field_type == 'video') :
+            get_template_part(
+                'includes/common/jumbotron/section',
+                'video',
+                array(
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron video wave pt-100 md-pt-0 home flex column justify-center align-center',
+                    'arbitrary_data'    => array(
+                        'background'    => get_field('hosted_video'),
+                        'text'          => get_field('text'),
+                        'mobile_placeholder' => get_field('image_mobile'),
+                        'mask_color'    => get_field('mask_color'),
+    
+                    ),
+                )
+            );
+        elseif ($field_type == 'parallax') :
+            get_template_part(
+                'includes/common/jumbotron/section',
+                'parallax',
+                array(
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron home wave pt-100 md-pt-50 flex column justify-center align-center',
+                    'arbitrary_data'    => array(
+                        'background'    => get_field('bg'),
+                        'depth'         => get_field('depth'),
+                        'text'          => get_field('text'),
+                        'logo'          => get_field('logo'),
+                        'mobile_placeholder' => get_field('image_mobile'),
+                        'mask_color'    => get_field('mask_color'),
+                    ),
+                )
+            );      
+        elseif ($field_type == 'picture') :
+            get_template_part(
+                'includes/common/jumbotron/section',
+                'jumbotron',
+                array(
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron wave pt-100 md-pt-50 flex column justify-center align-center',
+                    'arbitrary_data'    => array(
+                        'size'          => 'standard',
+                        'picture'       => get_field('bg'),
+                        'title'         => get_the_title(),
+                        'mobile_placeholder' => get_field('image_mobile'),
+                        'mask_color'    => get_field('mask_color'),
 
-                ),
-            )
+                    ),
+                )
         );
     endif; ?>
 

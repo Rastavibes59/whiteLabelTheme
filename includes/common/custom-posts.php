@@ -33,7 +33,7 @@ $post_type = $custom_posts[0]->post_type;
                 'includes/common/archive',
                 $post_type,
                 array(
-                    'class'             => 'animate fade-in slide-left slow delay-' . $counter . '00ms',
+                    'class'             => $post_type . ' animate fade-in slide-left slow delay-' . $counter . '00ms',
                     'arbitrary_data'    => array(
                         'title'         => get_the_title(),
                         'thumbnail'     => get_the_post_thumbnail_url( $post_id, 'thumbnail'),

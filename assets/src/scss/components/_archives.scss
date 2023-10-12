@@ -37,10 +37,14 @@
   &.programmation {
     .archiveItem {
       overflow: hidden;
+      position: relative;
+
       img {
-        height: 300px;
-        object-fit: cover;
-        object-position: center top;
+        position: absolute;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 50% 50% !important;
       }
 
       &-body {
@@ -58,6 +62,12 @@
           background-color: #{var(--color-fifth)}50;
           filter: blur(3px);
         }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
       }
     }
   }

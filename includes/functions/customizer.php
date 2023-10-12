@@ -35,6 +35,18 @@ class whiteLabel_Customize
          )
       );
 
+      $wp_customize->add_panel(
+         'section_panel',
+         array(
+            'title'           => __('Décorations des sections'),
+            'description'     => esc_html__('Permet d\'ajouter des élément visuels avant et après chaque section'), // Include html tags such as 
+            'priority'        => 161, // Not typically needed. Default is 160
+            'capability'      => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+            'theme_supports'  => '', // Rarely needed
+            'active_callback' => '', // Rarely needed
+         )
+      );
+
       //2. Register new Sections
 
       $wp_customize->add_section(
@@ -84,6 +96,29 @@ class whiteLabel_Customize
          array(
             'title'        => __('Coordonnées'),
             'description'  => esc_html__('Modifier les coordonées du Festival'),
+            'priority'     => 160, // Not typically needed. Default is 160
+            'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+         )
+      );
+      
+
+      $wp_customize->add_section(
+         'before_deco_section',
+         array(
+            'title'        => __('Décoration avant les sections'),
+            'panel'        => 'section_panel',
+            'description'  => esc_html__('Permet l\'ajout d\'un élément visuel avant chaque section'),
+            'priority'     => 160, // Not typically needed. Default is 160
+            'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+         )
+      );
+
+      $wp_customize->add_section(
+         'after_deco_section',
+         array(
+            'title'        => __('Décoration après les sections'),
+            'panel'        => 'section_panel',
+            'description'  => esc_html__('Permet l\'ajout d\'un élément visuel après chaque section'),
             'priority'     => 160, // Not typically needed. Default is 160
             'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
          )
@@ -268,6 +303,30 @@ class whiteLabel_Customize
          'map_address', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
             'default'            => '1 Bd des Cités Unies, 59800 LILLE', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+      /* SECTION DECO */
+
+      $wp_customize->add_setting(
+         'section_before', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '""', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+      $wp_customize->add_setting(
+         'section_after', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => '""', //Default setting/value to save
             'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -544,6 +603,40 @@ class whiteLabel_Customize
          )
       );
 
+      /* SECTION DECO */
+
+      $wp_customize->add_control(
+         new WP_Customize_Image_Control(
+             $wp_customize, 'section_before', array(
+                  'label' => __('Décoration avant la section'),
+                  'description' => esc_html__('Permet l\'upload d\'un élément visuel (SVG) pour décorer le haut de la section'),
+                  'section' => 'before_deco_section',
+                  'priority' => 11, // Optional. Order priority to load the control. Default: 10
+                  'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+                  'input_attrs' => array( // Optional.
+                     'class' => 'admin-fontsize',
+                     'style' => 'border: 1px solid rebeccapurple',
+                  ),     
+               )
+         )
+     );
+
+     $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize, 'section_after', array(
+               'label' => __('Décoration après la section'),
+               'description' => esc_html__('Permet l\'upload d\'un élément visuel (SVG) pour décorer le bas de la section'),
+               'section' => 'after_deco_section',
+               'priority' => 11, // Optional. Order priority to load the control. Default: 10
+               'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+               'input_attrs' => array( // Optional.
+                  'class' => 'admin-fontsize',
+                  'style' => 'border: 1px solid rebeccapurple',
+               ),     
+            )
+      )
+  );
+
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
       /* $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'secondary_color' )->transport = 'postMessage';
@@ -583,6 +676,9 @@ class whiteLabel_Customize
             --btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;
             --big-btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;
             --nav-size: <?php echo get_theme_mod('menu_size', '16') / 10; ?>rem;
+            --nav-size: <?php echo get_theme_mod('menu_size', '16') / 10; ?>rem;
+            --before-image: url(<?php echo get_theme_mod('section_before', '""'); ?>);
+            --after-image: url(<?php echo get_theme_mod('section_after', '""'); ?>);
          }
       </style>
       <!--/Customizer CSS-->

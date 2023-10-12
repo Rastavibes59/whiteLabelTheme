@@ -91,5 +91,18 @@
 			$("html").get(0).style.setProperty("--nav-size", newval/10 + "rem");
 		} );
 	} );
+	// Footer image
+	wp.customize('section_before', function (value) {
+		value.bind(function (newval) {
+			$("section::before").css("background-image", "url(" + newval + ")");
+			$("html").get(0).style.setProperty("--before-image", "url(" + newval + ")");
+		});
+	});
+	wp.customize('section_after', function (value) {
+		value.bind(function (newval) {
+			$("section::after").css("background-image", "url(" + newval + ")");
+			$("html").get(0).style.setProperty("--after-image", "url(" + newval + ")");
+		});
+	});
 
 } )( jQuery );

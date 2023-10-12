@@ -112,6 +112,34 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_6527c4b1e7e80",
+                            "label": "Section décorée",
+                            "name": "decorated",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_637f611bd3eaa",
+                                        "operator": "!=",
+                                        "value": "picture"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Ajouter la décoration avant et après la section",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_637f611bd3f18",
                             "label": "Image de fond",
                             "name": "background_image",
@@ -912,5 +940,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696509482
+    "modified": 1697105205
 }

@@ -99,11 +99,11 @@ section {
     }
 }
 
-.wave {
+.decorated {
     position: relative;
 
-    &::after {
-        background-image: url("../images/svg/vague_blanche.svg");
+    &::before {
+        background-image: var(--before-image);
         content: "";
         position: absolute;
         display: block;
@@ -115,6 +115,21 @@ section {
         left: 0;
         background-position: center bottom;
     }    
+
+    &::after {
+        background-image: var(--after-image);
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100vw;
+        height: 6rem;
+        background-size: 110vw;
+        background-repeat: no-repeat;
+        top: calc(100% - 1px);
+        left: 0;
+        background-position: center bottom;
+    }    
+
 }
 
 

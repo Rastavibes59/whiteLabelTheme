@@ -134,6 +134,7 @@ body.admin-bar {
 						align-items: center;
 						justify-content: space-between;
 						text-align: center;
+						white-space: nowrap;
 
 						&:hover {
 							text-decoration: none;
@@ -151,6 +152,7 @@ body.admin-bar {
 							user-select: none;
 							pointer-events: none;
 							font-weight: $semiBold;
+							white-space: nowrap;
 
 							@media speech {
 							  display: none;

@@ -65,18 +65,17 @@ $label = $field['choices'][$value];
 
     $numCols = $query->post_count;
     $countArtists = 0;
-    ?>
+    
+    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
+                $index = $query->current_post;
+
+                if (get_field('headliner') == true && $countArtists < 4) { ?>
 
     <div class="container grid md-cols-1 cols-4 gap-15 archive programmation">
 
         <h2 class="text-center colspan-4 md-colspan-1 mb-30">ILS SONT AUSSI PROGRAMMÉS :</h2>
 
-        <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
-                $index = $query->current_post;
-
-                if (get_field('headliner') == true && $countArtists < 4) {
-
-                    get_template_part(
+            <?php get_template_part(
                         'includes/common/archive',
                         'programmation',
                         array(
@@ -99,7 +98,7 @@ $label = $field['choices'][$value];
         <?php endwhile;
         endif; ?>
         <div class="container colspan-4 md-colspan-1 flex column justify-center align-center pt-30">
-            <a href="<?php echo get_page_link(1154) ?>" class="btn secondary animate big fullWidth">Programmation complète</a>
+            <a href="<?php echo get_post_type_archive_link( $post_type ) ?>" class="btn secondary animate big fullWidth">Programmation complète</a>
         </div>
     </div>
 </section>

@@ -43,7 +43,9 @@ $label = $field['choices'][$value];
             <p class="colspan-2 md-colspan-1 fc-fifth text-left"><?php the_field('genre'); ?></p>
             <h3 class="colspan-2 md-colspan-1 fc-secondary text-left"> <?php the_field('date'); ?> / Scène <?php echo $label; ?></h3>
             <?php the_field('desc'); ?>
+            <div class="iframeContainer">
             <?php the_field('embed'); ?>
+            </div>
         </div>
 
     </div>
@@ -66,16 +68,18 @@ $label = $field['choices'][$value];
     $numCols = $query->post_count;
     $countArtists = 0;
     
-    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
-                $index = $query->current_post;
-
-                if (get_field('headliner') == true && $countArtists < 4) { ?>
-
+    if ($query->have_posts()) : ?>
+    
     <div class="container grid md-cols-1 cols-4 gap-15 archive programmation">
 
         <h2 class="text-center colspan-4 md-colspan-1 mb-30">ILS SONT AUSSI PROGRAMMÉS :</h2>
+    
+    <?php while ($query->have_posts()) : $query->the_post();
+                $index = $query->current_post;
 
-            <?php get_template_part(
+                if (get_field('headliner') == true && $countArtists < 4) { 
+                    
+                    get_template_part(
                         'includes/common/archive',
                         'programmation',
                         array(

@@ -156,6 +156,10 @@ require_once(get_template_directory() . '/includes/functions/get-archive-post-ty
 
 require_once(get_template_directory() . '/includes/functions/metabox-options.php');
 
+/* UPLOAD CUSTOM MIME TYPES */
+
+require_once(get_template_directory() . '/includes/functions/custom-mime-types.php');
+
 /* EXCERPT LENGTH */
 
 require_once(get_template_directory() . '/includes/functions/excerpt-length.php');

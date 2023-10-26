@@ -266,6 +266,42 @@ class whiteLabel_Customize
          )
       );
 
+      /* FONT FAMILY */
+
+      $wp_customize->add_setting(
+         'title_font', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => 'Arial, sans-serif', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+      $wp_customize->add_setting(
+         'text_font', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => 'Arial, sans-serif', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+      $wp_customize->add_setting(
+         'button_font', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => 'Arial, sans-serif', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+
       /* COORDINATES */
 
       $wp_customize->add_setting(
@@ -535,6 +571,38 @@ class whiteLabel_Customize
             ),
          )
       );
+
+      /* FONT FAMILY */
+
+      $wp_customize->add_control(
+         'title_font',
+         array(
+            'label' => __('Police des titres du site'),
+            'description' => esc_html__('police d\'écriture à utiliser pour les titres du site'),
+            'section' => 'headings_section',
+            'priority' => 0, // Optional. Order priority to load the control. Default: 10
+            'type' => 'number', // Can be either text, email, url, number, hidden, or date
+            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+            'input_attrs' => array( // Optional.
+               'class' => 'admin-fontsize',
+               'style' => 'border: 1px solid rebeccapurple',
+               'placeholder' => __('Ex : 16px'),
+            ),
+         )
+      );
+
+      $wp_customize->add_control( 
+         new WP_Customize_Upload_Control( 
+         $wp_customize, 
+         'title_font', 
+         array(
+            'label'      => __( 'Police des titres' ),
+            'description' => esc_html__('police d\'écriture à utiliser pour les titres du site'),
+            'section'    => 'headings_section',
+            'settings'   => 'title_font',
+         ) ) 
+      );
+
 
       /* COORDINATES */
 

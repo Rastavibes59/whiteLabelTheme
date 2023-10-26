@@ -83,8 +83,7 @@
 
                 $title = get_sub_field('title'); 
                 $decorated = get_sub_field('decorated');
-                $field_type = get_field('type');
-   
+                $field_type = get_field('type'); 
                 ?>
         
                     <section    id="section-<?php echo $section_number ?>"
@@ -92,7 +91,7 @@
                                     <?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> 
                                     bg-<?php echo $background_type; ?> 
                                     <?php if($field_type == 'none' || !$field_type && $section_number == 0) : ?>pt-130 pb-70 <?php elseif ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
-                                    <?php $decorated == true ? 'decorated' : ''?>
+                                    <?php if ($decorated == true) : ?>decorated<?php endif;?>
                                     md-pt-30 md-pb-30 
                                     " 
                                 <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>

@@ -55,8 +55,6 @@
         width: 100% !important;
     }
 
-
-
     &.big {
         padding: 2rem 5.4rem;
         font-size: var(--big-btn-size);
@@ -68,6 +66,11 @@
 
     &.small {
         flex: 0 1 auto
+    }
+
+    @include screen(md) {
+        white-space: unset;
+        text-align: center;
     }
 }
 

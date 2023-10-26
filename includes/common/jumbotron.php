@@ -17,8 +17,8 @@
                 'picture'       => get_template_directory_uri() . '/assets/public/images/background.webp',
                 'title'         => '<p>HELLO WORLD !</p>',
                 'mobile_placeholder' => get_template_directory_uri() . '/assets/public/images/background.webp',
-                'mask_color'    => 'rgba(0,0,0,0.5)',
-
+                'mask'    => true,
+                'mask_color'    => 'rgba(0,0,0,0.5)'
             ),
         )
     );
@@ -52,7 +52,6 @@
                         'background'    => get_field('hosted_video'),
                         'text'          => get_field('text'),
                         'mobile_placeholder' => get_field('image_mobile'),
-                        'mask_color'    => get_field('mask_color'),
     
                     ),
                 )
@@ -70,7 +69,6 @@
                         'text'          => get_field('text'),
                         'logo'          => get_field('logo'),
                         'mobile_placeholder' => get_field('image_mobile'),
-                        'mask_color'    => get_field('mask_color'),
                     ),
                 )
             );      
@@ -86,7 +84,6 @@
                         'picture'       => get_field('bg'),
                         'title'         => get_the_title(),
                         'mobile_placeholder' => get_field('image_mobile'),
-                        'mask_color'    => get_field('mask_color'),
 
                     ),
                 )
@@ -95,7 +92,7 @@
 
         <style>
 
-    <?php if (get_field('mask_color')) : ?>
+    <?php if (get_field('mask') == true) : ?>
             .jumbotron::before {
                 background-color: <?php echo get_field('mask_color'); ?> !important;
             }

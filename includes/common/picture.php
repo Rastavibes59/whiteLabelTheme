@@ -24,7 +24,7 @@ $args = wp_parse_args(
             33vw"
      src="<?php echo esc_html($args['arbitrary_data']['picture']['url']); ?>" alt="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
      title="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
-     class="<?php $args['arbitrary_data']['rounded'] ? 'rounded' : '' ?> light"
+     class="<?php if ($args['arbitrary_data']['rounded'] == true) : ?>rounded<?php endif;?> light"
      width="500px"
      height="400px"
      loading="lazy">

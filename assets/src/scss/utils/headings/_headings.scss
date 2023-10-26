@@ -1,5 +1,5 @@
 h1 {
-    font-family: var(--font-title);
+    font-family: 'Title';
     font-size: var(--h1-size);
     line-height: 0.9;
     letter-spacing: 0.1rem;
@@ -12,7 +12,7 @@ h1 {
 }
 
 h2 {
-    font-family: var(--font-title);
+    font-family: 'Title';
     font-size: var(--h2-size);
     font-weight: map-get($font-weights,  900);
     line-height: 1;
@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-    font-family: var(--font-title);
+    font-family: 'Title';
     font-size: var(--h3-size);
     font-weight: map-get($font-weights,  700);
     line-height: 1.2;
@@ -36,7 +36,7 @@ h3 {
 }
 
 h4 {
-    font-family: var(--font-title);
+    font-family: 'Title';
     font-size: var(--h4-size);
     font-weight: map-get($font-weights,  700);
     line-height: 1.2;

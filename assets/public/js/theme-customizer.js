@@ -37,6 +37,14 @@
 			$("html").get(0).style.setProperty("--color-text", newval);
 		} );
 	} );
+
+	wp.customize( 'headings_font', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--title-font", newval);
+
+		} );
+	} );
+
 	wp.customize( 'h1_size', function( value ) {
 		value.bind( function( newval ) {
 			$("h1").css("font-size", newval/10 + "rem");

@@ -39,7 +39,7 @@
 
 /* BASE SETTINGS */
 :root {
-    font-family: var(--font-text);
+    font-family: "Text";
     box-sizing: border-box !important;
   }
 
@@ -58,7 +58,7 @@
   }
   
   html, body {
-    font-family: var(--font-text);
+    font-family: "Text";
     overflow-x: hidden;
     color: var(--color-text);
     scroll-snap-type: y proximity;

@@ -574,23 +574,6 @@ class whiteLabel_Customize
 
       /* FONT FAMILY */
 
-      $wp_customize->add_control(
-         'title_font',
-         array(
-            'label' => __('Police des titres du site'),
-            'description' => esc_html__('police d\'écriture à utiliser pour les titres du site'),
-            'section' => 'headings_section',
-            'priority' => 0, // Optional. Order priority to load the control. Default: 10
-            'type' => 'number', // Can be either text, email, url, number, hidden, or date
-            'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
-            'input_attrs' => array( // Optional.
-               'class' => 'admin-fontsize',
-               'style' => 'border: 1px solid rebeccapurple',
-               'placeholder' => __('Ex : 16px'),
-            ),
-         )
-      );
-
       $wp_customize->add_control( 
          new WP_Customize_Upload_Control( 
          $wp_customize, 
@@ -598,8 +581,23 @@ class whiteLabel_Customize
          array(
             'label'      => __( 'Police des titres' ),
             'description' => esc_html__('police d\'écriture à utiliser pour les titres du site'),
+            'priority' => 0, // Optional. Order priority to load the control. Default: 10
+
             'section'    => 'headings_section',
             'settings'   => 'title_font',
+         ) ) 
+      );
+      $wp_customize->add_control( 
+         new WP_Customize_Upload_Control( 
+         $wp_customize, 
+         'text_font', 
+         array(
+            'label'      => __( 'Police des textes' ),
+            'description' => esc_html__('police d\'écriture à utiliser pour les textes du site'),
+            'priority' => 0, // Optional. Order priority to load the control. Default: 10
+
+            'section'    => 'texts_section',
+            'settings'   => 'text_font',
          ) ) 
       );
 
@@ -728,6 +726,8 @@ class whiteLabel_Customize
 ?>
       <!--Customizer CSS-->
       <style type="text/css">
+
+
          html {
             /* COLOR VARIABLES */
             --color-primary: <?php echo get_theme_mod('primary_color', '#000000'); ?>;
@@ -747,6 +747,17 @@ class whiteLabel_Customize
             --nav-size: <?php echo get_theme_mod('menu_size', '16') / 10; ?>rem;
             --before-image: url(<?php echo get_theme_mod('section_before', '""'); ?>);
             --after-image: url(<?php echo get_theme_mod('section_after', '""'); ?>);
+            --title-font: url(<?php echo get_theme_mod('title_font', 'Arial, sans-serif'); ?>) format('truetype');
+            --text-font: url(<?php echo get_theme_mod('text_font', 'Arial, sans-serif'); ?>) format('truetype');
+         }
+         @font-face {
+            font-family: "Title";
+            src: url(<?php echo get_theme_mod('title_font', 'Arial, sans-serif'); ?>) format('truetype');
+         }
+
+         @font-face {
+            font-family: "Text";
+            src: url(<?php echo get_theme_mod('text_font', 'Arial, sans-serif'); ?>) format('truetype');
          }
       </style>
       <!--/Customizer CSS-->

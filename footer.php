@@ -13,8 +13,6 @@
                         tileSize: 512,
                         zoomOffset: -1,
                         accessToken: 'pk.eyJ1IjoicmFzdGF2aWJlczU5IiwiYSI6ImNsMmhldmttNTBjOXEzam56amszbXhrOTIifQ.VVfOEeHVviM5G1WlPGYllg'
-                    }).on('tileloadstart', function(event) {
-                        event.tile.setAttribute('loading', 'lazy');
                     }).addTo(map);
 
                     var pleinAirIcon = L.Icon.extend({

@@ -151,52 +151,15 @@
 
 
 
-                var screenWidth = window.innerWidth;
-                if (screenWidth > 1024) {
-                    if (document.getElementById('parallax_jumbo')) {
-                        var scene = document.getElementById('parallax_jumbo');
-                        var parallaxInstance = new Parallax(scene, {
-                            hoverOnly: true,
-                            relativeInput: true,
-
-                        });
-                    }
-                }
 
 
-
-
-                var slideritems = $('.slider .sliderItem').length > 3 ? true : false;
-
-                $('.slider').slick({
-                    dots: slideritems,
-                    infinite: true,
-                    slide: '.sliderItem',
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    speed: 500,
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    centerMode: true,
-                    centerPadding: 15,
-                    arrows: false,
-                    responsive: [{
-                            breakpoint: 768,
-                            settings: {
-                                dots: true,
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                            }
+                if($('.animate').length) {
+                    $('.animate').each(function() {
+                        if ($(this).isInViewport()) {
+                            $(this).addClass('visible');
                         }
-
-                    ]
-                });
-
-                $('.animate').each(function() {
-                    if ($(this).isInViewport()) {
-                        $(this).addClass('visible');
-                    }
-                })
+                    })
+                }
 
                 $("a[href^='#']").click(function() {
                     var target = $(this).attr('href');

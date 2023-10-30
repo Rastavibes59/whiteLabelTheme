@@ -17,6 +17,7 @@ $args = wp_parse_args(
     )
 );
 ?>
+
 <section id="<?php echo $args['id']; ?>" class="<?php echo $args['class']; ?>" style="background-image:url(<?php echo $args['arbitrary_data']['background']; ?>)">
     <div class="container grid cols-2 md-cols-1" data-depth="<?php echo $args['arbitrary_data']['depth']; ?>">
         <?php if(isset($args['arbitrary_data']['logo'])) : ?>
@@ -27,3 +28,24 @@ $args = wp_parse_args(
         </div>
     </div>   
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js#asyncload" async></script>
+
+<script>
+$(document).ready(function() {
+
+    var screenWidth = window.innerWidth;
+    if (screenWidth > 1024) {
+        if (document.getElementById('parallax_jumbo')) {
+            var scene = document.getElementById('parallax_jumbo');
+            var parallaxInstance = new Parallax(scene, {
+                hoverOnly: true,
+                relativeInput: true,
+
+            });
+        }
+    }
+});
+
+
+</script>

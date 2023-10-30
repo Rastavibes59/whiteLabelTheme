@@ -753,11 +753,13 @@ class whiteLabel_Customize
          @font-face {
             font-family: "Title";
             src: url(<?php echo get_theme_mod('title_font', 'Arial, sans-serif'); ?>) format('truetype');
+            font-display: swap;
          }
 
          @font-face {
             font-family: "Text";
             src: url(<?php echo get_theme_mod('text_font', 'Arial, sans-serif'); ?>) format('truetype');
+            font-display: swap;
          }
       </style>
       <!--/Customizer CSS-->

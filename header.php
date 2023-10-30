@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="<?php echo get_locale() ?>">
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  -->
         <?php  wp_head(); ?>
 
     </head>
@@ -41,7 +41,7 @@
             <ul class="social flex column justify-flex-start align-center">
                         
                <?php while($query->have_posts() ) : $query->the_post();?>
-                <li class="mb-5"><a href="<?php the_field('link') ?>"><img src="<?php echo get_template_directory_uri() . '/assets/public/images/svg/RS/icon-' . get_field('reseau') .'.svg'; ?>" width="30" height="30" alt="" loading="lazy"></a></li>
+                <li class="mb-5"><a href="<?php the_field('link') ?>" target="_blank" alt="<?php echo get_field('reseau') ?>" title="<?php echo get_field('reseau') ?>" ><img src="<?php echo get_template_directory_uri() . '/assets/public/images/svg/RS/icon-' . get_field('reseau') .'.svg'; ?>" width="30" height="30" alt="" loading="lazy"></a></li>
                 <?php endwhile; ?>
             <?php endif; wp_reset_query()?>
         </ul>

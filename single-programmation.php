@@ -101,8 +101,9 @@ $label = $field['choices'][$value];
 
         <?php endwhile;
         endif; ?>
-        <div class="container colspan-4 md-colspan-1 flex column justify-center align-center pt-30">
+        <div class="container colspan-4 md-colspan-1 flex column gap-15 justify-center align-center pt-30">
             <a href="<?php echo get_post_type_archive_link( $post_type ) ?>" class="btn secondary animate big fullWidth">Programmation complète</a>
+            <a href="<?php echo get_page_link( 1532 ) ?>" class="btn secondary animate big fullWidth">Billetterie du jardin de noël</a>
         </div>
     </div>
 </section>

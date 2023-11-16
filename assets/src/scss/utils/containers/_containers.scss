@@ -69,6 +69,10 @@ section {
   }
 
   &.noJumbo {
-    padding-top: 100px;
+    padding-top: 130px !important;
+
+    @include screen(md) {
+      padding-top: 100px !important;
+    }
   }
 }

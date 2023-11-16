@@ -166,7 +166,7 @@ require_once(get_template_directory() . '/includes/functions/shortcodes.php');
 
 /* MENU ATTRIBUTES */
 
-require_once(get_template_directory() . '/includes/functions/menu-attributes.php');
+//require_once(get_template_directory() . '/includes/functions/menu-attributes.php');
 
 /* WP REMOVE ASSETS */
 

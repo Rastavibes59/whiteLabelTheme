@@ -14,14 +14,25 @@ $args = wp_parse_args(
 ); 
 
 $counter = 0;
+$totalCount = 0;
 $custom_posts = $args['arbitrary_data']['custom-posts'];
 $post_type = $custom_posts[0]->post_type;
+
+foreach ($custom_posts as $post) {
+    $totalCount++;
+}
+
+if ($totalCount > 4) {
+    $totalCount = 4;
+}
+
 ?>
 
 
-<div class="grid md-cols-1 cols-4 gap-15 archive <?php echo $post_type ?> pt-60 animate w-100">
+<div class="grid md-cols-1 cols-<?php echo $totalCount ?> gap-15 archive <?php echo $post_type ?> pt-60 animate w-100">
 
 <?php
+
 
     foreach ($custom_posts as $post) {
         $post_id = $post->ID;

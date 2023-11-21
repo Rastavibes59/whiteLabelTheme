@@ -136,14 +136,6 @@ require_once(get_template_directory() . '/includes/functions/image-sizes.php');
 
 require_once(get_template_directory() . '/includes/functions/custom-logo.php');
 
-/* CUSTOM TAXONOMIES */
-
-require_once(get_template_directory() . '/includes/functions/custom-taxonomies.php');
-
-/* CUSTOM POST TYPES */
-
-require_once(get_template_directory() . '/includes/functions/custom-post-types.php');
-
 /* GET CURRENT ARCHIVE POST TYPE */
 
 require_once(get_template_directory() . '/includes/functions/get-archive-post-type.php');

@@ -123,11 +123,10 @@ body.admin-bar {
 					}
 
 					& > a {
-						font-family: Rubik, sans-serif;
 						text-transform: uppercase;
 						font-size: var(--nav-size);
 						font-weight: $light;
-						color: white !important;
+						color: var(--color-text) !important;
 						text-decoration: none !important;
 						display: inline-flex;
 						flex-direction: column;

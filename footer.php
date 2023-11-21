@@ -1,39 +1,3 @@
-            <section class="bg-white">
-                <div id="map"></div>
-                <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-                <script type="text/javascript">
-                    var map = L.map('map', {
-                        scrollWheelZoom: false,
-                        dragging: false,
-                    }).setView([mapLattitude, mapLongitude], 15);
-                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        maxZoom: 18,
-                        id: 'mapbox/streets-v11',
-                        tileSize: 512,
-                        zoomOffset: -1,
-                        accessToken: 'pk.eyJ1IjoicmFzdGF2aWJlczU5IiwiYSI6ImNsMmhldmttNTBjOXEzam56amszbXhrOTIifQ.VVfOEeHVviM5G1WlPGYllg'
-                    }).addTo(map);
-
-                    var pleinAirIcon = L.Icon.extend({
-                        options: {
-                            iconSize: [38, 95], // size of the icon
-                            shadowSize: [50, 64], // size of the shadow
-                            iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-                            shadowAnchor: [4, 62], // the same for the shadow
-                            popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-                        }
-                    });
-                    var pleinairIcon = new pleinAirIcon({
-                        iconUrl: '<?php echo get_template_directory_uri() . '/assets/public/images/svg/pastille-googlemap.svg'; ?>',
-                    });
-
-                    var marker = L.marker([mapLattitude, mapLongitude], {
-                        icon: pleinairIcon
-                    }).addTo(map);
-                    marker.bindPopup("<span class='size-big'><b>" + mapPopupTitle + "<br><span class='size-regular fc-text'>" + mapPopupText + "</span>").openPopup();
-                </script>
-            </section>
         <!-- SECTION BREADCRUMBS -->
 
         <?php if (!is_front_page()) : ?>

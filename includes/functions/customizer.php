@@ -325,9 +325,9 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_setting(
-         'map_title', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         'hq_address', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default'            => 'Jardin électronique', //Default setting/value to save
+            'default'            => '1 Bd des Cités Unies, 59800 LILLE', //Default setting/value to save
             'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -336,9 +336,9 @@ class whiteLabel_Customize
       );
 
       $wp_customize->add_setting(
-         'map_address', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         'phone_number', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default'            => '1 Bd des Cités Unies, 59800 LILLE', //Default setting/value to save
+            'default'            => '+33 (0)1 23 45 67 89', //Default setting/value to save
             'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -637,10 +637,10 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_control(
-         'map_title',
+         'hq_address',
          array(
-            'label' => __('Titre'),
-            'description' => esc_html__('Le titre pour la popup'),
+            'label' => __('Adresse'),
+            'description' => esc_html__('L\'adresse du siège social'),
             'section' => 'coordinates_section',
             'priority' => 11, // Optional. Order priority to load the control. Default: 10
             'type' => 'text', // Can be either text, email, url, number, hidden, or date
@@ -653,10 +653,10 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_control(
-         'map_address',
+         'phone_number',
          array(
-            'label' => __('Adresse'),
-            'description' => esc_html__('L\'adresse écrite pour la popup'),
+            'label' => __('Téléphone'),
+            'description' => esc_html__('Le numéro de téléphone du siège social'),
             'section' => 'coordinates_section',
             'priority' => 11, // Optional. Order priority to load the control. Default: 10
             'type' => 'text', // Can be either text, email, url, number, hidden, or date
@@ -769,9 +769,16 @@ class whiteLabel_Customize
       <script>
          var mapLattitude = <?php echo get_theme_mod('map_lattitude', 50.6323447); ?>;
          var mapLongitude = <?php echo get_theme_mod('map_longitude', 3.0920238); ?>;
-         var mapPopupTitle = "<?php echo get_theme_mod('map_title', 'Jardin électronique'); ?>";
-         var mapPopupText = "<?php echo get_theme_mod('map_address', '1 Bd des Cités Unies, 59800 LILLE'); ?>";
+         var mapPopupTitle = "<?php echo get_theme_mod('hq_address', 'Jardin électronique'); ?>";
+         var mapPopupText = "<?php echo get_theme_mod('phone_number', '1 Bd des Cités Unies, 59800 LILLE'); ?>";
       </script>
+
+      <?php
+         $mapLattitude = get_theme_mod('map_lattitude', 50.6323447);
+         $mapLongitude = get_theme_mod('map_longitude', 3.0920238);
+         $mapPopupTitle = get_theme_mod('hq_address', 'Jardin électronique');
+         $mapPopupText = get_theme_mod('phone_number', '1 Bd des Cités Unies, 59800 LILLE');
+      ?>
 
       <!--/Customizer MAP-->
 

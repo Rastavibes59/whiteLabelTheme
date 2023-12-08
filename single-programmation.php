@@ -4,12 +4,15 @@
 $field = get_field_object('field_6262b72087619');
 $value = get_field('stage');
 $label = $field['choices'][$value];
+$post_types = ['programmation/', 'billetterie/'];
+
+
 
 ?>
 
 <section class="pt-150 md-pb-100 pb-60 bg-white programmation">
     <div class="container grid cols-2 md-cols-1 gap-15 ">
-        <div class="programmation-main flex column justify-space-between align-center">
+        <div class="programmation-main flex column justify-flex-start align-center">
             <?php if (has_post_thumbnail()) : ?>
                 <img src="<?php the_post_thumbnail_url('large'); ?>" title='<?php echo the_title() ?>' class="programmation-image" width="535" height="535" loading="lazy">
             <?php endif; ?>
@@ -37,7 +40,7 @@ $label = $field['choices'][$value];
 
 
         </div>
-        <div class="programmation-text p-15 mt-30 flex column justify-flex-start align-flex-start text-justify">
+        <div class="programmation-text p-15 flex column justify-flex-start align-flex-start text-justify">
 
             <h1 class="colspan-2 md-colspan-1 fc-secondary text-left size-h2"><?php echo the_title() ?></h1>
             <p class="colspan-2 md-colspan-1 fc-fifth text-left"><?php the_field('genre'); ?></p>
@@ -49,8 +52,14 @@ $label = $field['choices'][$value];
         </div>
 
     </div>
+    <div class="container colspan-<?php echo 4/count($post_types); ?> md-colspan-1 flex column justify-center align-center pt-30 gap-15">
+        <a href="<?php echo esc_url(site_url('programmation'))  ?>" class="btn secondary animate big fullWidth">Programmation complète</a>
+        <a href="<?php echo esc_url(site_url('billetterie'))  ?>" class="btn secondary animate big fullWidth">Billetterie du festival</a>
+    </div>
 
 </section>
+
+
 <!-- SECTION CUSTOM POSTS -->
 
 <section class="bg-white pt-60 pb-60 ">
@@ -101,10 +110,6 @@ $label = $field['choices'][$value];
 
         <?php endwhile;
         endif; ?>
-        <div class="container colspan-4 md-colspan-1 flex column gap-15 justify-center align-center pt-30">
-            <a href="<?php echo get_post_type_archive_link( $post_type ) ?>" class="btn secondary animate big fullWidth">Programmation complète</a>
-            <a href="<?php echo get_page_link( 1532 ) ?>" class="btn secondary animate big fullWidth">Billetterie du jardin de noël</a>
-        </div>
     </div>
 </section>
 

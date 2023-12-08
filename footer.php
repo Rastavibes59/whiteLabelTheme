@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="container flex column justify-flex-start align-center mt-15 mb-30">
-                    <p class="size-contactInfos fc-white text-center mb-0 size-formInfos">© <?php echo date("Y"); ?> - Association Productions du Jardin - autre festival electro dans la région : <a href="www.jardinelectronique.com" title="festival Jardin Électronique" target="_blank">www.jardinelectronique.com</a></a></p>
+                    <p class="size-contactInfos fc-white text-center mb-0 size-formInfos">© <?php echo date("Y"); ?> - Association Productions du Jardin - Découvrez : <a href="www.jardinelectronique.com" title="festival Jardin Électronique" target="_blank">www.jardinelectronique.com</a></a></p>
                     <a href="<?php echo site_url('//mentions-legales/'); ?>" class="size-contactInfos fc-white text-center size-formInfos fw-regular">Mentions légales</a>
                 </div>
             </footer>

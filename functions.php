@@ -156,6 +156,11 @@ require_once(get_template_directory() . '/includes/functions/excerpt-length.php'
 
 require_once(get_template_directory() . '/includes/functions/shortcodes.php');
 
+/* FIX PREVIEW MODE */
+
+require_once(get_template_directory() . '/includes/functions/preview-fix.php');
+
+
 /* MENU ATTRIBUTES */
 
 //require_once(get_template_directory() . '/includes/functions/menu-attributes.php');

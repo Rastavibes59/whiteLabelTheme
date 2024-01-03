@@ -80,10 +80,6 @@
 
   p {
     line-height: 1.5;
-
-    @include screen(lg) {
-      text-align: center !important;
-    }
   }
 
   small {

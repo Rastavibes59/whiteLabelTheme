@@ -30,7 +30,7 @@ if ($args['arbitrary_data']['thumbnail']) {
 ?>
 
 
-<li class="flex column justify-center align-flex-start archiveItem">
+<li class="flex column justify-center align-flex-start archiveItem <?php echo $args['class']; ?>">
     <img src="<?php echo $thumbnail_url ?>" alt="<?php echo esc_html($args['arbitrary_data']['title']); ?>" title="<?php echo esc_html($args['arbitrary_data']['title']); ?>" class="archiveItem-image p-15 <?php echo $itemClass; ?>" width='300' height='250' loading="lazy">
     <div class="archiveItem-body flex column justify-flex-start align-center p-15">
         <h3 class="text-left"><?php echo esc_html($args['arbitrary_data']['title']); ?></h3>

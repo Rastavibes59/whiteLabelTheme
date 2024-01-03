@@ -79,7 +79,7 @@ body.admin-bar {
 		width: 100%;
 		margin-left: auto;
 
-		.menu-navigation-haute-container {
+		div[class$="-container"] {
 			@extend %animateAll;
 
 			& > ul {
@@ -187,8 +187,8 @@ body.admin-bar {
 								&:hover {
 									background-color: var(
 										--color-secondary
-									) !important;
-									color: white !important;
+									);
+									color: white;
 								}
 							}
 						}
@@ -221,11 +221,11 @@ body.admin-bar {
 					&.current-menu-parent {
 						&:not(.iconLinks-item) {
 							& > a {
-								font-weight: $bold !important;
+								font-weight: $bold ;
 							}
 
 							a {
-								font-weight: $bold !important;
+								font-weight: $bold ;
 							}
 						}
 
@@ -289,7 +289,7 @@ body.admin-bar {
 					}
 				}
 
-				.menu-navigation-haute-container {
+				div[class$="-container"] {
 					position: relative;
 					order: 1;
 
@@ -331,14 +331,17 @@ body.admin-bar {
 			justify-content: center;
 			align-items: center;
 			width: 50px !important;
-			height: 50px !important;
-			border-radius: 50%;
+			height: 40px !important;
+			border-radius: 0.5rem;
 			position: relative;
-			padding: 15px !important;
+			padding: 10px 10px !important;
 			font-size: var(--nav-size);
 			background-color: white;
 			flex: 0 1 auto;
 			margin-right: 15px;
+			order: 1;
+			margin-left: auto !important;
+			border: 1px solid var(--color-text);
 
 			&:before {
 				content: "";
@@ -371,22 +374,24 @@ body.admin-bar {
 					display: block;
 					content: "";
 					width: 30px;
-					height: 20px;
-					background-image: url("../images/svg/burger.svg");
-					background-size: contain;
-					border-top: unset;
-					border-bottom: unset;
+					height: 8px;
+					border-top: 1px solid var(--color-text);
+					border-bottom: 1px solid var(--color-text);
 					position: unset;
 					transform: unset;
-					background-position: center center;
-					background-repeat: no-repeat;
 				}
 				&:after {
+					display: block;
 					content: "";
-					display: none;
+					width: 30px;
+					height: 8px;
+					border-top: unset;
+					border-bottom: 1px solid var(--color-text);
+					position: unset;
+					transform: unset;
 				}
 
-				.menu-navigation-haute-container {
+				div[class$="-container"] {
 					right: -100%;
 
 					.mainNav {
@@ -394,7 +399,7 @@ body.admin-bar {
 					}
 				}
 			}
-			.menu-navigation-haute-container {
+			div[class$="-container"] {
 				display: flex;
 				flex-direction: column;
 				position: fixed !important;
@@ -402,7 +407,7 @@ body.admin-bar {
 				background-color: white;
 				right: 0;
 				top: 0;
-				padding-top: 70px;
+				padding-top: 150px;
 				height: 100%;
 				overflow: hidden;
 				-webkit-box-shadow: 0 0 20px 0 rgba(52, 39, 56, 0.3);
@@ -418,12 +423,16 @@ body.admin-bar {
 						border-bottom: 1px solid white;
 						width: 100%;
 						width: calc(100% - 20px);
-						padding: 15px;
 						max-width: unset;
+						flex-direction: column;
+						padding: 0;
+						margin-right: 0 !important;
 
 						a {
 							color: var(--color-secondary) !important;
 							text-decoration: none !important;
+							padding: 15px;
+							justify-content: center !important;
 						}
 
 						&:hover {
@@ -441,7 +450,30 @@ body.admin-bar {
 									opacity: 1;
 								}
 								& > ul.sub-menu {
-									left: 30px;
+									display: flex;
+									left: unset;
+									position: relative;
+									width: 100%;
+									background-color: var(--color-tertiary) !important;
+									top: 0;
+									box-shadow: none;
+
+									li.menu-item {
+										border-bottom: 1px solid var(--color-text);
+
+										a {
+											padding: 15px !important;
+											text-align: center;
+										}
+
+										&:last-of-type {
+											border: none;
+										}
+									}
+
+									&:before {
+										display: none;
+									}
 								}
 							}
 						}

@@ -29,7 +29,7 @@ if ($totalCount > 4) {
 ?>
 
 
-<div class="grid md-cols-1 cols-<?php echo $totalCount ?> gap-15 archive <?php echo $post_type ?> pt-60 animate w-100">
+<div class="grid md-cols-1 cols-<?php echo $totalCount ?> gap-15 archive <?php echo $post_type ?> pt-60  <?php echo $args['class']; ?> w-100">
 
 <?php
 

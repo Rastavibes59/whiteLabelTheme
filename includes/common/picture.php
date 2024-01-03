@@ -16,15 +16,15 @@ $args = wp_parse_args(
 ?>
 
 
-<img srcset="<?php echo esc_html($args['arbitrary_data']['picture']['sizes']['medium']); ?> 500w,
-             <?php echo esc_html($args['arbitrary_data']['picture']['sizes']['large']); ?> 1000w,
+<img srcset="<?php echo esc_html($args['arbitrary_data']['picture']['sizes']['medium']); ?> 480w,
+             <?php echo esc_html($args['arbitrary_data']['picture']['sizes']['large']); ?> 1024w,
              <?php echo esc_html($args['arbitrary_data']['picture']['url']); ?> 1920w"
      sizes="(max-width: 480px) 100vw, 
             (max-width: 1024px) 50vw, 
             33vw"
      src="<?php echo esc_html($args['arbitrary_data']['picture']['url']); ?>" alt="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
      title="<?php echo esc_html($args['arbitrary_data']['picture']['title']); ?>" 
-     class="<?php if ($args['arbitrary_data']['rounded'] == true) : ?>rounded<?php endif;?> light"
+     class="<?php if ($args['arbitrary_data']['rounded'] == true) : ?>rounded<?php endif;?> light <?php echo $args['class']; ?>"
      width="500px"
      height="400px"
      loading="lazy">

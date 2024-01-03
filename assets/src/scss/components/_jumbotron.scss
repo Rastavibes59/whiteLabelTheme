@@ -67,8 +67,11 @@
 	}
 
 	&.standard {
-		height: 350px;
+		height: 30rem;
 
+		@include screen(md) {
+			height: 150px !important;
+		}
 	}
 
 	&Lineup {
@@ -99,7 +102,7 @@
 
 	
 	@include screen(md) {
-		min-height: 80vh !important;
-		height: 100% !important;
+		//min-height: 80vh !important;
+		//height: 100% !important;
 	}
 }

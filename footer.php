@@ -30,15 +30,8 @@
                     );
                     ?>
 
-                    <div class="grid cols-4 md-cols-1 colspan-2 md-colspan-1">
-                        <p class="size-big text-center fw-bold colspan-2 md-colspan-1 align-center flex column justify-center align-center">S'inscrire à la Newsletter :</p>
-                        <?php echo do_shortcode('[contact-form-7 id="623" title="Inscription newsletter"]') ?>
-                    </div>
                 </div>
-                <div class="container flex column justify-flex-start align-center mt-15 mb-30">
-                    <p class="size-contactInfos fc-white text-center mb-0 size-formInfos">© <?php echo date("Y"); ?> - Association Productions du Jardin - autre festival electro dans la région : <a href="www.jardinelectronique.com" title="festival Jardin Électronique" target="_blank">www.jardinelectronique.com</a></a></p>
-                    <a href="<?php echo site_url('//mentions-legales/'); ?>" class="size-contactInfos fc-white text-center size-formInfos fw-regular">Mentions légales</a>
-                </div>
+
             </footer>
         <?php endif; ?>
         </div>

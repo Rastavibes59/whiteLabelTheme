@@ -18,7 +18,7 @@ $tab_content_count = 1;
 
 ?>
 
-<div class="tabs flex row justify-flex-start align-flex-end mt-30 mb-50">
+<div class="tabs flex row justify-flex-start align-flex-end mt-30 mb-50 <?php echo $args['class']; ?>">
     <?php foreach ($tabs as $tab) :  ?>
         <div class="tab flex row justify-flex-start align-flex-start">
             <input type="radio" name="group1" id="tab<?php echo $tab_count; ?>" <?php if($tab_count == 1) : ?>checked<?php endif; ?> />

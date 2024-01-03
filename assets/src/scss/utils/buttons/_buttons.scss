@@ -19,21 +19,21 @@
 
     @each $name, $hex in $colors {
         &.#{$name} {
-            background-color: var(--color-#{$name}) !important; 
+            background-color: var(--color-#{$name}) ; 
 
             &:hover {
                 background-color: #{var(--color-#{$name})}60;
             }
 
             &.revert {
-                background-color: white !important;
-                border-color: var(--color-#{$name}) !important;
-                color: var(--color-#{$name}) !important;
-                border: 2px solid !important;
+                background-color: white ;
+                border-color: var(--color-#{$name}) ;
+                color: var(--color-#{$name}) ;
+                border: 2px solid ;
     
                 &:hover {
-                    background-color: #{var(--color-#{$name})}50 !important;
-                    border-bottom-width: 4px !important;            
+                    background-color: #{var(--color-#{$name})}50 ;
+                    border-bottom-width: 4px ;            
                 }
             }
         }

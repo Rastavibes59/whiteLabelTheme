@@ -32,3 +32,25 @@ $args = wp_parse_args(
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+            $(document).ready(function() {
+                    if (Cookies.get('modal_shown') == null) {
+                        var modalToOpen = $('#cookieModal')
+                        openModal(modalToOpen);
+                        Cookies.set('modal_shown', true, {
+                            expires: 7
+                        })
+                    }
+                    var modals = $('.js-modal');
+
+                    modals.each(function() {
+                        var modal = $(this).parent('.modal-mask');
+
+                        $('.modal-mask:not(.modal), .modal-close').on('click', function() {
+                            closeModal(modal);
+                        })
+                    })
+            });
+
+</script>

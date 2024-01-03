@@ -7,7 +7,7 @@ h1 {
     color: var(--color-primary);
     
     @include screen(md) {
-        font-size: calc(var(--h1-size) * 0.7);
+        //font-size: calc(var(--h1-size) * 0.7);
     }
 }
 
@@ -18,8 +18,8 @@ h2 {
     line-height: 1;
 
     @include screen(md) {
-        font-size: calc(var(--h2-size) * 0.62);
-        text-align: center !important;
+        //font-size: calc(var(--h2-size) * 0.62);
+        //text-align: center !important;
     }
 }
 
@@ -30,8 +30,8 @@ h3 {
     line-height: 1.2;
 
     @include screen(md) {
-        font-size: calc(var(--h3-size) * 1.2);
-        text-align: center !important;
+        //font-size: calc(var(--h3-size) * 1.2);
+        //text-align: center !important;
     }
 }
 
@@ -42,8 +42,8 @@ h4 {
     line-height: 1.2;
 
     @include screen(md) {
-        font-size: calc(var(--h4-size) * 1.2);
-        text-align: center !important;
+        //font-size: calc(var(--h4-size) * 1.2);
+        //text-align: center !important;
     }
 }
 

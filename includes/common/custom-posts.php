@@ -38,8 +38,7 @@ if ($totalCount > 4) {
         $post_id = $post->ID;
         $post_type = $post->post_type;
 
-
-        
+        if (get_post_status($post_id) == 'publish') {
             get_template_part(
                 'includes/common/archive',
                 $post_type,
@@ -55,6 +54,11 @@ if ($totalCount > 4) {
                 )
             );
             $counter++;
+
+        }
+
+
+        
     };
     wp_reset_query();
 

@@ -58,6 +58,10 @@
 			  }
 		}
 		@include screen(md) {
+			height: 150px;
+			min-height: unset;
+			margin-top: 7rem !important;
+
 			&.video {
 				iframe, video {
 					display: none;
@@ -98,11 +102,5 @@
 		.grid {
 			display: grid !important;
 		}
-	}
-
-	
-	@include screen(md) {
-		//min-height: 80vh !important;
-		//height: 100% !important;
 	}
 }

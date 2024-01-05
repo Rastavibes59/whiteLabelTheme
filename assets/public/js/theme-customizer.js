@@ -46,6 +46,33 @@
 		} );
 	} );
 
+	// Headings colors
+
+	wp.customize( 'h1_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-h1", newval);
+		} );
+	} );
+
+	wp.customize( 'h2_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-h2", newval);
+		} );
+	} );
+
+	wp.customize( 'h3_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-h3", newval);
+		} );
+	} );
+
+	wp.customize( 'h4_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-h4", newval);
+		} );
+	} );
+
+
 	// Text sizes
 
 	wp.customize( 'h1_size', function( value ) {
@@ -102,6 +129,8 @@
 			$("html").get(0).style.setProperty("--nav-size", newval/10 + "rem");
 		} );
 	} );
+
+
 
 	// Section image
 

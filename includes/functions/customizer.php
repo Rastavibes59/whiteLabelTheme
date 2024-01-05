@@ -61,6 +61,8 @@ class whiteLabel_Customize
 
       //2. Register new Sections
 
+      /* TEXT SECTION */
+
       $wp_customize->add_section(
          'headings_section',
          array(
@@ -112,7 +114,8 @@ class whiteLabel_Customize
             'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
          )
       );
-      
+
+      /* SECTION DECORATION */
 
       $wp_customize->add_section(
          'before_deco_section',
@@ -135,6 +138,8 @@ class whiteLabel_Customize
             'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
          )
       );
+
+      /* FOOTER SECTION */
 
       $wp_customize->add_section(
          'right_footer_section',
@@ -332,6 +337,48 @@ class whiteLabel_Customize
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
             'sanitize_callback'  => 'wp_filter_nohtml_kses',
+         )
+      );
+
+      /* HEADINGS COLORS */
+
+      $wp_customize->add_setting(
+         'h1_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'    => '#000000', //Default setting/value to save
+            'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+
+      $wp_customize->add_setting(
+         'h2_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'    => '#000000', //Default setting/value to save
+            'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+
+      $wp_customize->add_setting(
+         'h3_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'    => '#000000', //Default setting/value to save
+            'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         )
+      );
+
+      $wp_customize->add_setting(
+         'h4_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'    => '#000000', //Default setting/value to save
+            'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
          )
       );
 
@@ -659,6 +706,51 @@ class whiteLabel_Customize
          ) ) 
       );
 
+      /* HEADINGS COLOR */
+
+      $wp_customize->add_control(new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'h1_color', //Set a unique ID for the control
+         array(
+            'label'      => __('Couleur des titres de niveau 1', 'whiteLabel'), //Admin-visible name of the control
+            'settings'   => 'h1_color', //Which setting to load and manipulate (serialized is okay)
+            'priority'   => 10, //Determines the order this control appears in for the specified section
+            'section'    => 'headings_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+         )
+      ));
+
+      $wp_customize->add_control(new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'h2_color', //Set a unique ID for the control
+         array(
+            'label'      => __('Couleur des titres de niveau 2', 'whiteLabel'), //Admin-visible name of the control
+            'settings'   => 'h2_color', //Which setting to load and manipulate (serialized is okay)
+            'priority'   => 10, //Determines the order this control appears in for the specified section
+            'section'    => 'headings_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+         )
+      ));
+
+      $wp_customize->add_control(new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'h3_color', //Set a unique ID for the control
+         array(
+            'label'      => __('Couleur des titres de niveau 3', 'whiteLabel'), //Admin-visible name of the control
+            'settings'   => 'h3_color', //Which setting to load and manipulate (serialized is okay)
+            'priority'   => 10, //Determines the order this control appears in for the specified section
+            'section'    => 'headings_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+         )
+      ));
+
+      $wp_customize->add_control(new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'h4_color', //Set a unique ID for the control
+         array(
+            'label'      => __('Couleur des titres de niveau 4', 'whiteLabel'), //Admin-visible name of the control
+            'settings'   => 'h4_color', //Which setting to load and manipulate (serialized is okay)
+            'priority'   => 10, //Determines the order this control appears in for the specified section
+            'section'    => 'headings_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+         )
+      ));
 
       /* COORDINATES */
 
@@ -803,6 +895,10 @@ $wp_customize->add_control(
       $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h1_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h2_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h3_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h4_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage';
       $wp_customize->get_setting( 'h2_size' )->transport = 'postMessage';
       $wp_customize->get_setting( 'h3_size' )->transport = 'postMessage';
@@ -838,6 +934,10 @@ $wp_customize->add_control(
             --color-fourth: <?php echo get_theme_mod('fourth_color', '#000000'); ?>;
             --color-fifth: <?php echo get_theme_mod('fifth_color', '#000000'); ?>;
             --color-text: <?php echo get_theme_mod('text_color', '#000000'); ?>;
+            --color-h1: <?php echo get_theme_mod('h1_color', get_theme_mod('text_color', '#000000')); ?>;
+            --color-h2: <?php echo get_theme_mod('h2_color', get_theme_mod('text_color', '#000000')); ?>;
+            --color-h3: <?php echo get_theme_mod('h3_color', get_theme_mod('text_color', '#000000')); ?>;
+            --color-h4: <?php echo get_theme_mod('h4_color', get_theme_mod('text_color', '#000000')); ?>;
             --h1-size: <?php echo get_theme_mod('h1_size', '82') / 10; ?>rem;
             --h2-size: <?php echo get_theme_mod('h2_size', '62') / 10; ?>rem;
             --h3-size: <?php echo get_theme_mod('h3_size', '27') / 10; ?>rem;

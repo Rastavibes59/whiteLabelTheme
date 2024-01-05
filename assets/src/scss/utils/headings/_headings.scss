@@ -4,7 +4,7 @@ h1 {
     line-height: 0.9;
     letter-spacing: 0.1rem;
     font-weight: map-get($font-weights,  900);
-    color: var(--color-primary);
+    color: var(--color-h1);
 }
 
 h2 {
@@ -12,6 +12,8 @@ h2 {
     font-size: var(--h2-size);
     font-weight: map-get($font-weights,  900);
     line-height: 1;
+    color: var(--color-h2);
+
 }
 
 h3 {
@@ -19,6 +21,8 @@ h3 {
     font-size: var(--h3-size);
     font-weight: map-get($font-weights,  700);
     line-height: 1.2;
+    color: var(--color-h3);
+
 }
 
 h4 {
@@ -26,6 +30,8 @@ h4 {
     font-size: var(--h4-size);
     font-weight: map-get($font-weights,  700);
     line-height: 1.2;
+    color: var(--color-h4);
+
 }
 
 .smallTitle {

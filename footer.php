@@ -18,9 +18,12 @@
 
 
         </div>
-        <?php if (!is_page(1317)) : ?>
+        <?php             
+            $rightFooterContent = get_theme_mod('right_footer_content', 'Hello World !');
+            $bottomFooterContent = get_theme_mod('bottom_footer_content', 'Réalisation : <a href="https://www.ateliers-art-strong.fr" target="_blank" title="Ateliers Art-Strong">Ateliers Art-Strong</a>');
+            ?>
             <footer class="footer pt-60 pb-60">
-                <div class="container grid cols-4 md-cols-1 gap-10 xs-pt-30">
+                <div class="container grid cols-4 md-cols-1 gap-30 xs-pt-30">
                     <?php
                     wp_nav_menu(
                         array(
@@ -29,11 +32,22 @@
                         )
                     );
                     ?>
-
+                    <?php if(strlen($rightFooterContent) > 0) : ?>
+                    <div class="flex column justify-center align-flex-start colspan-2 md-colspan-1">
+                        <p class="size-big text-center fw-bold align-center flex column justify-center align-flex-start">S'inscrire à la Newsletter :</p>
+                        <?php if($rightFooterContent[0] == '[' && $rightFooterContent[strlen($rightFooterContent) - 1] == ']') {
+                            echo do_shortcode($rightFooterContent);
+                        } else {
+                            echo $rightFooterContent;
+                        } ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
-
+                <div class="container flex column justify-flex-start align-center mt-15 mb-30">
+                    <p id="bottomFooterSection" class="size-contactInfos fc-white text-center mb-0 size-formInfos"><?php echo $bottomFooterContent; ?></p>
+                    <a href="<?php echo site_url('//mentions-legales/'); ?>" class="size-contactInfos fc-white text-center size-formInfos fw-regular">Mentions légales</a>
+                </div>
             </footer>
-        <?php endif; ?>
         </div>
 
         <!-- SECTION MODALS -->

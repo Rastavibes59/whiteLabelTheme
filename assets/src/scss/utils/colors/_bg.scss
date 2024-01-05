@@ -9,7 +9,8 @@
             position: absolute;
             display: block;
             width: 101vw;
-            height: 6rem;
+            max-height: 7rem;
+            height: 100%;
             bottom: calc(100% - 1px);
             left: 0;
             background-position: center bottom;
@@ -24,8 +25,7 @@
             -webkit-mask-size: contain;
     
             @include screen(md) {
-                width: 100vw;
-                height: 6.2rem;
+                width: 111vw;
             }
         }    
     
@@ -33,8 +33,8 @@
             content: "";
             position: absolute;
             display: block;
-            width: 101vw;
-            height: 6rem;
+            max-height: 7rem;
+            height: 100%;
             top: calc(100% - 1px);
             left: 0;
             background-position: center bottom;
@@ -47,6 +47,11 @@
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: center bottom;
             -webkit-mask-size: contain;
+
+            @include screen(md) {
+                width: 111vw;
+            }
+
         }    
     }
 
@@ -137,17 +142,7 @@ section {
             left: 0;
         }
     }
-
-    &.bg-tertiary {
-        color: var(--color-primary);
-    }
 }
-
-
-
-
-
-
 
   @for $i from 0 through 10 {
     .opacity-#{$i}0 {

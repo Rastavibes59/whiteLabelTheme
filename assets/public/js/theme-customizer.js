@@ -6,7 +6,8 @@
  */
 ( function( $ ) {
 
-	// Update the site title in real time...
+	// Theme colors
+
 	wp.customize( 'primary_color', function( value ) {
 		value.bind( function( newval ) {
 			$("html").get(0).style.setProperty("--color-primary", newval);
@@ -44,6 +45,8 @@
 
 		} );
 	} );
+
+	// Text sizes
 
 	wp.customize( 'h1_size', function( value ) {
 		value.bind( function( newval ) {
@@ -99,7 +102,9 @@
 			$("html").get(0).style.setProperty("--nav-size", newval/10 + "rem");
 		} );
 	} );
-	// Footer image
+
+	// Section image
+
 	wp.customize('section_before', function (value) {
 		value.bind(function (newval) {
 			$("section::before").css("background-image", "url(" + newval + ")");
@@ -112,5 +117,20 @@
 			$("html").get(0).style.setProperty("--after-image", "url(" + newval + ")");
 		});
 	});
+
+
+	// Footer content
+
+	wp.customize('bottom_footer_content', function (value) {
+		value.bind(function (newval) {
+			$("#bottomFooterSection").html(newval);
+		});
+	});
+	wp.customize('bottom_footer_content', function (value) {
+		value.bind(function (newval) {
+			$("#bottomFooterSection").html(newval);
+		});
+	});
+
 
 } )( jQuery );

@@ -47,6 +47,18 @@ class whiteLabel_Customize
          )
       );
 
+      $wp_customize->add_panel(
+         'footer_panel',
+         array(
+            'title'           => __('Pied de page'),
+            'description'     => esc_html__('Permet de modifier le contenu du pied de page du site'), // Include html tags such as 
+            'priority'        => 162, // Not typically needed. Default is 160
+            'capability'      => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+            'theme_supports'  => '', // Rarely needed
+            'active_callback' => '', // Rarely needed
+         )
+      );
+
       //2. Register new Sections
 
       $wp_customize->add_section(
@@ -119,6 +131,28 @@ class whiteLabel_Customize
             'title'        => __('Décoration après les sections'),
             'panel'        => 'section_panel',
             'description'  => esc_html__('Permet l\'ajout d\'un élément visuel après chaque section'),
+            'priority'     => 160, // Not typically needed. Default is 160
+            'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+         )
+      );
+
+      $wp_customize->add_section(
+         'right_footer_section',
+         array(
+            'title'        => __('Contenu de la section de droite du footer'),
+            'panel'        => 'footer_panel',
+            'description'  => esc_html__('Permet de modifier le contenu de la section de droite du footer'),
+            'priority'     => 160, // Not typically needed. Default is 160
+            'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+         )
+      );
+
+      $wp_customize->add_section(
+         'bottom_footer_section',
+         array(
+            'title'        => __('Contenu de la section du bas du footer'),
+            'panel'        => 'footer_panel',
+            'description'  => esc_html__('Permet de modifier le contenu de la section du bas du footer'),
             'priority'     => 160, // Not typically needed. Default is 160
             'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
          )
@@ -325,9 +359,9 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_setting(
-         'map_title', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         'hq_address', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default'            => 'Jardin électronique', //Default setting/value to save
+            'default'            => '1 Bd des Cités Unies, 59800 LILLE', //Default setting/value to save
             'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -336,9 +370,9 @@ class whiteLabel_Customize
       );
 
       $wp_customize->add_setting(
-         'map_address', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         'phone_number', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default'            => '1 Bd des Cités Unies, 59800 LILLE', //Default setting/value to save
+            'default'            => '+33 (0)1 23 45 67 89', //Default setting/value to save
             'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
             'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
             'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
@@ -369,6 +403,30 @@ class whiteLabel_Customize
             'sanitize_callback'  => 'wp_filter_nohtml_kses',
          )
       );
+
+      /* FOOTER */
+
+      $wp_customize->add_setting(
+         'right_footer_content', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => 'hello world', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_kses_post',
+         )
+      );
+      $wp_customize->add_setting(
+         'bottom_footer_content', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default'            => 'Réalisation : <a href="https://www.ateliers-art-strong.fr" target="_blank" title="Ateliers Art-Strong">Ateliers Art-Strong</a>', //Default setting/value to save
+            'type'               => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+            'capability'         => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+            'transport'          => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+            'sanitize_callback'  => 'wp_kses_post',
+         )
+      );
+
 
 
       //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
@@ -637,10 +695,10 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_control(
-         'map_title',
+         'hq_address',
          array(
-            'label' => __('Titre'),
-            'description' => esc_html__('Le titre pour la popup'),
+            'label' => __('Adresse'),
+            'description' => esc_html__('L\'adresse du siège social'),
             'section' => 'coordinates_section',
             'priority' => 11, // Optional. Order priority to load the control. Default: 10
             'type' => 'text', // Can be either text, email, url, number, hidden, or date
@@ -653,10 +711,10 @@ class whiteLabel_Customize
          )
       );
       $wp_customize->add_control(
-         'map_address',
+         'phone_number',
          array(
-            'label' => __('Adresse'),
-            'description' => esc_html__('L\'adresse écrite pour la popup'),
+            'label' => __('Téléphone'),
+            'description' => esc_html__('Le numéro de téléphone du siège social'),
             'section' => 'coordinates_section',
             'priority' => 11, // Optional. Order priority to load the control. Default: 10
             'type' => 'text', // Can be either text, email, url, number, hidden, or date
@@ -702,15 +760,59 @@ class whiteLabel_Customize
             )
       )
   );
+   /* FOOTER */
+
+   $wp_customize->add_control(
+   'right_footer_content',
+   array(
+      'label' => __('Contenu de la section'),
+      'description' => esc_html__('Le contenu qui sera affiché dans la section droite du footer'),
+      'section' => 'right_footer_section',
+      'priority' => 10, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'class' => 'admin-fontsize',
+         'style' => 'border: 1px solid rebeccapurple',
+         'placeholder' => __('Ex : Hello World'),
+      ),
+   )
+);
+$wp_customize->add_control(
+   'bottom_footer_content',
+   array(
+      'label' => __('Contenu de la section'),
+      'description' => esc_html__('Le contenu qui sera affiché dans la section basse du footer'),
+      'section' => 'bottom_footer_section',
+      'priority' => 11, // Optional. Order priority to load the control. Default: 10
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+      'input_attrs' => array( // Optional.
+         'class' => 'admin-fontsize',
+         'style' => 'border: 1px solid rebeccapurple',
+         'placeholder' => __('Ex : Réalisation : <a href="https://www.ateliers-art-strong.fr" target="_blank" title="Ateliers Art-Strong">Ateliers Art-Strong</a>'),
+      ),
+   )
+);
+
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      /* $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'secondary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'tertiary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage'; */
+      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h2_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h3_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h4_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'text_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'btn_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'big_btn_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'menu_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'right_footer_content' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'bottom_footer_content' )->transport = 'postMessage';
    }
 
    /**
@@ -762,18 +864,18 @@ class whiteLabel_Customize
             font-display: swap;
          }
       </style>
-      <!--/Customizer CSS-->
+      <!--/Customizer CSS -->
 
-      <!--Customizer MAP-->
+      <!--Customizer MAP -->
 
       <script>
          var mapLattitude = <?php echo get_theme_mod('map_lattitude', 50.6323447); ?>;
          var mapLongitude = <?php echo get_theme_mod('map_longitude', 3.0920238); ?>;
-         var mapPopupTitle = "<?php echo get_theme_mod('map_title', 'Jardin électronique'); ?>";
-         var mapPopupText = "<?php echo get_theme_mod('map_address', '1 Bd des Cités Unies, 59800 LILLE'); ?>";
+         var mapPopupTitle = "<?php echo get_theme_mod('hq_address', 'Jardin électronique'); ?>";
+         var mapPopupText = "<?php echo get_theme_mod('phone_number', '1 Bd des Cités Unies, 59800 LILLE'); ?>";
       </script>
 
-      <!--/Customizer MAP-->
+      <!--/Customizer MAP -->
 
 <?php
    }

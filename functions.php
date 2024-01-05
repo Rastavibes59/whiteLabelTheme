@@ -192,6 +192,9 @@ function marcel_get_the_form_title($form_id)
 
 add_filter('wpcf7_autop_or_not', '__return_false');
 
+/* FIX PREVIEW MODE */
+
+require_once(get_template_directory() . '/includes/functions/preview-fix.php');
 
 
 /* WP OPTIMIZE */

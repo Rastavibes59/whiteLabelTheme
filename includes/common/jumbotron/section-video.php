@@ -17,7 +17,7 @@ $args = wp_parse_args(
 ?>
 <section class="<?php echo $args['class'] ?>">
     <video id="background-video" autoplay loop muted poster="">
-    <source src="<?php echo $args['arbitrary_data']['background'] ?>" type="video/mp4">
+      <source src="<?php echo $args['arbitrary_data']['background'] ?>" type="video/mp4">
     </video>
 </section>
 
@@ -26,8 +26,8 @@ $(document).ready(function(){
   var screenWidth = $(window).width();
   // if window width is smaller than 800 remove the autoplay attribute
   // from the video
-  if (screenWidth < 800){
-        $('video').removeAttr('autoplay');
+  if (screenWidth < 1024){
+        $('video').remove();
   } else {
     $('video').attr('autoplay');
   }

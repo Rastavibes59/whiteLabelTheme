@@ -797,13 +797,22 @@ $wp_customize->add_control(
 
 
       //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
-      /* $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'primary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'secondary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'tertiary_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fourth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'fifth_color' )->transport = 'postMessage';
       $wp_customize->get_setting( 'text_color' )->transport = 'postMessage';
-      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage'; */
+      $wp_customize->get_setting( 'h1_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h2_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h3_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'h4_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'text_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'btn_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'big_btn_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'menu_size' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'right_footer_content' )->transport = 'postMessage';
+      $wp_customize->get_setting( 'bottom_footer_content' )->transport = 'postMessage';
    }
 
    /**
@@ -865,13 +874,6 @@ $wp_customize->add_control(
          var mapPopupTitle = "<?php echo get_theme_mod('hq_address', 'Jardin électronique'); ?>";
          var mapPopupText = "<?php echo get_theme_mod('phone_number', '1 Bd des Cités Unies, 59800 LILLE'); ?>";
       </script>
-
-      <?php
-         $mapLattitude = get_theme_mod('map_lattitude', 50.6323447);
-         $mapLongitude = get_theme_mod('map_longitude', 3.0920238);
-         $mapPopupTitle = get_theme_mod('hq_address', 'Jardin électronique');
-         $mapPopupText = get_theme_mod('phone_number', '1 Bd des Cités Unies, 59800 LILLE');
-      ?>
 
       <!--/Customizer MAP -->
 

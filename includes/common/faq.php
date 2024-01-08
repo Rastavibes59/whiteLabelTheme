@@ -20,10 +20,12 @@ $faqs = $args['arbitrary_data']['faq'];
 foreach ($faqs as $faq) : 
 ?>
 
-<div class="flex column justify-flex-start align-flex-start faq collapsed w-100p">
-    <p class="mb-0 ml-15 upperCase"><strong><?php echo $faq['question'] ?></strong></p>
-    <div class="faq-answer flex column justify-flex-start align-flex-start w-100p">
-    <?php echo $faq['reponse'] ?>
+<div class="flex column justify-flex-start align-flex-start faq collapsed w-100">
+    <div class="faq-question flex column justify-flex-start align-flex-start w-100">
+        <?php echo $faq['question'] ?>
+    </div>
+    <div class="faq-answer flex column justify-flex-start align-flex-start w-100">
+        <?php echo $faq['reponse'] ?>
     </div>
 </div>
 

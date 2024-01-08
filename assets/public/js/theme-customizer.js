@@ -121,10 +121,9 @@
 
 	// Footer content
 
-	wp.customize('section_before', function (value) {
+	wp.customize('bottom_footer_content', function (value) {
 		value.bind(function (newval) {
-			$("section::before").css("background-image", "url(" + newval + ")");
-			$("html").get(0).style.setProperty("--before-image", "url(" + newval + ")");
+			$("#bottomFooterSection").html(newval);
 		});
 	});
 	wp.customize('bottom_footer_content', function (value) {

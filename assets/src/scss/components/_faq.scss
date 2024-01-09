@@ -6,26 +6,59 @@
     overflow: hidden;
     cursor: pointer;
 
-    & > p {
-        min-height: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+    &-question {
+        padding: 1rem 1rem 1rem 3rem;
+        position: relative;
+        z-index: 1;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        line-height: 1.5;
+        @extend %animateAllFast;
+
+        p {
+            margin: 0 !important;
+        }
     }
 
-
     &-answer {
+        padding: 1rem 1rem 1rem 3rem;
         overflow: hidden;
         background-color: white;
         @extend %animateAllFast;
+        transform:scaleY(1);
+        transform-origin: top;
         color: var(--color-fifth);
-        height: auto;
+        max-height: 100rem;
+    }
+
+    &::before {
+        border-style: solid;
+        border-width: 0.25em 0.25em 0 0;
+        content: '';
+        display: inline-block;
+        height: 0.45em;
+        right: 1rem;
+        position: absolute;
+        top: 1em;
+        transform: rotate(-45deg);
+        vertical-align: top;    
+        width: 0.45em;
+        @extend %animateAllFast;
+
     }
 
     &.collapsed {
+        &:before {
+            top: 1.15rem;
+            transform: rotate(135deg);
+        }
+
         .faq-answer {
-            height: 0;
+            transform:scaleY(0);
+            max-height: 0;
+            padding: 0;
         }
     }
 }

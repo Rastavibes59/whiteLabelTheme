@@ -13,3 +13,30 @@ img {
     }
 
 }
+
+
+.linkPicture {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--color-fifth);
+        opacity: 0;
+        @extend %animateAll;
+        z-index: 1;
+    }
+
+
+    &:hover {
+        &::before {
+            opacity: 0.5;
+        }
+    }
+}

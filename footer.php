@@ -1,6 +1,6 @@
         <!-- SECTION BREADCRUMBS -->
 
-        <?php if (!is_front_page()) : ?>
+        <?php if (!is_front_page() && function_exists('yoast_breadcrumb')) : ?>
 
             <?php
             $isJumbo = false;

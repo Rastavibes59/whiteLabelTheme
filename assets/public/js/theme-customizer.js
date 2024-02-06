@@ -46,6 +46,27 @@
 		} );
 	} );
 
+	// Header behavior
+
+	wp.customize( 'fixed_header', function( value ) {
+		value.bind( function( newval ) {
+			newval == true ? $(".header").addClass("fixed") : $(".header").removeClass("fixed");
+		} );
+	} );
+
+	wp.customize( 'shrinked_header', function( value ) {
+		value.bind( function( newval ) {
+			newval == true ? $(".header").addClass("shrink") : $(".header").removeClass("shrink");
+		} );
+	} );
+
+	wp.customize( 'transparent_header', function( value ) {
+		value.bind( function( newval ) {
+			newval == true ? $(".header").addClass("transparentNav") : $(".header").removeClass("transparentNav");
+		} );
+	} );
+
+
 	// Headings colors
 
 	wp.customize( 'h1_color', function( value ) {
@@ -69,6 +90,30 @@
 	wp.customize( 'h4_color', function( value ) {
 		value.bind( function( newval ) {
 			$("html").get(0).style.setProperty("--color-h4", newval);
+		} );
+	} );
+
+	wp.customize( 'nav_text_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-nav-text", newval);
+		} );
+	} );
+
+	wp.customize( 'footer_text_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-footer-text", newval);
+		} );
+	} );
+
+	wp.customize( 'nav_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-nav", newval);
+		} );
+	} );
+
+	wp.customize( 'footer_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-footer", newval);
 		} );
 	} );
 
@@ -129,6 +174,23 @@
 			$("html").get(0).style.setProperty("--nav-size", newval/10 + "rem");
 		} );
 	} );
+
+	/* Logo */
+
+	wp.customize( 'logo_width', function( value ) {
+		value.bind( function( newval ) {
+			$(".header.scrolled .custom-logo-link img, .header .custom-logo-link svg").css("width", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--logo-width", newval/10 + "rem");
+		} );
+	} );
+
+	wp.customize( 'logo_height', function( value ) {
+		value.bind( function( newval ) {
+			$(".header.scrolled .custom-logo-link img, .header .custom-logo-link svg").css("height", newval/10 + "rem");
+			$("html").get(0).style.setProperty("--logo-height", newval/10 + "rem");
+		} );
+	} );
+
 
 
 

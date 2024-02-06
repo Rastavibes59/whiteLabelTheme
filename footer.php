@@ -21,7 +21,7 @@
         <?php             
             $rightFooterContent = get_theme_mod('right_footer_content', 'Hello World !');
             $bottomFooterContent = get_theme_mod('bottom_footer_content', 'Réalisation : <a href="https://www.ateliers-art-strong.fr" target="_blank" title="Ateliers Art-Strong">Ateliers Art-Strong</a>');
-            ?>
+        ?>
             <footer class="footer pt-60 pb-60">
                 <div class="container grid cols-4 md-cols-1 gap-30 xs-pt-30">
                     <?php
@@ -44,8 +44,8 @@
                     <?php endif; ?>
                 </div>
                 <div class="container flex column justify-flex-start align-center mt-15 mb-30">
-                    <p id="bottomFooterSection" class="size-contactInfos fc-white text-center mb-0 size-formInfos"><?php echo $bottomFooterContent; ?></p>
-                    <a href="<?php echo site_url('//mentions-legales/'); ?>" class="size-contactInfos fc-white text-center size-formInfos fw-regular">Mentions légales</a>
+                    <p id="bottomFooterSection" class="size-contactInfos  text-center mb-0 size-formInfos"><?php echo $bottomFooterContent; ?></p>
+                    <a href="<?php echo site_url('//mentions-legales/'); ?>" class="size-contactInfos  text-center size-formInfos fw-regular">Mentions légales</a>
                 </div>
             </footer>
         </div>

@@ -8,10 +8,15 @@
 
     </head>
 
+    <?php             
+            $fixedHeader = get_theme_mod('fixed_header', true) == true ? 'fixed' : '';
+            $shrinkedHeader = get_theme_mod('shrinked_header', true) == true ? 'shrink' : '';
+            $transparentHeader = get_theme_mod('transparent_header', true) == true ? 'transparentNav' : '';
+        ?>
+
     <body <?php if ( !is_front_page() ) { body_class( 'noJumbo' ); } else { body_class(); } ?>>
         <div class="mainContainer">
-        <?php if(!is_page(1317)) : ?>
-            <header class="header">
+            <header class="header pt-10 pb-10 <?php echo $fixedHeader . ' ' . $shrinkedHeader . ' ' . $transparentHeader; ?>">
                 <div class="container flex row align-center justify-space-between">
                     <?php if ( function_exists( 'the_custom_logo' ) ) {
                         the_custom_logo();
@@ -27,7 +32,6 @@
                     </nav>
                 </div>
             </header>
-        <?php endif; ?>
         <?php
             $args = array(
                 'post_type' => 'reseau',

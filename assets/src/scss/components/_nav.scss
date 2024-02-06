@@ -126,7 +126,7 @@ body.admin-bar {
 					max-width: 250px;
 
 					&.current-menu-parent {
-						color: var(--color-tertiary);
+						color: var(--color-nav-text-hover);
 					}
 
 					&.menu-item-has-children {
@@ -134,7 +134,7 @@ body.admin-bar {
 							pointer-events: none;
 						}
 						&:hover {
-							color: var(--color-primary);
+							color: var(--color-nav-text-hover);
 							a {
 								font-weight: $light;
 							}
@@ -156,7 +156,7 @@ body.admin-bar {
 
 						&:hover {
 							text-decoration: none;
-							color: var(--color-secondary) !important;
+							color: var(--color-nav-text-hover) !important;
 							font-weight: $semiBold;
 						}
 
@@ -205,7 +205,7 @@ body.admin-bar {
 
 								&:hover {
 									background-color: var(
-										--color-secondary
+										--color-nav-text-hover
 									);
 									color: white;
 								}
@@ -225,7 +225,7 @@ body.admin-bar {
 
 					&:hover {
 						&:not(.iconLinks-item) {
-							color: var(--color-primary);
+							color: var(--color-nav-text-hover);
 
 
 							& > ul.sub-menu {
@@ -241,17 +241,19 @@ body.admin-bar {
 						&:not(.iconLinks-item) {
 							& > a {
 								font-weight: $bold ;
+								color: var(--color-nav-text-hover) !important;
 							}
 
 							a {
 								font-weight: $bold ;
+								color: var(--color-nav-text-hover) !important;
 							}
 						}
 
 						&.iconLinks-item {
 							a {
 								svg path {
-									fill: var(--color-primary) !important;
+									fill: var(--color-nav-text) !important;
 								}
 							}
 						}

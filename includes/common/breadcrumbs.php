@@ -15,7 +15,7 @@ $args = wp_parse_args(
 
 
 
-<section class="breadcrumbs pt-15 pb-15 bg-white">
+<section class="breadcrumbs pt-15 pb-15 bg-tertiary">
     <?php
     if (function_exists('yoast_breadcrumb')) {
         yoast_breadcrumb('<div class="container">', '</div>');

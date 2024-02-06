@@ -99,6 +99,12 @@
 		} );
 	} );
 
+	wp.customize( 'nav_text_hover_color', function( value ) {
+		value.bind( function( newval ) {
+			$("html").get(0).style.setProperty("--color-nav-text-hover", newval);
+		} );
+	} );
+
 	wp.customize( 'footer_text_color', function( value ) {
 		value.bind( function( newval ) {
 			$("html").get(0).style.setProperty("--color-footer-text", newval);

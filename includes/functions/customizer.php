@@ -568,6 +568,16 @@ class whiteLabel_Customize
             );
 
             $wp_customize->add_setting(
+                'nav_text_hover_color', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+                array(
+                    'default'    => '#000000', //Default setting/value to save
+                    'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+                    'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+                    'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+                )
+            );
+
+            $wp_customize->add_setting(
                 'menu_size', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
                 array(
                 'default'            => '16', //Default setting/value to save
@@ -679,6 +689,17 @@ class whiteLabel_Customize
                 array(
                     'label'      => __('Couleur du texte', 'whiteLabel'), //Admin-visible name of the control
                     'settings'   => 'nav_text_color', //Which setting to load and manipulate (serialized is okay)
+                    'priority'   => 10, //Determines the order this control appears in for the specified section
+                    'section'    => 'layout_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                )
+            ));
+
+            $wp_customize->add_control(new WP_Customize_Color_Control( //Instantiate the color control class
+                $wp_customize, //Pass the $wp_customize object (required)
+                'whiteLabel_nav_text_hover_color', //Set a unique ID for the control
+                array(
+                    'label'      => __('Couleur du texte au survol / lien actif', 'whiteLabel'), //Admin-visible name of the control
+                    'settings'   => 'nav_text_hover_color', //Which setting to load and manipulate (serialized is okay)
                     'priority'   => 10, //Determines the order this control appears in for the specified section
                     'section'    => 'layout_section', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
                 )
@@ -1309,6 +1330,7 @@ public static function header_output()
             --color-h3: <?php echo get_theme_mod('h3_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-h4: <?php echo get_theme_mod('h4_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-nav-text: <?php echo get_theme_mod('nav_text_color', get_theme_mod('text_color', '#000000')); ?>;
+            --color-nav-text-hover: <?php echo get_theme_mod('nav_text_hover_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-footer-text: <?php echo get_theme_mod('footer_text_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-nav: <?php echo get_theme_mod('nav_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-footer: <?php echo get_theme_mod('footer_color', get_theme_mod('text_color', '#000000')); ?>;

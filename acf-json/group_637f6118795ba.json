@@ -100,11 +100,13 @@
                                 "primary": "Couleur principale",
                                 "secondary": "Couleur secondaire",
                                 "tertiary": "Couleur tertiaire",
+                                "fourth": "Quatrième Couleur",
+                                "fifth": "Cinquieme couleur",
                                 "white": "Blanc",
                                 "transparent": "Transparent"
                             },
                             "default_value": false,
-                            "return_format": "",
+                            "return_format": "value",
                             "multiple": 0,
                             "allow_null": 0,
                             "ui": 0,
@@ -171,6 +173,60 @@
                             "max_size": "",
                             "mime_types": "",
                             "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_65c27fabe746a",
+                            "label": "Ajouter un masque devant l'image",
+                            "name": "section_mask",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_637f611bd3eaa",
+                                        "operator": "==",
+                                        "value": "picture"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_65c27fe1e746b",
+                            "label": "Couleur du mask",
+                            "name": "section_mask_color",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_637f611bd3eaa",
+                                        "operator": "==",
+                                        "value": "picture"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 1,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_637f611bd3f4e",
@@ -940,5 +996,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698305697
+    "modified": 1707246141
 }

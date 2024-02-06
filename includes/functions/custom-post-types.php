@@ -2,7 +2,7 @@
 
 /* CUSTOM POST TYPE : programmation */
 
-function programmation_post_type() {
+/* function programmation_post_type() {
     $args = array(
         'labels' => array(
             'name' => 'Programmation',
@@ -19,19 +19,19 @@ function programmation_post_type() {
 
     register_post_type('programmation', $args);
 }
-add_action('init', 'programmation_post_type');
+add_action('init', 'programmation_post_type'); */
 
 //  CATEGORIES
 
-function programmation_cat() {
+/* function programmation_cat() {
     register_taxonomy_for_object_type('category','programmation');
 }
-add_action('init', 'programmation_cat');
+add_action('init', 'programmation_cat'); */
 
 
 /* CUSTOM POST TYPE : BILLETERIE */
 
-function billetterie_post_type() {
+/* function billetterie_post_type() {
     $args = array(
         'labels' => array(
             'name' => 'Billetterie',
@@ -48,11 +48,11 @@ function billetterie_post_type() {
 
     register_post_type('billetterie', $args);
 }
-add_action('init', 'billetterie_post_type');
+add_action('init', 'billetterie_post_type'); */
 
 /* CUSTOM POST TYPE : RECRUTEMENT */
 
-function jobs_post_type() {
+/* function jobs_post_type() {
     $args = array(
         'labels' => array(
             'name' => 'Recrutement',
@@ -69,14 +69,14 @@ function jobs_post_type() {
 
     register_post_type('recrutement', $args);
 }
-add_action('init', 'jobs_post_type');
+add_action('init', 'jobs_post_type'); */
 
 //  CATEGORIES
 
-function job_cat() {
+/* function job_cat() {
     register_taxonomy_for_object_type('category','recrutement');
 }
-add_action('init', 'job_cat');
+add_action('init', 'job_cat'); */
 
 
 /* CUSTOM POST TYPE : Réseaux sociaux */
@@ -104,7 +104,7 @@ add_action('init', 'reseau_post_type');
 
 /* CUSTOM POST TYPE : PARTENAIRES */
 
-function partenaires_post_type() {
+/* function partenaires_post_type() {
     $args = array(
         'labels' => array(
             'name' => 'Partenaires',
@@ -121,7 +121,7 @@ function partenaires_post_type() {
 
     register_post_type('partenaires', $args);
 }
-add_action('init', 'partenaires_post_type');
+add_action('init', 'partenaires_post_type'); */
 
 /* CUSTOM POST TYPE : MODALS */
 

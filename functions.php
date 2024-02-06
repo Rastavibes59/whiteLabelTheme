@@ -152,6 +152,10 @@ require_once(get_template_directory() . '/includes/functions/custom-mime-types.p
 
 require_once(get_template_directory() . '/includes/functions/excerpt-length.php');
 
+/* CUSTOM POST TYPES */
+
+require_once(get_template_directory() . '/includes/functions/custom-post-types.php');
+
 /* SHORTCODES */
 
 require_once(get_template_directory() . '/includes/functions/shortcodes.php');

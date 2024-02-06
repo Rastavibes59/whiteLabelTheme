@@ -22,10 +22,14 @@
                         'video'         => get_field('video'),
                         'mobile_placeholder' => get_field('image_mobile'),
                         'mask_color'    => get_field('mask_color'),
+                        'section_mask'    => get_field('section_mask'),
+                        'section_mask_color'    => get_field('section_mask_color')
+        
                     ),
                 )
             );
         ?>
+
 
         <!-- SECTION BUILDER -->
 
@@ -41,6 +45,8 @@
                 $background_type = get_sub_field('background_type');
                 $section_number++;
 
+                
+
                 if ($background_type == 'color') :
                     $couleur_de_fond = get_sub_field('couleur_de_fond');
                     $actual_section = get_sub_field('couleur_de_fond');
@@ -51,15 +57,28 @@
 
                 $title = get_sub_field('title'); 
                 $decorated = get_sub_field('decorated');
+                $sectionMask = get_sub_field('section_mask');
+                $sectionMaskColor = get_sub_field('section_mask_color');
                 ?>
+
+                        <?php if ($sectionMask = true) : ?>
+                            <style>
+
+                                #section-<?php echo $section_number; ?>::before {
+                                    background-color: <?php echo $sectionMaskColor; ?> !important;
+                                }
+                            </style>
+
+                        <?php endif; ?>
         
-                    <section class="
-                            <?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> 
-                            bg-<?php echo $background_type; ?> 
-                            <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
-                            <?php if ($decorated == true) : ?>decorated<?php endif;?>
-                            md-pt-30 md-pb-30 "
-                            <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>
+                    <section    id="section-<?php echo $section_number ?>"
+                                class="
+                                <?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> 
+                                bg-<?php echo $background_type; ?> 
+                                <?php if ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
+                                <?php if ($decorated == true) : ?>decorated<?php endif;?>
+                                md-pt-30 md-pb-30 "
+                                <?php if ($background_type == 'picture') : ?> style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>
                         >
                         <h2 class="container text-center"><?php echo $title ?></h2>
 

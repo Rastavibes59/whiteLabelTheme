@@ -24,8 +24,7 @@ if ($args['arbitrary_data']['is-link'] == true) :
     <a class="linkPicture w-100" href="<?php echo esc_html($args['arbitrary_data']['picture-link']); ?>" <?php if ($args['arbitrary_data']['newTab'] = true) : ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
 <?php endif; ?>
 
-    <img srcset="<?php echo esc_html($args['arbitrary_data']['picture']['sizes']['medium']); ?> 500w,
-                <?php echo esc_html($args['arbitrary_data']['picture']['sizes']['large']); ?> 1000w,
+    <img srcset="<?php echo esc_html($args['arbitrary_data']['picture']['sizes']['large']); ?> 500w,
                 <?php echo esc_html($args['arbitrary_data']['picture']['url']); ?> 1920w"
         sizes="(max-width: 480px) 100vw, 
                 (max-width: 1024px) 50vw, 

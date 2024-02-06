@@ -48,6 +48,19 @@ class whiteLabel_Customize
       );
 
       $wp_customize->add_panel(
+         'header_panel',
+         array(
+            'title'           => __('Navigation haut de page'),
+            'description'     => esc_html__('Permet de modifier le de la navigation principale du site'), // Include html tags such as 
+            'priority'        => 162, // Not typically needed. Default is 160
+            'capability'      => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+            'theme_supports'  => '', // Rarely needed
+            'active_callback' => '', // Rarely needed
+         )
+      );
+
+
+      $wp_customize->add_panel(
          'footer_panel',
          array(
             'title'           => __('Pied de page'),
@@ -96,9 +109,9 @@ class whiteLabel_Customize
       $wp_customize->add_section(
          'nav_section',
          array(
-            'title'        => __('Gestion de la navigation'),
-            'panel'        => 'fonts_panel',
-            'description'  => esc_html__('Modifier la police et la taille des différents boutons'),
+            'title'        => __('Gestion des textes de la navigation'),
+            'panel'        => 'header_panel',
+            'description'  => esc_html__('Modifier la police, la couleur et la taille des textes de la navigation'),
             'priority'     => 162, // Not typically needed. Default is 160
             'capability'   => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
          )

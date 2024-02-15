@@ -138,6 +138,7 @@
                                                         'arbitrary_data' => array(
                                                             'text' => get_sub_field('text'),
                                                             'columnsNumber' => get_sub_field('textColumns_number'),
+                                                            'frame' => get_sub_field('frame'),
                                                             'picture' => get_sub_field('picture'),
                                                             'rounded' => get_sub_field('rounded'),
                                                             'is-link' => get_sub_field('is_link'),
@@ -146,6 +147,7 @@
                                                             'video' => get_sub_field('video_link'),
                                                             'slider' => $sliderpictures,
                                                             'button' => get_sub_field('button'),
+                                                            'icon-button' => get_sub_field('icon_button'),
                                                             'shortcode' => get_sub_field('shortcode'),
                                                             'custom-posts' => get_sub_field('custom_posts'),
                                                             'blog-posts' => get_sub_field('blog_posts'),

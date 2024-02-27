@@ -37,3 +37,28 @@ h4 {
 .smallTitle {
     text-transform: unset;
 }
+
+
+.deported {
+    position: absolute !important;
+    width: auto !important;
+
+    &.top {
+        top: -50%;
+        transform: translateY(50%);
+    }
+
+    &.bottom {
+        bottom: -50%;
+        transform: translateY(-50%);
+    }
+
+    &.left {
+        left: -50%;
+        transform: translateX(50%);
+    }
+    &.right {
+        right: -50%;
+        transform: translateX(-50%);
+    }
+}

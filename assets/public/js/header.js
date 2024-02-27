@@ -1,5 +1,6 @@
 function deployHeaderNav() {
-    $('nav').on('click', function() {
+    $('nav').on('click', function(e) {
+        e.stopPropagation();
         var $this = $(this);
         if ($this.hasClass('collapsed')) {
             $(this).removeClass('collapsed');
@@ -10,9 +11,9 @@ function deployHeaderNav() {
             });
         }
     })
-/*     $('nav *').on('click', function(e) {
+     $('nav *').on('click', function(e) {
         e.stopPropagation();
-    }) */    
+    })    
 }
 function deployHeaderSubNav() {
     $('.menu-item-has-children').on('click', function(e) {

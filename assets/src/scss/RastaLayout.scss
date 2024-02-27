@@ -30,11 +30,12 @@
 @import 'utils/select/select'; 
 @import 'utils/list/list'; 
 @import 'utils/headings/headings'; 
-@import 'utils/sliders/slick'; 
+//@import 'utils/sliders/slick'; 
 @import 'utils/display/display'; 
 @import 'utils/TOC/toc'; 
 @import 'utils/positions-display/width'; 
 @import 'utils/tabs/tabs'; 
+@import 'utils/effects/effects'; 
 
 
 /* BASE SETTINGS */
@@ -94,4 +95,25 @@
 
   .hidden {
     display: none !important;
+  }
+
+  .offset {
+    @for $i from 0 through 5 {
+      &.top-#{$i}0 {
+        transform: translateY(#{$i}rem);
+      }
+      &.bottom-#{$i}0 {
+        transform: translateY(-#{$i}rem);
+      }
+      &.right-#{$i}0 {
+        transform: translateX(#{$i}rem);
+      }
+      &.left-#{$i}0 {
+        transform: translateX(-#{$i}rem);
+      }
+
+      &.z-#{$i} {
+        z-index: #{$i};
+      }
+    }
   }

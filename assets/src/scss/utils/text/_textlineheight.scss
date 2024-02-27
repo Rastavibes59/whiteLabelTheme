@@ -8,15 +8,6 @@ $lh-slug: lh !default;
 
 @for $i from 1 through 30 {
   .#{$lh-slug}-#{$i} {
-    line-height: calc($i/10) !important;
-
-    &Mobile {
-      @media (max-width: 768px) {
-        line-height: calc($i/10) !important
-      }
-    }
-    @media (max-width: 768px) {
-      line-height: unset
-    }
+    line-height: #{$i*0.1}rem !important;
   }
 }

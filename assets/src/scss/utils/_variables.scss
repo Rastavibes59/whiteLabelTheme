@@ -65,13 +65,13 @@ $grid-breakpoints-custom: (
 $font-sizes: (
   tiny        : 1rem,
   formInfos   : 1.2rem,
-  regular     : 1.4rem,
-  h3          : 1.8rem,
+  regular     : var(--text-size),
+  h3          : var(--h3-size),
   big         : 2rem,
   contacts    : 2.5rem,
   sup         : 4.3rem,
-  h2          : 6rem,
-  h1          : 8.2rem,
+  h2          : var(--h2-size),
+  h1          : var(--h1-size),
 );
 
 $font-sizes-var: (

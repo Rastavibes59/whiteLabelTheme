@@ -12,6 +12,8 @@
     font-size: var(--btn-size);
     text-transform: uppercase;
     text-decoration: none;
+    font-family: 'Text', sans-serif;
+    @extend %animateAllFast;
 
     &:hover {
         text-decoration: none;
@@ -22,7 +24,7 @@
             background-color: var(--color-#{$name}) ; 
 
             &:hover {
-                background-color: #{var(--color-#{$name})}60;
+                background-color: var(--color-#{$name}-darker);
             }
 
             &.revert {
@@ -32,10 +34,20 @@
                 border: 2px solid ;
     
                 &:hover {
-                    background-color: #{var(--color-#{$name})}50 ;
+                    background-color: var(--color-#{$name}-darker) ;
                     border-bottom-width: 4px ;            
                 }
             }
+        }
+    }
+
+    &.white {
+        background-color: white;
+        color: black;
+
+        &:hover {
+            background-color: black;
+            color: white;
         }
     }
 
@@ -62,6 +74,10 @@
         @include screen(md) {
             padding: 2rem 3rem;
         }
+    }
+
+    &.rounded {
+        border-radius: 3rem;
     }
 
     &.small {

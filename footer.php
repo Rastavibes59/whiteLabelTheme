@@ -119,8 +119,12 @@
                     })
                 }
 
+                $('select:not(.ui-datepicker-month)').each(function() {
+                    createFakeSelect ($(this).attr('id'));
+                })
 
-
+                initSelect();
+    
 
 
 
@@ -134,10 +138,13 @@
 
                 $("a[href^='#']").click(function() {
                     var target = $(this).attr('href');
+                    if($(target).length > 1) {
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $(target).offset().top
+                        }, 500);
 
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $(target).offset().top
-                    }, 500);
+                    }
+
                 });
 
                 if ($('.faq').length) {
@@ -148,7 +155,7 @@
 
                 if ($('form.archiveFilters')) {
                     $('.fakeSelect-options-item:not(.selected)').click(function() {
-                        $(this).parents().filter("form").submit();
+                        //$(this).parents().filter("form").submit();
                     })
 
                 }
@@ -165,6 +172,7 @@
                 });
 
                 var scroll = $(window).scrollTop();
+
                 if (scroll >= 100) {
                     $(".header").addClass("scrolled");
                 } else {

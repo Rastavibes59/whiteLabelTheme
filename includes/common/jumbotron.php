@@ -72,6 +72,18 @@
                     ),
                 )
             );      
+        elseif ($field_type == 'slider') :
+            get_template_part(
+                'includes/common/jumbotron/section',
+                'slider',
+                array(
+                    'id'                => 'parallax_jumbo',
+                    'class'             => 'jumbotron home grid cols-12',
+                    'arbitrary_data'    => array(
+                        'slider' => get_field('slider'),
+                    ),
+                )
+            );      
         elseif ($field_type == 'picture') :
             get_template_part(
                 'includes/common/jumbotron/section',

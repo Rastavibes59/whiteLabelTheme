@@ -78,26 +78,6 @@
 		}
 	}
 
-	&Lineup {
-		p {
-			font-family: Rubik, sans-serif;
-			line-height: 1.2;
-			font-size: 3rem;
-
-			@include screen(lg) {
-				font-size: var(--h3-size);
-			}
-			@include screen(md) {
-				font-size: var(--h4-size);
-			}
-		}
-
-		@include screen(md) {
-			position: absolute;
-			top: 0;
-		}
-	}
-
 	&#parallax_jumbo {
 		.grid {
 			display: grid !important;

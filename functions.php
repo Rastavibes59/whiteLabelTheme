@@ -192,38 +192,3 @@ function marcel_get_the_form_title($form_id)
 /* REMOVE P AND BR TAGS FROM CONTACT FORM 7 */
 
 add_filter('wpcf7_autop_or_not', '__return_false');
-
-
-
-/* WP OPTIMIZE */
-
-require_once(get_template_directory() . '/includes/functions/optimize.php');
-
-$optimisations = [
-    'block_external_HTTP'       => false, // Block requests to external http. Thus, blocks all request that are done by plugins to external addresses.
-    'defer_CSS'                 => false, // Adds defer="defer" to all enqueued JavaScript files.
-    'defer_JS'                  => false,  // Defers all registered scripts using the loadCSS function from the Filament Group.  
-    'disable_comments'          => true, // Disables the comments functionality and removes it from the admin menu.
-    'disable_block_styling'    => true, // Removes default Gutenberg block styling
-    'disable_embed'             => true, // Removes the script files that are enqueued by the WordPress media embed system.
-    'disable_emoji'             => true,  // Removes the scripts that are enqueued for displaying emojis.
-    'disable_feeds'             => true, // Removes the post feeds.
-    'disable_heartbeat'         => false, // Unregisters the heartbeat scripts, which is usually responsible for autosaves.
-    'disable_jquery'            => false, // Removes the default jQuery script.
-    'disable_jquery_migrate'    => true,  // Removes the jQuery Migrate script.
-    'disable_rest_api'          => false, // Disables the rest api.
-    'disable_RSD'               => true,  // Removes the RDS link in the head section of the site.
-    'disable_shortlinks'        => true,  // Removes the shortlinks in the head section of the site. 
-    'disable_theme_editor'      => false, // Disables the file editor for themes and plugins                    
-    'disable_version_numbers'   => true,  // Removes the version trail in enqueued scripts and styles.           
-    'disable_WLW_manifest'      => true,  // Removes the WLW Manifest links in the head section of the site.
-    'disable_WP_version'        => true,  // Removes the WP version from the head section of the site.           
-    'disable_XMLRPC'            => true,  // Disables the xmlrpc functionality.
-    'jquery_to_footer'          => false,  // Moves the default jQuery script to the footer.
-    'limit_comments_JS'         => true,  // Limits the JS for comments only to singular entities
-    'limit_revisions'           => true,  // Limits the number of revisions to 5
-    'remove_comments_style'     => true,  // Removes the .recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;} styling
-    'slow_heartbeat'            => true   // Slows the heartbeat down to one per minute
-];
-
-$optimize = new MakeitWorkPress\WP_Optimize\Optimize($optimisations);

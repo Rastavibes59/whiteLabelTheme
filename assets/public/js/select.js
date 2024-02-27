@@ -37,6 +37,8 @@ function handleSelect($elm) {
 
     } else {
         $("select" + selectParent).val(selectedValue);
+        console.log(selectParent)
+        console.log($("select" + selectParent).val())
 
         selectedContainer.addClass('collapsed');
         selectedContainer.find('.selected-option').empty();
@@ -146,11 +148,12 @@ function initSelect($selectID) {
 
     $(document).click(function(event) { 
         var $target = $(event.target);
-        if($('.fakeSelect-options').is(":visible") && !$target.is('select')) {
+        if(!$target.closest('.miniAccount').length && $('.fakeSelect-options').is(":visible") && !$target.is('select')) {
             $('.fakeSelect').addClass('collapsed');
-            toggleSelect($target.closest('.fakeSelect')) ;
+            toggleSelect($target.closest('.fakeSelect'))
         }        
-    });
+      });
+  
 
 }
 

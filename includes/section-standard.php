@@ -87,6 +87,7 @@
                 endif;
 
                 $title = get_sub_field('title'); 
+                $deportedTitle = get_sub_field('deported'); 
                 $decorated = get_sub_field('decorated');
                 $field_type = get_field('type'); 
                 ?>
@@ -100,7 +101,7 @@
                                     md-pt-30 md-pb-30 
                                     " 
                                 <?php if ($background_type == 'picture') : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
-                        <h2 class="container text-center"><?php echo $title ?></h2>
+                        <h2 class="container text-center <?php if($deportedTitle == true) : ?> deported <?php endif; ?>"><?php echo $title ?></h2>
 
                         <?php 
                         if (have_rows('ligne')) :
@@ -132,10 +133,35 @@
                                                 $column_size = '3';
                                             endif;
                                         endif;
+
+                                        $offset = get_sub_field('offset');
+                                        $offsetClass='';
+
+                                        if($offset == true) {
+                                            $directions=array(
+                                                'top' => get_sub_field('offset_top'),
+                                                'bottom' => get_sub_field('offset_bottom'),
+                                                'left' => get_sub_field('offset_left'),
+                                                'right' => get_sub_field('offset_right'),
+                                                'z'     => get_sub_field('offset_z')
+                                            );
+
+                                            $offsetClass .= 'offset';
+
+                                            foreach ($directions as $key => $value) {
+                                                
+                                                if ($value != '0') {
+                                                    $offsetClass .= ' ' . $key . '-' . $value;
+                                                }
+                                            }
+
+                                        } else {
+                                            $offsetClass = '';                                            
+                                        };
                                     ?>
 
 
-                                    <div class="flex column justify-flex-start align-center gap-20 colspan-<?php echo $column_size; ?> md-colspan-1">
+                                    <div class="flex column justify-center align-center gap-20 colspan-<?php echo $column_size; ?> md-colspan-1 <?php echo $offsetClass ?>">
 
                                         <?php if (have_rows('content')) : $countItems = 0;
                                             while (have_rows('content')) : the_row();

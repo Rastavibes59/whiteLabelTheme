@@ -15,7 +15,7 @@
         ?>
 
     <body <?php if ( !is_front_page() ) { body_class( 'noJumbo' ); } else { body_class(); } ?>>
-        <div class="mainContainer">
+        <div class="mainContainer" role="main">
             <header class="header pt-10 pb-10 <?php echo $fixedHeader . ' ' . $shrinkedHeader . ' ' . $transparentHeader; ?>">
                 <div class="container flex row align-center justify-space-between">
                     <?php if ( function_exists( 'the_custom_logo' ) ) {
@@ -42,10 +42,10 @@
             $query = new WP_Query( $args );   
 
             if($query->have_posts() ) : ?>
-            <ul class="social flex column justify-flex-start align-center">
+            <ul class="social flex column justify-flex-start align-center gap-50">
                         
                <?php while($query->have_posts() ) : $query->the_post();?>
-                <li class="mb-5"><a href="<?php the_field('link') ?>" target="_blank" alt="<?php echo get_field('reseau') ?>" title="<?php echo get_field('reseau') ?>" ><img src="<?php echo get_template_directory_uri() . '/assets/public/images/svg/RS/icon-' . get_field('reseau') .'.svg'; ?>" width="30" height="30" alt="" loading="lazy"></a></li>
+                <li class=""><a href="<?php the_field('link') ?>" target="_blank" alt="<?php echo get_field('reseau') ?>" title="<?php echo get_field('reseau') ?>" ><img src="<?php echo get_template_directory_uri() . '/assets/public/images/svg/RS/icon-' . get_field('reseau') .'.svg'; ?>" width="30" height="30" alt="" loading="lazy"></a></li>
                 <?php endwhile; ?>
             <?php endif; wp_reset_query()?>
         </ul>

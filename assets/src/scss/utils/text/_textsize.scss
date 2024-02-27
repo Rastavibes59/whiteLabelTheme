@@ -16,10 +16,10 @@ FONT-SIZE
   @each $name, $size in $font-sizes {
     &-#{$name} {
       font-size: $size;
-
+/* 
       @include screen(md) {
         font-size: $size * 0.8;
-      }
+      } */
     }
   }
 }

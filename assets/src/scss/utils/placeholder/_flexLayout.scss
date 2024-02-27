@@ -26,8 +26,8 @@ $breakpoints : $grid-breakpoints-custom;
     &.align-#{$alignOption} {
       align-items: $alignOption;
     }
-    &.align-self-#{$alignOption} {
-      align-self: $alignOption;
+    .align-self-#{$alignOption} {
+      align-self: $alignOption !important;
     }
   }
 
@@ -59,6 +59,13 @@ $breakpoints : $grid-breakpoints-custom;
 
 
 }
+
+@each $alignOption in $alignOptions {
+  .align-self-#{$alignOption} {
+    align-self: $alignOption !important;
+  }
+}
+
 
 
 @for $i from 0 through 12 {

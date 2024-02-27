@@ -99,9 +99,10 @@
                             "choices": {
                                 "primary": "Couleur principale",
                                 "secondary": "Couleur secondaire",
-                                "tertiary": "Couleur tertiaire",
-                                "fourth": "Quatrième Couleur",
-                                "fifth": "Cinquieme couleur",
+                                "tertiary": "Troisième couleur",
+                                "fourth": "Quatrième couleur",
+                                "fifth": "Cinquième couleur",
+                                "black": "Noir",
                                 "white": "Blanc",
                                 "transparent": "Transparent"
                             },
@@ -173,60 +174,6 @@
                             "max_size": "",
                             "mime_types": "",
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_65c27fabe746a",
-                            "label": "Ajouter un masque devant l'image",
-                            "name": "section_mask",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_637f611bd3eaa",
-                                        "operator": "==",
-                                        "value": "picture"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_65c27fe1e746b",
-                            "label": "Couleur du mask",
-                            "name": "section_mask_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_637f611bd3eaa",
-                                        "operator": "==",
-                                        "value": "picture"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "enable_opacity": 1,
-                            "return_format": "string"
                         },
                         {
                             "key": "field_637f611bd3f4e",
@@ -434,6 +381,31 @@
                                                                             "other_choice": 0,
                                                                             "layout": "vertical",
                                                                             "save_other_choice": 0
+                                                                        },
+                                                                        {
+                                                                            "key": "field_655cd039b090c",
+                                                                            "label": "Texte dans un encart ?",
+                                                                            "name": "frame",
+                                                                            "aria-label": "",
+                                                                            "type": "radio",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "choices": {
+                                                                                "true": "oui",
+                                                                                "false": "non"
+                                                                            },
+                                                                            "default_value": "",
+                                                                            "return_format": "value",
+                                                                            "allow_null": 0,
+                                                                            "other_choice": 0,
+                                                                            "layout": "vertical",
+                                                                            "save_other_choice": 0
                                                                         }
                                                                     ],
                                                                     "min": "",
@@ -490,12 +462,88 @@
                                                                             "ui": 0,
                                                                             "ui_on_text": "",
                                                                             "ui_off_text": ""
+                                                                        },
+                                                                        {
+                                                                            "key": "field_659c139d56f4a",
+                                                                            "label": "Image cliquable ?",
+                                                                            "name": "is_link",
+                                                                            "aria-label": "",
+                                                                            "type": "true_false",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "message": "Le clic sur l'image ouvre-t-il une nouvelle page ?",
+                                                                            "default_value": 0,
+                                                                            "ui": 0,
+                                                                            "ui_on_text": "",
+                                                                            "ui_off_text": ""
+                                                                        },
+                                                                        {
+                                                                            "key": "field_659c13d456f4b",
+                                                                            "label": "Lien de l'image",
+                                                                            "name": "picture_link",
+                                                                            "aria-label": "",
+                                                                            "type": "text",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": [
+                                                                                [
+                                                                                    {
+                                                                                        "field": "field_659c139d56f4a",
+                                                                                        "operator": "==",
+                                                                                        "value": "1"
+                                                                                    }
+                                                                                ]
+                                                                            ],
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "default_value": "",
+                                                                            "maxlength": "",
+                                                                            "placeholder": "",
+                                                                            "prepend": "",
+                                                                            "append": ""
+                                                                        },
+                                                                        {
+                                                                            "key": "field_659c140e56f4c",
+                                                                            "label": "Ouvrir le lien dans un nouvel onglet ?",
+                                                                            "name": "new_tab",
+                                                                            "aria-label": "",
+                                                                            "type": "true_false",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": [
+                                                                                [
+                                                                                    {
+                                                                                        "field": "field_659c139d56f4a",
+                                                                                        "operator": "==",
+                                                                                        "value": "1"
+                                                                                    }
+                                                                                ]
+                                                                            ],
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "message": "",
+                                                                            "default_value": 0,
+                                                                            "ui": 0,
+                                                                            "ui_on_text": "",
+                                                                            "ui_off_text": ""
                                                                         }
                                                                     ],
                                                                     "min": "",
                                                                     "max": ""
                                                                 },
-                                                                "layout_637f668313c21": {
+                                                            "layout_637f668313c21": {
                                                                     "key": "layout_637f668313c21",
                                                                     "name": "video-link",
                                                                     "label": "Lien vidéo",
@@ -767,6 +815,152 @@
                                                                     "min": "",
                                                                     "max": ""
                                                                 },
+                                                                "layout_65606fa49e8af": {
+                                                                    "key": "layout_65606fa49e8af",
+                                                                    "name": "icon-button",
+                                                                    "label": "Bouton avec icône",
+                                                                    "display": "block",
+                                                                    "sub_fields": [
+                                                                        {
+                                                                            "key": "field_65609a7affc7c",
+                                                                            "label": "icon_button",
+                                                                            "name": "icon_button",
+                                                                            "aria-label": "",
+                                                                            "type": "group",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "layout": "block",
+                                                                            "sub_fields": [
+                                                                                {
+                                                                                    "key": "field_65606e115d5c1",
+                                                                                    "label": "Icône",
+                                                                                    "name": "icon",
+                                                                                    "aria-label": "",
+                                                                                    "type": "font-awesome",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "icon_sets": [
+                                                                                        "solid",
+                                                                                        "regular",
+                                                                                        "brands"
+                                                                                    ],
+                                                                                    "custom_icon_set": "",
+                                                                                    "default_label": "",
+                                                                                    "default_value": "",
+                                                                                    "save_format": "class",
+                                                                                    "allow_null": 0,
+                                                                                    "show_preview": 1,
+                                                                                    "enqueue_fa": 1,
+                                                                                    "fa_live_preview": "",
+                                                                                    "choices": []
+                                                                                },
+                                                                                {
+                                                                                    "key": "field_65606e945d5c2",
+                                                                                    "label": "Texte du bouton",
+                                                                                    "name": "text",
+                                                                                    "aria-label": "",
+                                                                                    "type": "text",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "default_value": "",
+                                                                                    "maxlength": "",
+                                                                                    "placeholder": "",
+                                                                                    "prepend": "",
+                                                                                    "append": ""
+                                                                                },
+                                                                                {
+                                                                                    "key": "field_65606f225d5c4",
+                                                                                    "label": "URL du bouton",
+                                                                                    "name": "link",
+                                                                                    "aria-label": "",
+                                                                                    "type": "url",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "default_value": "",
+                                                                                    "placeholder": ""
+                                                                                },
+                                                                                {
+                                                                                    "key": "field_65606ea75d5c3",
+                                                                                    "label": "couleur du bouton",
+                                                                                    "name": "button_color",
+                                                                                    "aria-label": "",
+                                                                                    "type": "select",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "choices": {
+                                                                                        "primary": "Couleur principale",
+                                                                                        "secondary": "Couleur secondaire",
+                                                                                        "tertiary": "Troisième couleur",
+                                                                                        "fourth": "Quatrième couleur",
+                                                                                        "fifth": "Cinquième couleur",
+                                                                                        "black": "Noir",
+                                                                                        "white": "Blanc",
+                                                                                        "transparent": "Transparent"
+                                                                                    },
+                                                                                    "default_value": false,
+                                                                                    "return_format": "value",
+                                                                                    "multiple": 0,
+                                                                                    "allow_null": 0,
+                                                                                    "ui": 0,
+                                                                                    "ajax": 0,
+                                                                                    "placeholder": ""
+                                                                                },
+                                                                                {
+                                                                                    "key": "field_65606f495d5c5",
+                                                                                    "label": "Bouton arrondi",
+                                                                                    "name": "rounded",
+                                                                                    "aria-label": "",
+                                                                                    "type": "true_false",
+                                                                                    "instructions": "",
+                                                                                    "required": 0,
+                                                                                    "conditional_logic": 0,
+                                                                                    "wrapper": {
+                                                                                        "width": "",
+                                                                                        "class": "",
+                                                                                        "id": ""
+                                                                                    },
+                                                                                    "message": "",
+                                                                                    "default_value": 0,
+                                                                                    "ui": 0,
+                                                                                    "ui_on_text": "",
+                                                                                    "ui_off_text": ""
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ],
+                                                                    "min": "",
+                                                                    "max": ""
+                                                                },
                                                                 "layout_637f78babd5cd": {
                                                                     "key": "layout_637f78babd5cd",
                                                                     "name": "shortcode",
@@ -848,10 +1042,7 @@
                                                                                 "id": ""
                                                                             },
                                                                             "post_type": [
-                                                                                "programmation",
-                                                                                "billetterie",
-                                                                                "recrutement",
-                                                                                "partenaires"
+                                                                                "expertise"
                                                                             ],
                                                                             "taxonomy": "",
                                                                             "return_format": "object",
@@ -996,5 +1187,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707246141
+    "modified": 1707996251
 }

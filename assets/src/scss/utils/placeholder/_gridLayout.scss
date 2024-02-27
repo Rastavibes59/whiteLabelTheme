@@ -11,6 +11,12 @@
     }
   }
 
+  @for $i from 1 through 12 {
+    .colstart-#{$i} {
+      grid-column-start: $i;
+    }
+  }
+
   &.cols-2-1 {
     grid-template-columns: 2fr 1fr;
   }
@@ -32,6 +38,12 @@
   @for $i from 1 through 12 {
     .rowspan-#{$i} {
       grid-row-end: span $i;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .rowstart-#{$i} {
+      grid-row-start: $i;
     }
   }
 }
@@ -57,7 +69,7 @@
 /* STANDARD CLASSES */
 
 .grid {
-  display: grid;
+  display: grid !important;
   
     @extend %columnLayout; 
 
@@ -107,6 +119,12 @@ $breakpoints : $grid-breakpoints-custom;
         .#{$breakpoint-name}-colspan-#{$i} {
           grid-column-end: span $i;
         }
+      }    
+
+      @for $i from 1 through 12 {
+        .#{$breakpoint-name}-colstart-#{$i} {
+          grid-column-start: $i;
+        }
       }
 
         @for $i from 1 through 12 {
@@ -119,7 +137,14 @@ $breakpoints : $grid-breakpoints-custom;
           .#{$breakpoint-name}-rowspan-#{$i} {
             grid-row-end: span $i;
           }
-        }      
+        }  
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rowstart-#{$i} {
+            grid-row-start: $i !important;
+          }
+        }        
+    
     }
     // breakpoint values that not equal to 0
     @else {
@@ -137,6 +162,12 @@ $breakpoints : $grid-breakpoints-custom;
         }
 
         @for $i from 1 through 12 {
+          .#{$breakpoint-name}-colstart-#{$i} {
+            grid-column-start: $i;
+          }
+        }
+
+        @for $i from 1 through 12 {
           .#{$breakpoint-name}-rows-#{$i} {
               grid-template-rows: repeat(#{$i}, 1fr) !important;
           }
@@ -147,6 +178,18 @@ $breakpoints : $grid-breakpoints-custom;
             grid-row-end: span $i !important;
           }
         }        
+
+        @for $i from 1 through 12 {
+          .#{$breakpoint-name}-rowstart-#{$i} {
+            grid-row-start: $i !important;
+          }
+        }    
+        @for $i from 0 through 70 {
+          .#{$breakpoint-name}-gap-#{$i} {
+              gap: $i*1px !important;
+          }
+        }
+            
       }
     }
   }

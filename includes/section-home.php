@@ -56,6 +56,7 @@
                 endif;
 
                 $title = get_sub_field('title'); 
+                $deportedTitle = get_sub_field('deported'); 
                 $decorated = get_sub_field('decorated');
                 $sectionMask = get_sub_field('section_mask');
                 $sectionMaskColor = get_sub_field('section_mask_color');
@@ -80,7 +81,7 @@
                                 md-pt-30 md-pb-30 "
                                 <?php if ($background_type == 'picture') : ?> style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>
                         >
-                        <h2 class="container text-center"><?php echo $title ?></h2>
+                        <h2 class="container text-center <?php $deportedTitle == true ? 'deported' : ''; ?>"><?php echo $title ?></h2>
 
                         <?php 
                         if (have_rows('ligne')) :

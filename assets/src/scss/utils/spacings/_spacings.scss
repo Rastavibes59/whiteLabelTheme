@@ -14,7 +14,7 @@ $breakpoints : $grid-breakpoints-custom;
 
     $halfRem : 5;
 
-    @for $i from 0 through 20 {
+    @for $i from 0 through 50 {
       .#{$attr-short}-#{$i}#{'0'} {
         #{$attr-long}: #{$i}#{'rem'} !important;
       }
@@ -33,7 +33,7 @@ $breakpoints : $grid-breakpoints-custom;
 
     @include screen($breakpoint-name) {
       @each $attr-short, $attr-long in $prefixes {
-        @for $i from 0 through 20 {
+        @for $i from 0 through 50 {
           .#{$breakpoint-name}-#{$attr-short}-#{$i}#{'0'} {
             #{$attr-long}: #{$i}#{'rem'} !important;
           }

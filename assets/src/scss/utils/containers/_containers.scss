@@ -6,30 +6,44 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding-right: 15px;
-  padding-left: 15px;
-  max-width: 1170px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  max-width: 117rem;
   margin: 0 auto;
 
   @include screen(lg) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   @include screen(xl) {
-    padding-left: 15px;
-    padding-right: 15px;
-    max-width: 1170px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 117rem;
 
   }
   @include screen(xxl) {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   & > *:not(.btn) {
     position: relative;
     width: 100%;
+  }
+
+  &.fluid {
+    width: calc(100% - 16rem);
+    max-width: 192rem;
+    padding-right: 8rem;
+    padding-left: 8rem;
+
+    @include screen(md) {
+      width: 100%;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
   }
 }
 
@@ -62,17 +76,17 @@ section {
     height: 100vh;
   }
   &.halfSize {
-    min-height: 600px;
+    min-height: 60rem;
   }
   &.small {
-    min-height: 450px;
+    min-height: 45rem;
   }
 
   &.noJumbo {
-    padding-top: 130px !important;
+    padding-top: 13rem !important;
 
     @include screen(md) {
-      padding-top: 100px !important;
+      padding-top: 10rem !important;
     }
   }
 }

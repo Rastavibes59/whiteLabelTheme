@@ -81,6 +81,8 @@
                     'class'             => 'jumbotron home grid cols-12',
                     'arbitrary_data'    => array(
                         'slider' => get_field('slider'),
+                        'mask'    => get_field('mask'),
+                        'mask_color'    => get_field('mask_color'),
                     ),
                 )
             );      
@@ -104,7 +106,7 @@
 
         <style>
 
-    <?php if (get_field('mask') == true) : ?>
+    <?php if (get_field('mask') == true && $field_type != 'slider') : ?>
             .jumbotron::before {
                 background-color: <?php echo get_field('mask_color'); ?> !important;
             }

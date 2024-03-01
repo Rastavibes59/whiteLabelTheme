@@ -13,7 +13,7 @@
   }
 
   &Item {
-    background-color: white;
+    //background-color: white;
     @extend %animateAllFast;
 
 
@@ -22,9 +22,6 @@
     }
 
     &-image {
-      flex: 0 1  auto;
-      width: 100% !important;
-      height: 25rem !important;
       object-fit: cover;
     }
 

@@ -110,10 +110,20 @@ $blackW: 900;
 // COLOR VARIABLES
 $colors: (
   primary:    var(--color-primary),
+  primary-lighter:    var(--color-primary-lighter),
+  primary-darker:    var(--color-primary-darker),
   secondary:  var(--color-secondary),
+  secondary-lighter:  var(--color-secondary-lighter),
+  secondary-darker:  var(--color-secondary-darker),
   tertiary:   var(--color-tertiary),
+  tertiary-lighter:   var(--color-tertiary-lighter),
+  tertiary-darker:   var(--color-tertiary-darker),
   fourth:     var(--color-fourth),
+  fourth-lighter:     var(--color-fourth-lighter),
+  fourth-darker:     var(--color-fourth-darker),
   fifth:      var(--color-fifth),
+  fifth-lighter:      var(--color-fifth-lighter),
+  fifth-darker:      var(--color-fifth-darker),
   text:       var(--color-text),
 );
 

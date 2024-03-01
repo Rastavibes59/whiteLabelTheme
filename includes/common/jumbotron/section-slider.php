@@ -65,12 +65,28 @@ $sliders = $args['arbitrary_data']['slider'];
             <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 mb-5"> / </span>
         </div>
         <div class="sliderNav-buttons flex row justify-flex-end align-center gap-30">
-            <a href="javascript:void(0)" class="sliderNav-prev upperCase flex column justify-center align-center" data-text="Prec">Prec</a>
-            <a href="javascript:void(0)" class="sliderNav-next upperCase flex column justify-center align-center" data-text="Suiv">Suiv</a>
+            <a href="javascript:void(0)" class="sliderNav-prev upperCase flex row justify-center align-center" data-text="Prec"> <i class="icon-arrow-left mr-15"></i> Prec</a>
+            <a href="javascript:void(0)" class="sliderNav-next upperCase flex row justify-center align-center" data-text="Suiv">Suiv <i class="icon-arrow-right ml-15"></i></a>
         </div>
     </div>
 
 </section>
+
+<?php if ($args['arbitrary_data']['mask'] == true) : ?>
+    <style>
+            .sliderItem::before {
+                background-color: <?php echo $args['arbitrary_data']['mask_color']; ?> !important;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0%;
+                left: 0;
+                z-index: 1;
+            }
+
+    </style>
+<?php endif; ?>
 
 
 

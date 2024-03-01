@@ -67,7 +67,14 @@
 
         <?php
 
-        the_content();
+if( strlen(the_content()) > 0) : ?>
+    <section class="bg-primary absoluteContent">
+        <div class="container overlay">
+            <?php the_content(); ?>
+        </div>
+    </section>
+
+<?php endif;
         
         if (have_rows('sections')) : 
             $section_number = 0;

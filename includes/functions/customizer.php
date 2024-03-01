@@ -1321,19 +1321,19 @@ public static function header_output()
             /* COLOR VARIABLES */
             --color-primary: <?php echo get_theme_mod('primary_color', '#000000'); ?>;
             --color-primary-darker:  color-mix(in srgb,var(--color-primary),#000 30%);
-            --color-primary-lighter: color-mix(in srgb,var(--color-primary),#FFF 30%);
+            --color-primary-lighter: color-mix(in srgb,var(--color-primary),#FFF 15%);
             --color-secondary: <?php echo get_theme_mod('secondary_color', '#000000'); ?>;
             --color-secondary-darker:  color-mix(in srgb,var(--color-secondary),#000 30%);
-            --color-secondary-lighter: color-mix(in srgb,var(--color-secondary),#FFF 30%);
+            --color-secondary-lighter: color-mix(in srgb,var(--color-secondary),#FFF 15%);
             --color-tertiary: <?php echo get_theme_mod('tertiary_color', '#000000'); ?>;
             --color-tertiary-darker:  color-mix(in srgb,var(--color-tertiary),#000 30%);
-            --color-tertiary-lighter: color-mix(in srgb,var(--color-tertiary),#FFF 30%);
+            --color-tertiary-lighter: color-mix(in srgb,var(--color-tertiary),#FFF 15%);
             --color-fourth: <?php echo get_theme_mod('fourth_color', '#000000'); ?>;
             --color-fourth-darker:  color-mix(in srgb,var(--color-fourth),#000 30%);
-            --color-fourth-lighter: color-mix(in srgb,var(--color-fourth),#FFF 30%);
+            --color-fourth-lighter: color-mix(in srgb,var(--color-fourth),#FFF 15%);
             --color-fifth: <?php echo get_theme_mod('fifth_color', '#000000'); ?>;
             --color-fifth-darker:  color-mix(in srgb,var(--color-fifth),#000 30%);
-            --color-fifth-lighter: color-mix(in srgb,var(--color-fifth),#FFF 30%);
+            --color-fifth-lighter: color-mix(in srgb,var(--color-fifth),#FFF 15%);
             --color-text: <?php echo get_theme_mod('text_color', '#000000'); ?>;
             --color-h1: <?php echo get_theme_mod('h1_color', get_theme_mod('text_color', '#000000')); ?>;
             --color-h2: <?php echo get_theme_mod('h2_color', get_theme_mod('text_color', '#000000')); ?>;

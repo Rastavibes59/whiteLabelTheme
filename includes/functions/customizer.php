@@ -1351,7 +1351,7 @@ public static function header_output()
             --h1-size-mobile: <?php echo get_theme_mod('h1_size', '82') / 20; ?>rem;
             --h2-size-mobile: <?php echo get_theme_mod('h2_size', '62') / 20; ?>rem;
             --h3-size-mobile: <?php echo get_theme_mod('h3_size', '27') / 20; ?>rem;
-            --h4-size-mobile: <?php echo get_theme_mod('h4_size', '20') / 20; ?>rem;
+            --h4-size-mobile: <?php echo get_theme_mod('h4_size', '20') / 10; ?>rem;
             --text-size: <?php echo get_theme_mod('text_size', '16') / 10; ?>rem;
             --btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;
             --big-btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;
@@ -1362,7 +1362,6 @@ public static function header_output()
             --text-font: url(<?php echo get_theme_mod('text_font', 'Arial, sans-serif'); ?>) format('truetype');
             --logo-width: <?php echo get_theme_mod('logo_width', '250') / 10; ?>rem;
             --logo-height: <?php echo get_theme_mod('logo_height', '100') / 10; ?>rem;
-
         }
         @font-face {
             font-family: "Title";

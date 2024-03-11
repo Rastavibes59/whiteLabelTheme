@@ -104,7 +104,7 @@
             var nav = document.getElementById('mainNav');
             var blue = document.getElementById("blue");
 
-            icon.addEventListener('click', function() {
+            icon.addEventListener('touchstart', function() {
                 icon1.classList.toggle('a');
                 icon2.classList.toggle('c');
                 icon3.classList.toggle('b');

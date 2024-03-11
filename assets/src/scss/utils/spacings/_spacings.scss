@@ -16,13 +16,13 @@ $breakpoints : $grid-breakpoints-custom;
 
     @for $i from 0 through 50 {
       .#{$attr-short}-#{$i}#{'0'} {
-        #{$attr-long}: #{$i}#{'rem'} !important;
+        #{$attr-long}: #{$i}#{'rem'};
       }
     }
 
     @while $halfRem <= 45 {
       .#{$attr-short}-#{$halfRem} {
-        #{$attr-long}: #{calc($halfRem / 10)}#{'rem'} !important;
+        #{$attr-long}: #{calc($halfRem / 10)}#{'rem'};
       }
 
       $halfRem : $halfRem + 10;

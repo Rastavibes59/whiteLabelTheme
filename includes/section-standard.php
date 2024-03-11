@@ -103,7 +103,7 @@ if( strlen(the_content()) > 0) : ?>
                                 class="
                                     <?php if ($background_type == 'color') : ?>bg-<?php echo $couleur_de_fond; endif; ?> 
                                     bg-<?php echo $background_type; ?> 
-                                    <?php if($field_type == 'none' || !$field_type && $section_number == 0) : ?>noJumbo pb-70 <?php elseif ($actual_section == $old_section) : ?> pt-0 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
+                                    <?php if($field_type == 'none' || !$field_type && $section_number == 0) : ?>noJumbo pb-70 <?php elseif ($actual_section == $old_section) : ?> pt-00 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
                                     <?php if ($decorated == true) : ?>decorated<?php endif;?>
                                     md-pt-30 md-pb-30 
                                     " 

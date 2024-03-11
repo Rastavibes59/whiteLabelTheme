@@ -31,7 +31,7 @@
             'youtube',
             array(
                 'id'                => 'parallax_jumbo',
-                'class'             => 'jumbotron video wave pt-100 md-pt-0 home flex column justify-center align-center',
+                'class'             => 'jumbotron video wave pt-100 md-pt-00 home flex column justify-center align-center',
                 'arbitrary_data'    => array(
                     'background'    => get_field('bg'),
                     'text'          => get_field('text'),
@@ -47,7 +47,7 @@
                 'video',
                 array(
                     'id'                => 'parallax_jumbo',
-                    'class'             => 'jumbotron video wave pt-100 md-pt-0 home flex column justify-center align-center',
+                    'class'             => 'jumbotron video wave pt-100 md-pt-00 home flex column justify-center align-center',
                     'arbitrary_data'    => array(
                         'background'    => get_field('hosted_video'),
                         'text'          => get_field('text'),

@@ -6,8 +6,8 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
   max-width: 117rem;
   margin: 0 auto;
 
@@ -17,14 +17,14 @@
   }
 
   @include screen(xl) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     max-width: 117rem;
 
   }
   @include screen(xxl) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   & > *:not(.btn) {
@@ -40,8 +40,8 @@
 
     @include screen(md) {
       width: 100%;
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
+      padding-right: 3rem;
+      padding-left: 3rem;
     }
 
   }

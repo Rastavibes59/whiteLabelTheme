@@ -18,9 +18,9 @@ $sliders = $args['arbitrary_data']['slider'];
 
 <section class="<?php echo esc_html($args['class']); ?> bg-primary">
     <div class="socialBox bg-primary colspan-1"></div>
-    <ul class="slider jumbotron colspan-11 flex row justify-flex-start align-flex-start">
+    <div class="slider jumbotron colspan-11 flex row justify-flex-start align-flex-start">
         <?php foreach ($sliders as $slider) : ?>
-            <li class="sliderItem w-100 m-0">
+            <div class="sliderItem w-100 m-0">
                 <?php 
                 
                 $media=$slider['slider_media'];
@@ -36,10 +36,9 @@ $sliders = $args['arbitrary_data']['slider'];
                     title="<?php echo esc_html($media['title']); ?>" 
                     class="light"
                     width="500px"
-                    height="400px"
-                    loading="lazy">
+                    height="400px">
                 <?php elseif ( $media['type'] == 'video' && count($media) > 0 ) : ?>
-                    <video id="background-video" autoplay loop muted poster="">
+                    <video id="background-video" loop muted poster="">
                         <source src="<?php echo $media['url'] ?>" type="video/mp4">
                     </video>
                 <?php endif; ?>
@@ -54,19 +53,19 @@ $sliders = $args['arbitrary_data']['slider'];
                         <a href="<?php echo esc_html($slider['button_link']); ?>" class="btn <?php echo esc_html($slider['button_color']); ?> rounded p-10 upperCase mt-30"><?php echo esc_html($slider['button_title']); ?></a>
                     <?php endif; ?>
                     </div>
-            </li>
+            </div>
         <?php endforeach; ?>
-    </ul>
+    </div>
     <div class="sliderNav bg-primary  flex column justify-space-evenly align-center">
         <?php if ( function_exists( 'the_custom_logo' ) ) {
             the_custom_logo();
         };?>
         <div class="sliderNav-count "> 
-            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 mb-5 fc-fifth-lighter size-big"> / </span>
+            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 md-ml-00 mb-5 fc-fifth-lighter size-big"> / </span>
         </div>
-        <div class="sliderNav-buttons flex row justify-flex-end align-center gap-30">
-            <a href="javascript:void(0)" class="sliderNav-prev upperCase flex row justify-center align-center" data-text="Prec"> <i class="icon-arrow-left mr-15"></i> Prec</a>
-            <a href="javascript:void(0)" class="sliderNav-next upperCase flex row justify-center align-center" data-text="Suiv">Suiv <i class="icon-arrow-right ml-15"></i></a>
+        <div class="sliderNav-buttons flex row justify-flex-end md-justify-space-between align-center gap-30">
+            <a href="javascript:void(0)" class="sliderNav-prev upperCase flex row justify-center align-center" data-text="Prec"> <i class="icon-arrow-left mr-15"></i><span class="hidden-lg"> Prec</span></a>
+            <a href="javascript:void(0)" class="sliderNav-next upperCase flex row justify-center align-center" data-text="Suiv"><span class="hidden-lg">Suiv </span><i class="icon-arrow-right ml-15"></i></a>
         </div>
     </div>
 

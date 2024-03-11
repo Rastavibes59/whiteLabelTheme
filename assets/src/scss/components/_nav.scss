@@ -509,9 +509,9 @@ body.noJumbo {
 	.admin-bar {
 		nav {
 			.menu-navigation-haute-container {
-				top: 116px !important;
-				height: calc(100% - 116px);
-
+				top: 4.6rem !important;
+				height: calc(100% - 4.6rem) !important;
+				
 				.mainNav {
 					& > .menu-item {
 						&:after {
@@ -577,8 +577,8 @@ body.noJumbo {
     // .icon-2 {
     //   opacity: 0;
     // }
-    transform: scale(1.2);
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+    //transform: scale(1.2);
+    //box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
   }
 
   @include screen(md) {

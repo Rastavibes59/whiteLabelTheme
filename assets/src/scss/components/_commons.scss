@@ -16,7 +16,7 @@ iframe {
   height: 200px;
   border-radius: 50%;
 
-  @include screen(md) {
+  @include screen(lg) {
     width: 100px;
     height: 100px;
   }

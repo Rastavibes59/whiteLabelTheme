@@ -24,7 +24,7 @@
             -webkit-mask-position: center bottom;
             -webkit-mask-size: contain;
     
-            @include screen(md) {
+            @include screen(lg) {
                 width: 111vw;
             }
         }    
@@ -48,7 +48,7 @@
             -webkit-mask-position: center bottom;
             -webkit-mask-size: contain;
 
-            @include screen(md) {
+            @include screen(lg) {
                 width: 111vw;
             }
 

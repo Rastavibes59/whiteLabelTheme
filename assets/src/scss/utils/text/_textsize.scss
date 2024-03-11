@@ -17,7 +17,7 @@ FONT-SIZE
     &-#{$name} {
       font-size: $size;
 
-      @include screen(md) {
+      @include screen(lg) {
         font-size: var(--#{$name}-size-mobile) !important;
       }
     }

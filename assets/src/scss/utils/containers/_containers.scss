@@ -38,7 +38,7 @@
     padding-right: 8rem;
     padding-left: 8rem;
 
-    @include screen(md) {
+    @include screen(lg) {
       width: 100%;
       padding-right: 3rem;
       padding-left: 3rem;
@@ -85,7 +85,7 @@ section {
   &.noJumbo {
     padding-top: 13rem !important;
 
-    @include screen(md) {
+    @include screen(lg) {
       padding-top: 10rem !important;
     }
   }

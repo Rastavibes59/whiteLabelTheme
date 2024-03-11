@@ -581,7 +581,7 @@ body.noJumbo {
     //box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
   }
 
-  @include screen(md) {
+  @include screen(lg) {
 	display: block;
   }
 }

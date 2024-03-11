@@ -10,7 +10,7 @@ With these defined, the mixins can be used as follows:
   @include screen(sm) {
     width: 20%;
   }
-  @include screen(md) {
+  @include screen(lg) {
     width: 40%;
   }
   @include screen(lg) {

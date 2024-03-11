@@ -18,7 +18,7 @@
         pointer-events: all;
     }
 
-    @include screen(md) {
+    @include screen(lg) {
         bottom: 5rem;
         right: 5rem;
     

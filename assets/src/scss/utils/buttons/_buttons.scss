@@ -71,7 +71,7 @@
         padding: 2rem 5.4rem;
         font-size: var(--big-btn-size);
 
-        @include screen(md) {
+        @include screen(lg) {
             padding: 2rem 3rem;
         }
     }
@@ -84,7 +84,7 @@
         flex: 0 1 auto
     }
 
-    @include screen(md) {
+    @include screen(lg) {
         white-space: unset;
         text-align: center;
     }

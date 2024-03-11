@@ -21,7 +21,7 @@
             align-items: center;
             text-transform: uppercase;
 
-            @include screen(md) {
+            @include screen(lg) {
                 position: relative;
                 border-radius: 0;
                 flex-direction: row;
@@ -35,7 +35,7 @@
             top: 20rem;
             left: -15rem;
 
-            @include screen(md) {
+            @include screen(lg) {
                 top:unset;
                 left: unset;
                 order: 0;
@@ -46,7 +46,7 @@
             bottom: 15rem;
             right: -15rem;
 
-            @include screen(md) {
+            @include screen(lg) {
                 bottom:unset;
                 right: unset;
                 order: 1;
@@ -63,13 +63,13 @@
                 width: auto;
                 max-width: 60rem;
 
-                @include screen(md) {
+                @include screen(lg) {
                     width: 100%;
                     height: auto;
                 }
             }
 
-            @include screen(md) {
+            @include screen(lg) {
                 order: 2;
             }
         }
@@ -102,7 +102,7 @@
         height: 5rem;
         z-index: 20;
 
-        @include screen(md) {
+        @include screen(lg) {
             top: 1rem;
             right: 1rem;
         }

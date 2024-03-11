@@ -44,7 +44,7 @@
 
 
 		}
-		@include screen(md) {
+		@include screen(lg) {
 			min-height: unset;
 			margin-top: 7rem !important;
 
@@ -59,7 +59,7 @@
 	&.standard {
 		height: 30rem;
 
-		@include screen(md) {
+		@include screen(lg) {
 			height: 150px !important;
 		}
 	}

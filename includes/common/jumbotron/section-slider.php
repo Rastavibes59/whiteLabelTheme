@@ -62,7 +62,7 @@ $sliders = $args['arbitrary_data']['slider'];
             the_custom_logo();
         };?>
         <div class="sliderNav-count "> 
-            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 mb-5"> / </span>
+            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 mb-5 fc-fifth-lighter size-big"> / </span>
         </div>
         <div class="sliderNav-buttons flex row justify-flex-end align-center gap-30">
             <a href="javascript:void(0)" class="sliderNav-prev upperCase flex row justify-center align-center" data-text="Prec"> <i class="icon-arrow-left mr-15"></i> Prec</a>

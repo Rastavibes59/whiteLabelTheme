@@ -1,7 +1,7 @@
 function deployHeaderNav() {
-    $('nav').on('click', function(e) {
+    $('hamburger-icon').on('click', function(e) {
         e.stopPropagation();
-        var $this = $(this);
+        var $this = $(this).parent();
         if ($this.hasClass('collapsed')) {
             $(this).removeClass('collapsed');
         } else {

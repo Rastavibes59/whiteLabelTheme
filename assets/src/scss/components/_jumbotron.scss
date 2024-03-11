@@ -28,7 +28,7 @@
 	}
 
 	&.home {
-		height: calc(100vh - 150px);
+		height: calc(100vh - 20rem);
 		min-height: 63rem;
 		overflow: hidden;
 
@@ -58,7 +58,6 @@
 			  }
 		}
 		@include screen(md) {
-			height: 150px;
 			min-height: unset;
 			margin-top: 7rem !important;
 

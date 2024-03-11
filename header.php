@@ -21,14 +21,20 @@
                     <?php if ( function_exists( 'the_custom_logo' ) ) {
                         the_custom_logo();
                     };?>
-                    <nav class="collapsed">
-                            <?php wp_nav_menu(
+                    <nav id="mainNav" class="collapsed">
+                        <div class="hamburger-icon" id="icon">
+                            <div class="icon-1" id="a"></div>
+                            <div class="icon-2" id="b"></div>
+                            <div class="icon-3" id="c"></div>
+                            <div class="clear"></div>
+                        </div>
+                        <?php wp_nav_menu(
 
-                                array(
-                                    'theme_location' => 'top-menu',
-                                    'menu_class' => 'mainNav'
-                                )
-                            ); ?>
+                            array(
+                                'theme_location' => 'top-menu',
+                                'menu_class' => 'mainNav'
+                            )
+                        ); ?>
                     </nav>
                 </div>
             </header>

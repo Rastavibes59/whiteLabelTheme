@@ -1348,6 +1348,10 @@ public static function header_output()
             --h2-size: <?php echo get_theme_mod('h2_size', '62') / 10; ?>rem;
             --h3-size: <?php echo get_theme_mod('h3_size', '27') / 10; ?>rem;
             --h4-size: <?php echo get_theme_mod('h4_size', '20') / 10; ?>rem;
+            --h1-size-mobile: <?php echo get_theme_mod('h1_size', '82') / 20; ?>rem;
+            --h2-size-mobile: <?php echo get_theme_mod('h2_size', '62') / 20; ?>rem;
+            --h3-size-mobile: <?php echo get_theme_mod('h3_size', '27') / 20; ?>rem;
+            --h4-size-mobile: <?php echo get_theme_mod('h4_size', '20') / 20; ?>rem;
             --text-size: <?php echo get_theme_mod('text_size', '16') / 10; ?>rem;
             --btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;
             --big-btn-size: <?php echo get_theme_mod('btn_size', '16') / 10; ?>rem;

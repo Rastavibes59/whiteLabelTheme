@@ -46,7 +46,7 @@
 			a {
 				font-size: var(--nav-size);
 				text-decoration: none;
-				font-weight: $bold;
+				font-weight: map-get($font-weights, 700);
 			}
 		}
 

@@ -39,26 +39,23 @@ h4 {
 }
 
 
+
 .deported {
     position: absolute !important;
     width: auto !important;
 
     &.top {
-        top: -50%;
-        transform: translateY(50%);
+        top: -5vh;
     }
 
     &.bottom {
-        bottom: -50%;
-        transform: translateY(-50%);
+        bottom: -5vh;
     }
 
     &.left {
-        left: -50%;
-        transform: translateX(50%);
+        left: -10vw;
     }
     &.right {
-        right: -50%;
-        transform: translateX(-50%);
+        right: -10vw;
     }
 }

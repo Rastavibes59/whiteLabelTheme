@@ -113,7 +113,7 @@ input[type=submit] {
 
 .wpcf7-response-output {
   border: none !important;
-  font-weight: $bold;
+  font-weight: map-get($font-weights, 700);
   margin-top: 10px !important;
   margin-bottom: 5px !important;
   text-align: center;

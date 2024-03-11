@@ -103,10 +103,10 @@ section {
         &.bg-#{$name} {
             background-color: var(--color-#{$name}); 
 
-            &:not(.bg-transparent) {
+            /* &:not(.bg-transparent) {
                 background-color: var(--color-#{$name}); 
                 z-index: random(10);
-            }
+            } */
 
             & + .bg-#{$name}::before {
                 display: none;

@@ -7,23 +7,23 @@
 
                 if ($background_type == 'color') {
                     $couleur_de_fond = get_sub_field('couleur_de_fond');
-                    $section_classes = 'bg-' . $couleur_de_fond . 'grid md-cols-1 cols-' . $columns_number;
+                    $section_classes = 'bg-' . $couleur_de_fond . 'grid lg-cols-1 cols-' . $columns_number;
                 } elseif ($background_type == 'picture') {
                     $background_image = get_sub_field('background_image');
-                    $section_classes = 'grid md-cols-1 cols-' . $columns_number;
+                    $section_classes = 'grid lg-cols-1 cols-' . $columns_number;
                 };
                 $title = get_sub_field('title');
                 $index = get_row_index();
                 
                 if ($content_width == 'fluid') : ?>
 
-                    <section id="section-<?php echo $index ?>" class="grid md-cols-1 cols-<?php echo $columns_number; ?> gap-30 bg-<?php echo $couleur_de_fond; ?> bg-<?php echo $background_type; ?> pt-60 pb-60" <?php if (get_sub_field('background_image')) : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
+                    <section id="section-<?php echo $index ?>" class="grid lg-cols-1 cols-<?php echo $columns_number; ?> gap-30 bg-<?php echo $couleur_de_fond; ?> bg-<?php echo $background_type; ?> pt-60 pb-60" <?php if (get_sub_field('background_image')) : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
 
                 <?php elseif ($content_width == 'center') : ?>
 
                     <section id="section-<?php echo $index ?>" class="bg-<?php echo $couleur_de_fond; ?> bg-<?php echo $background_type; ?> pt-60 pb-60" <?php if (get_sub_field('background_image')) : ?>style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>>
 
-                        <div class="container grid md-cols-1 cols-<?php echo $columns_number; ?> gap-30">
+                        <div class="container grid lg-cols-1 cols-<?php echo $columns_number; ?> gap-30">
 
                 <?php endif; 
                 if ($columns_number == '1') : ?>
@@ -63,7 +63,7 @@
                 <?php endif; ?>
 
                 <?php if ($columns_number == '2' || $columns_number == '1-2' || $columns_number == '2-1') : ?>
-                    <h2 class="text-center colspan-2 md-colspan-1"><?php echo $title ?></h2>
+                    <h2 class="text-center colspan-2 lg-colspan-1"><?php echo $title ?></h2>
 
                     <?php if (have_rows('2_colonnes')) : ?>
                         <?php while (have_rows('2_colonnes')) : the_row(); ?>
@@ -132,7 +132,7 @@
                 <?php endif; ?>
 
                 <?php if ($columns_number == '3') : ?>
-                    <h2 class="text-center colspan-3 md-colspan-1"><?php echo $title ?></h2>
+                    <h2 class="text-center colspan-3 lg-colspan-1"><?php echo $title ?></h2>
 
                     <?php if (have_rows('3_colonnes')) : ?>
                         <?php while (have_rows('3_colonnes')) : the_row(); ?>

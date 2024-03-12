@@ -7,7 +7,7 @@
         $args,
         array(
             'id'                => 'parallax_jumbo',
-            'class'             => 'jumbotron wave pt-100 md-pt-50 home flex column justify-center align-center',
+            'class'             => 'jumbotron wave pt-100 lg-pt-50 home flex column justify-center align-center',
             'arbitrary_data'    => array(
                 'background'    => get_template_directory_uri() . '/assets/public/images/background.webp',
                 'depth'         => 0.2,
@@ -31,7 +31,7 @@
             'youtube',
             array(
                 'id'                => 'parallax_jumbo',
-                'class'             => 'jumbotron video wave pt-100 md-pt-00 home flex column justify-center align-center',
+                'class'             => 'jumbotron video wave pt-100 lg-pt-00 home flex column justify-center align-center',
                 'arbitrary_data'    => array(
                     'background'    => get_field('bg'),
                     'text'          => get_field('text'),
@@ -47,7 +47,7 @@
                 'video',
                 array(
                     'id'                => 'parallax_jumbo',
-                    'class'             => 'jumbotron video wave pt-100 md-pt-00 home flex column justify-center align-center',
+                    'class'             => 'jumbotron video wave pt-100 lg-pt-00 home flex column justify-center align-center',
                     'arbitrary_data'    => array(
                         'background'    => get_field('hosted_video'),
                         'text'          => get_field('text'),
@@ -62,7 +62,7 @@
                 'parallax',
                 array(
                     'id'                => 'parallax_jumbo',
-                    'class'             => 'jumbotron home wave pt-100 md-pt-50 flex column justify-center align-center',
+                    'class'             => 'jumbotron home wave pt-100 lg-pt-50 flex column justify-center align-center',
                     'arbitrary_data'    => array(
                         'background'    => get_field('bg'),
                         'depth'         => get_field('depth'),
@@ -92,7 +92,7 @@
                 'jumbotron',
                 array(
                     'id'                => 'parallax_jumbo',
-                    'class'             => 'jumbotron wave pt-100 md-pt-50 flex column justify-center align-center',
+                    'class'             => 'jumbotron wave pt-100 lg-pt-50 flex column justify-center align-center',
                     'arbitrary_data'    => array(
                         'size'          => 'standard',
                         'picture'       => get_field('bg'),

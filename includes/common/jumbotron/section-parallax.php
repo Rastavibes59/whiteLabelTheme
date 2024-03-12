@@ -6,7 +6,7 @@ $args = wp_parse_args(
     $args,
     array(
         'id'                => 'parallax_jumbo',
-        'class'             => 'jumbotron home wave pt-100 md-pt-50 flex column justify-center align-center',
+        'class'             => 'jumbotron home wave pt-100 lg-pt-50 flex column justify-center align-center',
         'arbitrary_data'    => array(
             'background'    => get_template_directory_uri() . '/assets/public/images/background.webp',
             'depth'         => 0.2,

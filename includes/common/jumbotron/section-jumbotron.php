@@ -5,7 +5,7 @@
 $args = wp_parse_args(
     $args,
     array(
-        'class'          => 'jumbotron pt-100 md-pt-50 ',
+        'class'          => 'jumbotron pt-100 lg-pt-50 ',
         'arbitrary_data' => array(
             'size' => 'standard',
             'picture' => 'https://placekitten.com/1920/450',

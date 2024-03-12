@@ -69,10 +69,10 @@ endif; ?>
     $query = new WP_Query( $args );   
       
 ?>
-<section class="bg-transparent pt-100 pb-100 md-pb-50">
-    <div class="container grid cols-12 md-cols-1 gap-15">
-        <h2 class="colspan-12 md-colspan-1"><?php single_cat_title();?></h2>
-        <ul class="colspan-9 md-colspan-1 grid md-cols-1 cols-3 gap-15 archive">
+<section class="bg-transparent pt-100 pb-100 lg-pb-50">
+    <div class="container grid cols-12 lg-cols-1 gap-15">
+        <h2 class="colspan-12 lg-colspan-1"><?php single_cat_title();?></h2>
+        <ul class="colspan-9 lg-colspan-1 grid lg-cols-1 cols-3 gap-15 archive">
             <?php if($query->have_posts() ) : 
                 while($query->have_posts() ) : 
                     
@@ -94,7 +94,7 @@ endif; ?>
             
                 endwhile;
             else : ?>
-                <p class="size-big colspan-4 md-colspan-1 text-center">AUCUN ARTICLE POUR L'INSTANT</p>
+                <p class="size-big colspan-4 lg-colspan-1 text-center">AUCUN ARTICLE POUR L'INSTANT</p>
             <?php endif;?>
         </ul> 
         <aside class="colspan-3 lg-colspan-1  flex column">

@@ -5,7 +5,7 @@
 $args = wp_parse_args(
     $args,
     array(
-        'class'          => 'jumbotron pt-100 md-pt-50 ',
+        'class'          => 'jumbotron pt-100 lg-pt-50 ',
         'arbitrary_data' => array(
             'slider' => get_template_directory_uri() . '/assets/public/images/background.webp',
         ),
@@ -61,9 +61,9 @@ $sliders = $args['arbitrary_data']['slider'];
             the_custom_logo();
         };?>
         <div class="sliderNav-count "> 
-            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 md-ml-00 mb-5 fc-fifth-lighter size-big"> / </span>
+            <span class="sliderNav-current fc-secondary size-h1 fw-800">1</span><span class="sliderNav-total fw-300 ml-15 lg-ml-00 mb-5 fc-fifth-lighter size-big"> / </span>
         </div>
-        <div class="sliderNav-buttons flex row justify-flex-end md-justify-space-between align-center gap-30">
+        <div class="sliderNav-buttons flex row justify-flex-end lg-justify-space-between align-center gap-30">
             <a href="javascript:void(0)" class="sliderNav-prev upperCase flex row justify-center align-center" data-text="Prec"> <i class="icon-arrow-left mr-15"></i><span class="hidden-lg"> Prec</span></a>
             <a href="javascript:void(0)" class="sliderNav-next upperCase flex row justify-center align-center" data-text="Suiv"><span class="hidden-lg">Suiv </span><i class="icon-arrow-right ml-15"></i></a>
         </div>

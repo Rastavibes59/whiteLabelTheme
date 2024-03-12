@@ -17,7 +17,7 @@ $blog_posts = $args['arbitrary_data']['blog-posts'];
 $totalItems = $countItems = count($blog_posts);
 ?>
 
-<div class="grid md-cols-1 cols-4 gap-15 archive  <?php echo $args['class']; ?>">
+<div class="grid lg-cols-1 cols-4 gap-15 archive  <?php echo $args['class']; ?>">
 
 <?php
 

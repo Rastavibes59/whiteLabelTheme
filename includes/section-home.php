@@ -10,7 +10,7 @@
                 '',
                 array(
                     'id'                => 'parallax_jumbo',
-                    'class'             => 'jumbotron pt-100 md-pt-50 flex column justify-center align-center',
+                    'class'             => 'jumbotron pt-100 lg-pt-50 flex column justify-center align-center',
                     'arbitrary_data'    => array(
                         'background'    => get_field('bg'),
                         'depth'         => get_field('depth'),
@@ -78,7 +78,7 @@
                                 bg-<?php echo $background_type; ?> 
                                 <?php if ($actual_section == $old_section) : ?> pt-00 pb-70 <?php else :  ?> pt-50 pb-70 <?php endif; ?> 
                                 <?php if ($decorated == true) : ?>decorated<?php endif;?>
-                                md-pt-30 md-pb-30 "
+                                lg-pt-30 lg-pb-30 "
                                 <?php if ($background_type == 'picture') : ?> style="background-image: url(<?php echo get_sub_field('background_image')['url'] ?>);" <?php endif; ?>
                         >
                         <h2 class="container text-center <?php $deportedTitle == true ? 'deported' : ''; ?>"><?php echo $title ?></h2>
@@ -87,7 +87,7 @@
                         if (have_rows('ligne')) :
                             while (have_rows('ligne')) : the_row(); ?>
 
-                            <div class="<?php if ($content_width == 'center') : ?>container <?php endif; ?>grid md-cols-1 cols-12 gap-30 mt-30">
+                            <div class="<?php if ($content_width == 'center') : ?>container <?php endif; ?>grid lg-cols-1 cols-12 gap-30 mt-30">
                 
                                 <?php 
                                 if (have_rows('colonnes')) : 
@@ -116,7 +116,7 @@
                                     ?>
 
 
-                                    <div class="flex column justify-flex-start align-center gap-20 colspan-<?php echo $column_size; ?> md-colspan-1">
+                                    <div class="flex column justify-flex-start align-center gap-20 colspan-<?php echo $column_size; ?> lg-colspan-1">
 
                                         <?php if (have_rows('content')) : $countItems = 0;
                                             while (have_rows('content')) : the_row();

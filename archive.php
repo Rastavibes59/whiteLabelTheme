@@ -27,7 +27,7 @@
     <?php if (get_archive_post_type() == "programmation") : ?>
         <div class="container flex row justify-center align-center">
             <form class="archiveFilters" method="GET" action="<?php echo esc_url(home_url('/' . get_archive_post_type())); ?>">
-                <div class="form-row grid md-cols-1 cols-3 gap-15 mt-10">
+                <div class="form-row grid lg-cols-1 cols-3 gap-15 mt-10">
                     <div class="form-field flex column justify-flex-start align-flex-start">
                         <label for="type" class="mb-5">Filter par Date</label>
                         <select name="type" id="type">
@@ -51,10 +51,10 @@
             </form>
 
         </div>
-        <ul class="container grid md-cols-1 cols-4 gap-15 archive programmation animate">
+        <ul class="container grid lg-cols-1 cols-4 gap-15 archive programmation animate">
 
         <?php elseif (get_archive_post_type() == "billetterie") : ?>
-            <ul class="container grid md-cols-1 cols-4 gap-15 archive  animate">
+            <ul class="container grid lg-cols-1 cols-4 gap-15 archive  animate">
 
             <?php endif; ?>
 
@@ -94,9 +94,9 @@
                 endwhile;
             else : ?>
 
-                <p class="size-big colspan-4 md-colspan-1 text-center">AUCUN RESULTAT POUR VOTRE RECHERCHE</p>
+                <p class="size-big colspan-4 lg-colspan-1 text-center">AUCUN RESULTAT POUR VOTRE RECHERCHE</p>
             <?php endif; ?>
-            <div class="container colspan-4 md-colspan-1 flex column justify-center align-center pt-30">
+            <div class="container colspan-4 lg-colspan-1 flex column justify-center align-center pt-30">
                 <a href="<?php echo get_page_link(1157) ?>" class="btn secondary revert big fullWidth">Billetterie à partir de 20€</a>
             </div>
 

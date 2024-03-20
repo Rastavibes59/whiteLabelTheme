@@ -43,6 +43,7 @@ h4 {
 .deported {
     position: absolute !important;
     width: auto !important;
+    z-index: 100;
 
     &.top {
         top: -5vh;
@@ -53,9 +54,9 @@ h4 {
     }
 
     &.left {
-        left: -10vw;
+        left: 0;
     }
     &.right {
-        right: -10vw;
+        right: 0;
     }
 }

@@ -49,11 +49,6 @@
 }
 
 
-@for $i from 0 through 70 {
-  .gap-#{$i} {
-      gap: $i*1px ;
-  }
-}
 
 .revert {
   direction: rtl;
@@ -63,6 +58,11 @@
   }
 }
 
+@for $i from 0 through 70 {
+  .gap-#{$i} {
+      gap: $i*1px ;
+  }
+}
 
 
 
@@ -143,8 +143,14 @@ $breakpoints : $grid-breakpoints-custom;
           .#{$breakpoint-name}-rowstart-#{$i} {
             grid-row-start: $i !important;
           }
-        }        
-    
+        }    
+
+        @for $i from 0 through 70 {
+          .#{$breakpoint-name}gap-#{$i} {
+              gap: $i*1px  !important;
+          }
+        }
+        
     }
     // breakpoint values that not equal to 0
     @else {
@@ -189,7 +195,13 @@ $breakpoints : $grid-breakpoints-custom;
               gap: $i*1px !important;
           }
         }
-            
+        
+        @for $i from 0 through 70 {
+          .#{$breakpoint-name}-gap-#{$i} {
+              gap: $i*1px  !important;
+          }
+        }
+
       }
     }
   }

@@ -6,6 +6,14 @@
   transition: all 0.5s ease-in-out;
 }
 
+%animateAllRandom {
+  -webkit-transition: all var(--animation-time) ease-in-out;
+  -moz-transition: all var(--animation-time) ease-in-out;
+  -ms-transition: all var(--animation-time) ease-in-out;
+  -o-transition: all var(--animation-time) ease-in-out;
+  transition: all var(--animation-time) ease-in-out;
+}
+
 %animateAllSlow {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;

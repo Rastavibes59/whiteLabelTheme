@@ -31,7 +31,7 @@ input:not([type=radio]):not([type=checkbox]):not([type=submit]), textarea {
   align-items: flex-start;
   cursor: pointer;
   border: 1px solid var(--color-secondary);
-  color: var(--color-secondary);
+  color: var(--color-text);
   outline-offset: -1px;
   padding: 8px 15px;
 }

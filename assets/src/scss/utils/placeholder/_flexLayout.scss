@@ -35,7 +35,7 @@ $breakpoints : $grid-breakpoints-custom;
     @include screen($breakpoint-name) {
 
       @each $directionOption in $directionOptions {
-        .#{$breakpoint-name}-#{$directionOption} {
+        &.#{$breakpoint-name}-#{$directionOption} {
           flex-direction: $directionOption !important;
         }
     }
@@ -82,6 +82,15 @@ $breakpoints : $grid-breakpoints-custom;
   }
 }
 
+
 .flex {
     @extend %FlexLayout;
+
+    .expend {
+      flex: 1 0 auto !important;
+    }
+
+    .shrink {
+      flex: 0 0 auto !important;
+    }
 }

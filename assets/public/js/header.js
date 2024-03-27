@@ -2,10 +2,12 @@ function deployHeaderNav() {
     $('hamburger-icon').on('click', function(e) {
         e.stopPropagation();
         var $this = $(this).parent();
+        console.log($this)
         if ($this.hasClass('collapsed')) {
             $(this).removeClass('collapsed');
         } else {
             $(this).addClass('collapsed');
+
             $('.menu-item-has-children').each(function() {
                 $(this).removeClass('deployed')
             });

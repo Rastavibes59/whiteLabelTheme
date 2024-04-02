@@ -39,6 +39,9 @@ function closeSubNav() {
         $('.menu-item-has-children').each(function() {
             $(this).removeClass('deployed')
         })
+        $('.miniCart').each(function() {
+            $(this).removeClass('visible')
+        })
     })   
 }
 

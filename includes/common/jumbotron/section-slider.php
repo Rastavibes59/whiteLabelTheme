@@ -57,9 +57,6 @@ $sliders = $args['arbitrary_data']['slider'];
         <?php endforeach; ?>
     </div>
     <div class="sliderNav bg-primary  flex column justify-space-evenly align-center">
-        <?php if ( function_exists( 'the_custom_logo' ) ) {
-            the_custom_logo();
-        };?>
         <div class="sliderNav-count "> 
             <span class="sliderNav-current fc-secondary fw-800">1</span><span class="sliderNav-total fw-300 mb-5 fc-fifth-lighter size-big"> / </span>
         </div>

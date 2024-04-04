@@ -106,6 +106,10 @@ function load_scipts()
 
 add_action('wp_enqueue_scripts', 'load_scipts');
 
+/* DISABLE GUTENBERG */
+
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
 /* HANDLE MENUS */
 
 add_theme_support('menus');

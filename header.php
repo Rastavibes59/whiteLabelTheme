@@ -22,7 +22,7 @@
                         the_custom_logo();
                     };?>
                     <nav id="mainNav" class="collapsed">
-                        <div class="hamburger-icon" id="icon">
+                        <div class="hamburger-icon" id="hamburger-icon">
                             <div class="icon-1" id="a"></div>
                             <div class="icon-2" id="b"></div>
                             <div class="icon-3" id="c"></div>

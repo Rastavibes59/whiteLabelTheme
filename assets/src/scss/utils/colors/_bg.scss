@@ -9,7 +9,6 @@
             position: absolute;
             display: block;
             width: 101vw;
-            max-height: 7rem;
             height: 100%;
             bottom: calc(100% - 1px);
             left: 0;
@@ -19,7 +18,7 @@
             mask-image: var(--before-image);
             mask-repeat: no-repeat;
             mask-position: center bottom;
-            mask-size: contain;
+            mask-size: 100%;
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: center bottom;
             -webkit-mask-size: contain;
@@ -117,7 +116,10 @@ section {
             }
     
         }
-
+        
+        &.decorated {
+            @include decorations(transparent);
+        }
         
     }
     
